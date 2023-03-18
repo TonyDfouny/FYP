@@ -63,3 +63,19 @@ class Parser(object):
         for line in self.__stf_parser.raw_parse(self.__text):
             for sentence in line:
                 sentence.draw()
+
+    def tree_sentence(self):
+        """
+        Arguments:
+            -- None
+        Returns:
+            -- None
+        """
+        for line in self.__stf_parser.raw_parse(self.__text):
+            i=1
+            for sentence in line[0]:
+                print('sentence ',i,':',sentence)
+                i=i+1
+            #line[0][1].draw()
+            # for sentence in line:
+            #     sentence.draw()

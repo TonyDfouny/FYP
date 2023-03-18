@@ -1,11 +1,14 @@
 ###### DATABASE #####
 
-PRP={"أنا":"𐤀𐤍𐤊",
-     "نَحْنُ":"𐤀𐤍𐤇𐤍"
-     }
+DB={"eat":["verb","akal"],
+    "word":["type","pheo word"],}
 
-VBD={"أكلت":"𐤀𐤊𐤋𐤕", #أنا
-     "أَكَلْنَا":"𐤀𐤊𐤋𐤍"  #نَحْنُ
-     }
-
-NNP="𐤀𐤓𐤅:أسد"
+DBV={"1p.s.c":"ʾakalti",
+"2p.s.m":"ʾakalta",
+"2p.s.f":"ʾakalti",
+"3p.s m":"ʾakol",
+"3p.s.f":"ʾékla",
+"1p.pl.c":"ʾakalnu",
+"2p.pl.m":"ʾakaltim",
+"2p.pl.f":"ʾakaltin",
+"3p.pl.c":"ʾakalū"}
