@@ -1,0 +1,2 @@
+customize arabic parser:
+extract verbs only to apply Tashaphyne

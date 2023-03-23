@@ -42,6 +42,12 @@ class Parser(object):
         self.__text = text
         return list(self.__stf_parser.raw_parse(text))
 
+    def custom_parse(self, text):
+
+        self.__text = text
+        return list(self.__stf_parser.parse(text))
+
+
     def tree_print(self):
         """
         Arguments:

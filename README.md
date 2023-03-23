@@ -19,5 +19,7 @@ pip install pandas
 
 pip install urbans
 
+pip install --upgrade translators
 
+pip install argostranslate
 
