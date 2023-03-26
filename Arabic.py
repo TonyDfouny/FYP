@@ -1,27 +1,53 @@
-from Parser import Parser
-from ar_corrector.corrector import Corrector
-corr = Corrector()
+# from Parser import Parser
+# from ar_corrector.corrector import Corrector
+from tashaphyne.stemming import ArabicLightStemmer
+# corr = Corrector()
 
-source_sentence="نَحْنُ أَكَلْنَا أسد"
-#source_sentence="نَحْنُ "
-parser = Parser(model_path=r"C:\Users\tony_\Downloads\stanford-corenlp-4.2.0-models-arabic\edu\stanford\nlp\models\lexparser\arabicFactored.ser.gz",
-                path_to_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser.jar",
-                path_to_models_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser-4.2.0-models.jar")
+# source_sentence="نَحْنُ أَكَلْنَا أسد"
+# #source_sentence="نَحْنُ "
+# parser = Parser(model_path=r"C:\Users\tony_\Downloads\stanford-corenlp-4.2.0-models-arabic\edu\stanford\nlp\models\lexparser\arabicFactored.ser.gz",
+#                 path_to_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser.jar",
+#                 path_to_models_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser-4.2.0-models.jar")
+#
+# #parser mac
+# # parser = Parser(model_path=r"/Users/TonyDfouny/Downloads/corenlp/edu/stanford/nlp/models/lexparser/arabicFactored.ser.gz",
+# #                 path_to_jar=r"/Users/TonyDfouny/Downloads/stanford-parser-full-2020-11-17/stanford-parser.jar",
+# #                 path_to_models_jar=r"/Users/TonyDfouny/Downloads/stanford-parser-full-2020-11-17/stanford-parser-4.2.0-models.jar")
+#
+# def ArabicParser(arabicsentence):
+#     parsedsentence=parser.custom_parse(arabicsentence)
+#     return parsedsentence
 
-#parser mac
-# parser = Parser(model_path=r"/Users/TonyDfouny/Downloads/corenlp/edu/stanford/nlp/models/lexparser/arabicFactored.ser.gz",
-#                 path_to_jar=r"/Users/TonyDfouny/Downloads/stanford-parser-full-2020-11-17/stanford-parser.jar",
-#                 path_to_models_jar=r"/Users/TonyDfouny/Downloads/stanford-parser-full-2020-11-17/stanford-parser-4.2.0-models.jar")
+#parsedsentence=ArabicParser(source_sentence)
+parsedsentence=['PRP نحن', 'VBD اكلنا', 'NNP اسد','VBG اكلنا']
+print (parsedsentence)
+parsedverb=[]
+for verb in parsedsentence:
+    if 'V' in verb[0]:
+        parsedverb.append(verb)
 
-def ArabicParser(arabicsentence):
-    parsedsentence=parser.custom_parse(arabicsentence)
-    return parsedsentence
+print(parsedverb)
 
-parsedsentence=ArabicParser(source_sentence)
-
-print(parsedsentence)
+def verbgrammar(parsedverb):
+    ArListem = ArabicLightStemmer()
+    presentdict={
 
 
+
+    }
+    pastdict={
+
+    }
+    # stemming word
+    for verb in parsedverb:
+        stem = ArListem.light_stem(verb)
+        # extract stem
+        print(ArListem.get_stem())
+        # extract root
+        print(ArListem.get_prefix())
+        print(ArListem.get_suffix())
+
+verbgrammar(parsedverb)
 
 
 #print(str(parsed[0]))

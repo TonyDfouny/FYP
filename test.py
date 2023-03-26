@@ -7,5 +7,6 @@ output=[]
 for i in liste:
     if len(re.findall(r'\w+', i))==2:
         output.append(i)
+        print (i[0])
 
 print(output)
