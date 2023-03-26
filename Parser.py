@@ -3,7 +3,7 @@
 Created on Fri Nov  3 03:47:48 2017
 @author: Ahmed
 """
-
+import re
 
 class Parser(object):
     """
@@ -40,13 +40,19 @@ class Parser(object):
             list of the parsed result in the form (parent_tag(tag, word))
         """
         self.__text = text
+
         return list(self.__stf_parser.raw_parse(text))
 
-    def custom_parse(self, text):
-
+    def custom_parse(self,text):
         self.__text = text
-        return list(self.__stf_parser.parse(text))
+        parsed=list(self.__stf_parser.raw_parse(text))
 
+        liste = re.split(r"[()]", str(parsed[0]))
+        output = []
+        for i in liste:
+            if len(re.findall(r'\w+', i)) == 2:
+                output.append(i)
+        return output
 
     def tree_print(self):
         """

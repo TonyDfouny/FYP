@@ -3,7 +3,7 @@ from ar_corrector.corrector import Corrector
 corr = Corrector()
 
 source_sentence="نَحْنُ أَكَلْنَا أسد"
-
+#source_sentence="نَحْنُ "
 parser = Parser(model_path=r"C:\Users\tony_\Downloads\stanford-corenlp-4.2.0-models-arabic\edu\stanford\nlp\models\lexparser\arabicFactored.ser.gz",
                 path_to_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser.jar",
                 path_to_models_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser-4.2.0-models.jar")
@@ -14,13 +14,31 @@ parser = Parser(model_path=r"C:\Users\tony_\Downloads\stanford-corenlp-4.2.0-mod
 #                 path_to_models_jar=r"/Users/TonyDfouny/Downloads/stanford-parser-full-2020-11-17/stanford-parser-4.2.0-models.jar")
 
 def ArabicParser(arabicsentence):
-    parsedsentence=parser.parse_sentence(arabicsentence)
+    parsedsentence=parser.custom_parse(arabicsentence)
     return parsedsentence
 
 parsedsentence=ArabicParser(source_sentence)
+
 print(parsedsentence)
-Pronouns=[(parent_tag(tag, word)) for parent_tag,word, tag in parsedsentence if (tag=='VBD')]
-print('Pronouns = ',Pronouns)
+
+
+
+
+#print(str(parsed[0]))
+#parser.custom_print()
+# t=parser.custom_print()
+# for i in t:
+#     print(i)
+
+# Pronouns = [(parent_tag(tag, word)) for parent_tag, word, tag in parsed]
+# print('Pronouns = ',Pronouns)
+
+
+# print(parsedsentence)
+# print(parser.custom_parse(source_sentence))
+
+# parser.custom_print()
+# parser.tree_draw()
 
 #print(parser.custom_parse(source_sentence))
 
@@ -53,8 +71,7 @@ print('Pronouns = ',Pronouns)
 # Translator(source_sentence)
 
 
-#parser.tree_print()
-#parser.tree_draw()
+
 
 # result=parser.parse_sentence(u'أنا أقوم ببناء منزل')
 # print(result)
