@@ -3,9 +3,11 @@
 
 # help(ts.translate_text)
 # print(ts.translators_pool)
-
-sourcesentence= " Hello my name is Tony "
-
+#
+# sourcesentence= " Hello my name is Tony "
+# translatedsentence=ts.translate_text(sourcesentence,'google','en','ar')
+#
+# print(translatedsentence)
 
 #print(ts.translate_text(input,'google','en','ar'))
 
@@ -23,7 +25,10 @@ import argostranslate.translate
 
 def TranslateOnline(sourcesentence):
     import translators as ts
-    translatedsentence=ts.translate_text(input,'google','en','ar')
+    translatedsentence=ts.translate_text(sourcesentence,'google','en','ar')
+    # for i in ts.translators_pool:
+        # translatedsentence=ts.translate_text(sourcesentence,i,'en','ar')
+        # print(translatedsentence)
     return translatedsentence
 
 

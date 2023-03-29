@@ -1,2 +1,9 @@
 customize arabic parser:
 extract verbs only to apply Tashaphyne
+
+
+past tense :
+cant defere between 'ana anti anta hiya houwa'
+cause:mafi tehrik
+
+find solution later on...

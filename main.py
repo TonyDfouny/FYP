@@ -1,9 +1,11 @@
 from Translator import *
-from Arabic import *
-sourcesentence='Tony Dfouny,the kids and I are sleeping'
+#from Arabic import *
+sourcesentence='I am eating'
 
 translatedsentence = TranslateOffline(sourcesentence)
 print(translatedsentence)
+translatedsentence=TranslateOnline(sourcesentence)
+print(translatedsentence)
 
-parsedsentence=ArabicParser(translatedsentence)
-print(parsedsentence)
+# parsedsentence=ArabicParser(translatedsentence)
+# print(parsedsentence)
