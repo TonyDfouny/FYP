@@ -7,3 +7,9 @@ cant defere between 'ana anti anta hiya houwa'
 cause:mafi tehrik
 
 find solution later on...
+
+
+IDEAA:
+using stemmer for english sentence,
+only translate verb and get the correct morphology
+So we choose the translation from the current database
