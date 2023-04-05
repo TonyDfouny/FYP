@@ -12,7 +12,7 @@
 #print(ts.translate_text(input,'google','en','ar'))
 
 ######OFFLINE########
-import argostranslate.translate
+#import argostranslate.translate
 #
 # from_code = "en"
 # to_code = "ar"
@@ -33,7 +33,7 @@ def TranslateOnline(sourcesentence):
 
 
 def TranslateOffline(sourcesentence):
-
+    import argostranslate.translate
     from_code = "en"
     to_code = "ar"
     translatedsentence = argostranslate.translate.translate(sourcesentence, from_code, to_code)

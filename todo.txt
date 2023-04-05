@@ -13,3 +13,10 @@ IDEAA:
 using stemmer for english sentence,
 only translate verb and get the correct morphology
 So we choose the translation from the current database
+
+
+TODO:
+in arabic file create function Translate:
+if non verb find translated word from dict and add it to output list
+if verb:
+    call verbgrammar fct and find translate and add it to output list
