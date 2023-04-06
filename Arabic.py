@@ -24,14 +24,20 @@ parsedsentence=ArabicParser(source_sentence)
 print (parsedsentence)
 
 def TranslateVerb(verb):
+
     return None
 
+db={}
 def TranslateSentence(sourcesentence):
     parsedsentence=ArabicParser(sourcesentence)
-
-    for word in parsedsentence:
-        if word[0]!='V':
-            word.split()[1]
+    output_sentence=[]
+    for words in parsedsentence:
+        if words[0]=='V':
+            word = words.split()[1]
+            output_sentence.append(TranslateVerb(word))
+        else:
+            word=words.split()[1]
+            output_sentence.append(db[word])
 
 
 
