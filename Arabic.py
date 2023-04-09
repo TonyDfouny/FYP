@@ -23,9 +23,15 @@ parsedsentence=ArabicParser(source_sentence)
 #parsedsentence=['PRP نحن', 'VBD اكلنا', 'NNP اسد','VBG اكلنا']
 print (parsedsentence)
 
-def TranslateVerb(verb):
+def TranslateVerb(words):
+    verb=words.split()
+    if verb[0]=='VBD':
+        output=pastverb(verb[1])
+    elif verb[0]=='VBG':
+        output=presentverb(verb[1])
 
-    return None
+    return output
+
 
 db={}
 def TranslateSentence(sourcesentence):
@@ -33,29 +39,34 @@ def TranslateSentence(sourcesentence):
     output_sentence=[]
     for words in parsedsentence:
         if words[0]=='V':
-            word = words.split()[1]
-            output_sentence.append(TranslateVerb(word))
+            #word = words.split()[1]
+            output_sentence.append(TranslateVerb(words))
         else:
             word=words.split()[1]
             output_sentence.append(db[word])
 
 
 
-def verbgrammar(parsedsentence):
-    parsedverb = []
-    for verb in parsedsentence:
-        if 'V' in verb[0]:
-            parsedverb.append(verb)
-
-    print(parsedverb)
+def presentverb(verb):
+    # parsedverb = []
+    # for verb in parsedsentence:
+    #     if 'V' in verb[0]:
+    #         parsedverb.append(verb)
+    #
+    # print(parsedverb)
     ArListem = ArabicLightStemmer()
-    presentdict={
-
-
-
-    }
-    pastdict={
-
+    ArListem.light_stem(verb)
+    ArListem.get_prefix()
+    ArListem.get_suffix()
+    presentdict={('',''):'1.p.s.c.',('',''):'1.p.s.c.',
+                 ():'2p.s.m.',
+                 ():'2.p.s.f',
+                 ():'2p.s.m.',
+                 ():'2.p.s.f',
+                 ():'2p.s.m.',
+                 ():'2.p.s.f',
+                 ():'2p.s.m.',
+                 ():'2.p.s.f'
     }
     # stemming word
     for verb in parsedverb:
@@ -66,7 +77,18 @@ def verbgrammar(parsedsentence):
         print(ArListem.get_prefix())
         print(ArListem.get_suffix())
 
-verbgrammar(parsedverb)
+def pastverb(verb):
+    pastdict = {(): '1.p.s.c.',
+                   (): '2p.s.m.',
+                   (): '2.p.s.f',
+                   (): '2p.s.m.',
+                   (): '2.p.s.f',
+                   (): '2p.s.m.',
+                   (): '2.p.s.f',
+                   (): '2p.s.m.',
+                   (): '2.p.s.f'
+                   }
+    return None
 
 
 #print(str(parsed[0]))
