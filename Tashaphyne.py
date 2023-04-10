@@ -42,8 +42,14 @@ stemmer=arlstem2.ARLSTem2()
 # word=stemmer.verb(w3)
 # print(word)
 
-words=['آكل','تأكل','تأكلين','يأكل','تأكل','نأكل','تأكلون','تأكلن','يأكلون','يأكلن','تأكلان','يأكلان','تأكلان']
-for word in words:
-    print(word)
-    print(stemmer.verb(stemmer.norm(word)))
+presentverbs=['آكل','تأكل','تأكلين','يأكل','تأكل','نأكل','تأكلون','تأكلن','يأكلون','يأكلن','تأكلان','يأكلان','تأكلان','ألعب','أأكل']
+pastverb=['أَكَلتُ','أَكَلتَ','أَكَلتِ','أَكَلَ','أَكَلَت','أَكَلنَا','أَكَلتُم','أَكَلتُنَّ','أَكَلُوا','أَكَلنَ','أَكَلتُمَا','أَكَلَا','أَكَلَتَا']
+for vern in presentverbs:
+    print(verb)
+    #print(stemmer.verb(word))
+    print(stemmer.verb(stemmer.norm(verb))[1:])
+    #print(stemmer.presentverb(stemmer.norm(word)))
     #print(stemmer.verb_t1(stemmer.norm(word)))
+
+
+""" آكل false translation lezim tkoun أأكل"""

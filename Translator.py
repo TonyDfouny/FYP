@@ -39,3 +39,7 @@ def TranslateOffline(sourcesentence):
     translatedsentence = argostranslate.translate.translate(sourcesentence, from_code, to_code)
 
     return translatedsentence
+
+"""
+آكل false translation lezim tkoun أأكل
+"""

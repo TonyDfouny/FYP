@@ -3,11 +3,11 @@ from Parser import Parser
 from tashaphyne.stemming import ArabicLightStemmer
 # corr = Corrector()
 
- source_sentence="نَحْنُ أَكَلْنَا أسد"
-# #source_sentence="نَحْنُ "
-parser = Parser(model_path=r"C:\Users\tony_\Downloads\stanford-corenlp-4.2.0-models-arabic\edu\stanford\nlp\models\lexparser\arabicFactored.ser.gz",
-                path_to_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser.jar",
-                path_to_models_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser-4.2.0-models.jar")
+# source_sentence="نَحْنُ أَكَلْنَا أسد"
+# # #source_sentence="نَحْنُ "
+# parser = Parser(model_path=r"C:\Users\tony_\Downloads\stanford-corenlp-4.2.0-models-arabic\edu\stanford\nlp\models\lexparser\arabicFactored.ser.gz",
+#                 path_to_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser.jar",
+#                 path_to_models_jar=r"C:\Users\tony_\Downloads\stanford-parser-4.2.0\stanford-parser-full-2020-11-17\stanford-parser-4.2.0-models.jar")
 
 # #parser mac
 # # parser = Parser(model_path=r"/Users/TonyDfouny/Downloads/corenlp/edu/stanford/nlp/models/lexparser/arabicFactored.ser.gz",
@@ -15,13 +15,13 @@ parser = Parser(model_path=r"C:\Users\tony_\Downloads\stanford-corenlp-4.2.0-mod
 # #                 path_to_models_jar=r"/Users/TonyDfouny/Downloads/stanford-parser-full-2020-11-17/stanford-parser-4.2.0-models.jar")
 #
 
-def ArabicParser(arabicsentence):
-    parsedsentence=parser.custom_parse(arabicsentence)
-    return parsedsentence
-
-parsedsentence=ArabicParser(source_sentence)
-#parsedsentence=['PRP نحن', 'VBD اكلنا', 'NNP اسد','VBG اكلنا']
-print (parsedsentence)
+# def ArabicParser(arabicsentence):
+#     parsedsentence=parser.custom_parse(arabicsentence)
+#     return parsedsentence
+#
+# parsedsentence=ArabicParser(source_sentence)
+# #parsedsentence=['PRP نحن', 'VBD اكلنا', 'NNP اسد','VBG اكلنا']
+# print (parsedsentence)
 
 def TranslateVerb(words):
     verb=words.split()
@@ -34,16 +34,16 @@ def TranslateVerb(words):
 
 
 db={}
-def TranslateSentence(sourcesentence):
-    parsedsentence=ArabicParser(sourcesentence)
-    output_sentence=[]
-    for words in parsedsentence:
-        if words[0]=='V':
-            #word = words.split()[1]
-            output_sentence.append(TranslateVerb(words))
-        else:
-            word=words.split()[1]
-            output_sentence.append(db[word])
+# def TranslateSentence(sourcesentence):
+#     parsedsentence=ArabicParser(sourcesentence)
+#     output_sentence=[]
+#     for words in parsedsentence:
+#         if words[0]=='V':
+#             #word = words.split()[1]
+#             output_sentence.append(TranslateVerb(words))
+#         else:
+#             word=words.split()[1]
+#             output_sentence.append(db[word])
 
 
 
@@ -54,40 +54,39 @@ def presentverb(verb):
     #         parsedverb.append(verb)
     #
     # print(parsedverb)
-    ArListem = ArabicLightStemmer()
-    ArListem.light_stem(verb)
-    ArListem.get_prefix()
-    ArListem.get_suffix()
-    presentdict={('',''):'1.p.s.c.',('',''):'1.p.s.c.',
-                 ():'2p.s.m.',
-                 ():'2.p.s.f',
-                 ():'2p.s.m.',
-                 ():'2.p.s.f',
-                 ():'2p.s.m.',
-                 ():'2.p.s.f',
-                 ():'2p.s.m.',
-                 ():'2.p.s.f'
-    }
-    # stemming word
-    for verb in parsedverb:
-        stem = ArListem.light_stem(verb)
-        # extract stem
-        print(ArListem.get_stem())
-        # extract root
-        print(ArListem.get_prefix())
-        print(ArListem.get_suffix())
+    from nltk.stem import arlstem2
+    stemmer = arlstem2.ARLSTem2()
+    grammar=stemmer.presentverb(stemmer.norm(verb))
 
+    presentdict={('ا',):'1p.s.c.',('',''):'1p.s.c.',
+                 ('ت',):'2p.s.m.',
+                 ('ت', 'ين'):'2p.s.f',
+                 ('ي',):'3p.s.m.',
+                 ('ت',):'3p.s.f',
+                 ('ن',):'1p.pl.c.',
+                 ('ت', 'ون'):'2p.pl.m',
+                 ('ت', 'ن'):'2p.pl.f.',
+                 ('ي', 'ون'):'3p.pl.c',('ي', 'ن'):'3p.pl.c',('ت', 'ان'):'3p.pl.c',('ي', 'ان'):'3p.pl.c'       ###تأكلان NO DUAL IN PHOE, ONLY PLURIAL
+    }
+    return presentdict[grammar[1:]]
+
+
+words=['تأكل','تأكلين','يأكل','تأكل','نأكل','تأكلون','تأكلن','يأكلون','يأكلن','تأكلان','يأكلان','تأكلان','ألعب','أأكل']
+for word in words:
+    print(word)
+    #print(stemmer.verb(word))
+    print(presentverb(word))
 def pastverb(verb):
-    pastdict = {(): '1.p.s.c.',
-                   (): '2p.s.m.',
-                   (): '2.p.s.f',
-                   (): '2p.s.m.',
-                   (): '2.p.s.f',
-                   (): '2p.s.m.',
-                   (): '2.p.s.f',
-                   (): '2p.s.m.',
-                   (): '2.p.s.f'
-                   }
+    pastdict = {('',''):'1p.s.c.',
+                 ():'2p.s.m.',
+                 ():'2p.s.f',
+                 ():'3p.s.m.',
+                 ():'3p.s.f',
+                 ():'1p.pl.c.',
+                 ():'2p.pl.m',
+                 ():'2p.pl.f.',
+                 ():'3p.pl.c'
+                }
     return None
 
 
