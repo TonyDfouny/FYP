@@ -1,0 +1,4 @@
+to add to the final report:
+took screenshot of nltk library arlstem2.ARLSTem2() before and after making changes
+
+write why tashaphyne didn;t work: exemple of verb "تلعب / al3ab" where we got wrong output

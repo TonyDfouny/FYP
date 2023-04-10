@@ -1,18 +1,18 @@
 from tashaphyne.stemming import ArabicLightStemmer
 
-ArListem = ArabicLightStemmer()
-word ='أمش'
-# word='يَأكُلُونَ'
-# # stemming word
-stem = ArListem.light_stem(word)
-# # extract stem
-print(ArListem.get_stem())
-# # extract root
-# print(ArListem.get_prefix())
-# print(ArListem.get_suffix())
-t=(ArListem.get_prefix(),ArListem.get_suffix())
-#t=(ArListem.get_suffix(),ArListem.get_prefix())
-print(t)
+# ArListem = ArabicLightStemmer()
+# word ='أمش'
+# # word='يَأكُلُونَ'
+# # # stemming word
+# stem = ArListem.light_stem(word)
+# # # extract stem
+# print(ArListem.get_stem())
+# # # extract root
+# # print(ArListem.get_prefix())
+# # print(ArListem.get_suffix())
+# t=(ArListem.get_prefix(),ArListem.get_suffix())
+# #t=(ArListem.get_suffix(),ArListem.get_prefix())
+# print(t)
 
 #words=['آكُلُ','تَأكُلُ','تَأكُلِينَ','يَأكُلُ','تَأكُلُ','نَأكُلُ','تَأكُلُونَ','تَأكُلنَ','يَأكُلُونَ','يَأكُلنَ','تَأكُلَانِ','يَأكُلَانِ','تَأكُلَانِ']
 # words=['آكل','تأكل','تأكلين','يأكل','تأكل','نأكل','تأكلون','تأكلن','يأكلون','يأكلن','تأكلان','يأكلان','تأكلان']
@@ -34,5 +34,16 @@ from nltk.stem import arlstem2
 stemmer=arlstem2.ARLSTem2()
 
 #word = stemmer.stem('يعمل')
-word=stemmer.verb('يعمل')
-print(word)
+# verb='يعمل'
+# w2='تلعب'
+# w3='تأكل'
+# t=stemmer.norm(w3)
+# print(t)
+# word=stemmer.verb(w3)
+# print(word)
+
+words=['آكل','تأكل','تأكلين','يأكل','تأكل','نأكل','تأكلون','تأكلن','يأكلون','يأكلن','تأكلان','يأكلان','تأكلان']
+for word in words:
+    print(word)
+    print(stemmer.verb(stemmer.norm(word)))
+    #print(stemmer.verb_t1(stemmer.norm(word)))
