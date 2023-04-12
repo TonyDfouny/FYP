@@ -20,3 +20,6 @@ in arabic file create function Translate:
 if non verb find translated word from dict and add it to output list
 if verb:
     call verbgrammar fct and find translate and add it to output list
+
+    finish arabic pastverb fct with tashafine (mtl ma 3emil bi tashaphine file )
+    fi changes eemeloun bel library arlstem2 man3amaloun push aa github fix it or find .gitignore
