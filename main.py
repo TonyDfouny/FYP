@@ -1,4 +1,4 @@
-from Translator import *
+from EngArTranslator import *
 #from Arabic import *
 sourcesentence='I am eating'
 

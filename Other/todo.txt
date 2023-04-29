@@ -23,3 +23,5 @@ if verb:
 
     finish arabic pastverb fct with tashafine (mtl ma 3emil bi tashaphine file )
     fi changes eemeloun bel library arlstem2 man3amaloun push aa github fix it or find .gitignore
+
+    continue VerbTranslator to try exemples

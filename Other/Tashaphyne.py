@@ -47,8 +47,8 @@ presentverbs=['آكل','تأكل','تأكلين','يأكل','تأكل','نأكل
 pastverbs=['اكلت','اكلت','اكلت','اكل','اكلت','اكلنا','اكلتم','اكلتن','اكلوا','اكلن','اكلتما','اكلا','اكلتا']
 #pastverbs=['اكلت','اكل','اكلنا',]#'اكلتم','اكلتن','اكلوا','اكلن','اكلتما','اكلا','اكلتا']
 for verb in pastverbs:
-    # print(verb)
-    # #print(stemmer.verb(word))
+    print(verb)
+    # print(stemmer.verb(verb))
     # print(stemmer.verb(stemmer.norm(verb))[1:])
     ArListem = ArabicLightStemmer()
     ArListem.light_stem(verb)
