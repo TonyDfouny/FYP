@@ -1,4 +1,9 @@
 def ArabicParser(arabicsentence):
+    """
+
+    :param arabicsentence: 'source sentence in arabic'
+    :return: ['word TAG','word TAG',...]
+    """
     from Parser import Parser
 
 
@@ -18,8 +23,8 @@ def ArabicParser(arabicsentence):
 
 
 
-
-
+########TEST###########
+#print(ArabicParser('هو يأتي مع ابن الى بيروت'))
 
 
 

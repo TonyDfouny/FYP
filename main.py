@@ -1,11 +1,19 @@
 from EngArTranslator import *
-#from Arabic import *
-sourcesentence='I am eating'
+from ArPhoeTranslator import *
 
+##########TRANSLATE FROM ENGLISH TO ARABIC###########
+
+sourcesentence=" I protect his sister from dangerous animals "
+sourcesentence='He comes with son to Beirut'
 translatedsentence = TranslateOffline(sourcesentence)
-print(translatedsentence)
-# translatedsentence=TranslateOnline(sourcesentence)
-# print(translatedsentence)
+print('offline: ',translatedsentence)
+"""
+translatedsentence=TranslateOnline(sourcesentence)
+print('online: ',translatedsentence)
+"""
 
-# parsedsentence=ArabicParser(translatedsentence)
-# print(parsedsentence)
+
+##########TRANSLATE FROM ARABIC TO PHOENICIAN#############
+#translatedsentence='هو يأتي مع ابن الى بيروت'
+
+print(ArPhoeTranslator(translatedsentence))
