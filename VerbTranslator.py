@@ -13,7 +13,8 @@ def presentverb(verb):
                  ('ت', 'ن'):'2p.pl.f.',
                  ('ي', 'ون'):'3p.pl.c',('ي', 'ن'):'3p.pl.c',('ت', 'ان'):'3p.pl.c',('ي', 'ان'):'3p.pl.c'       ###تأكلان NO DUAL IN PHOE, ONLY PLURIAL
     }
-    return presentdict[grammar[1:]]
+    output=[grammar[0],presentdict[grammar[1:]]]
+    return output
 
 
 # words=['تأكل','تأكلين','يأكل','تأكل','نأكل','تأكلون','تأكلن','يأكلون','يأكلن','تأكلان','يأكلان','تأكلان','ألعب','أأكل']
@@ -29,6 +30,8 @@ def pastverb(verb):
     ArListem = ArabicLightStemmer()
     ArListem.light_stem(verb)
     suffix=ArListem.get_suffix()
+    l = len(suffix)
+    rootverb = verb[:-l]
     pastdict = {('ت'):'1p.s.c.',
                  ('ت'):'2p.s.m.',
                  ('ت'):'2p.s.f',
@@ -39,7 +42,9 @@ def pastverb(verb):
                  ('تن'):'2p.pl.f.',
                  ('وا'):'3p.pl.c',('ن'):'3p.pl.c',('تما'):'3p.pl.c',('ا'):'3p.pl.c'
                 }
-    return pastdict[suffix]
+
+    output=[rootverb,pastdict[suffix]]
+    return output
 
 # words=['اكلت','اكلت','اكلت','اكل','اكلت','اكلنا','اكلتم','اكلتن','اكلوا','اكلن','اكلتما','اكلا','اكلتا']
 # for word in words:
@@ -47,12 +52,21 @@ def pastverb(verb):
 #     #print(stemmer.verb(word))
 #     print(pastverb(word))
 
+def FindVerb(rootverb,person):
+    #get translated verb where dict[rootverb] and person[person]
+
 def TranslateVerb(words):
     verb=words.split()
     if verb[0]=='VBD':
-        output=pastverb(verb[1])
+        details=pastverb(verb[1])
+        rootverb=details[0]
+        person=details[1]
+        output=FindVerb(rootverb,person)
     elif verb[0]=='VBG':
-        output=presentverb(verb[1])
+        details = presentverb(verb[1])
+        rootverb = details[0]
+        person = details[1]
+        output=FindVerb(rootverb,person)
 
     return output
 
