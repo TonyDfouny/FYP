@@ -106,3 +106,9 @@ WDT - Wh-determiner
 WP - Wh-pronoun
 WP$ - Possessive wh-pronoun (prolog version WP-S)
 WRB - Wh-adverb
+DTJJ	adjective with the determiner “Al” (ال)
+DTJJR	adjective, comparative with the determiner “Al” (ال)
+DTNN	noun, singular or mass with the determiner “Al” (ال)
+DTNNP	Proper noun, singular with the determiner “Al” (ال)
+DTNNPS	Proper noun, plural with the determiner “Al” (ال)
+DTNNS	noun, plural with the determiner “Al” (ال)

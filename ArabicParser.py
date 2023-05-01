@@ -24,8 +24,8 @@ def ArabicParser(arabicsentence):
 
 
 ########TEST###########
-#print(ArabicParser('هو يأتي مع ابن الى بيروت'))
-
+print(ArabicParser('الحيوانات'))
+print(ArabicParser('الحيوان'))
 
 
 

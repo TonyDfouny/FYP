@@ -20,3 +20,5 @@ fi changes eemeloun bel library arlstem2 man3amaloun push aa github fix it or fi
 get root for words with h or al exemple:'gharadouHOU' 'AL walad' and create a fct to find the correct word
 
 get a wider database and try the code with many more exemples
+
+in test folder there is 2 methodes to remove AL in words to find them in the dictionnary 

@@ -23,3 +23,7 @@ pip install --upgrade translators
 
 pip install argostranslate
 
+
+###CORRECTORS###
+pip install Caribe
+
