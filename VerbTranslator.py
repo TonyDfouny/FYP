@@ -1,4 +1,4 @@
-import DB
+import Finder
 
 def presentverb(verb):
     """
@@ -51,19 +51,19 @@ def pastverb(verb):
     output=[rootverb,pastdict[suffix]]
     return output
 
-def FindVerb(rootverb,person):
-    """
-
-    :param rootverb: 'rootverb'
-    :param person:  'person'
-    :return: 'verb in phoe'
-    """
-    #get translated verb where dict[rootverb] and person[person]
-    infphoeverb=DB.ArPhoeDB[rootverb]
-    phoeverb=DB.VerbDB[infphoeverb][person]
-    #print('root =',rootverb,'\n',person)
-
-    return phoeverb
+# def FindVerb(rootverb,person):
+#     """
+#
+#     :param rootverb: 'rootverb'
+#     :param person:  'person'
+#     :return: 'verb in phoe'
+#     """
+#     #get translated verb where dict[rootverb] and person[person]
+#     infphoeverb=DB.ArPhoeDB[rootverb]
+#     phoeverb=DB.VerbDB[infphoeverb][person]
+#     #print('root =',rootverb,'\n',person)
+#
+#     return phoeverb
 
 #FindVerb(pastverb(words[0])[0],pastverb(words[0])[1])
 
@@ -80,12 +80,12 @@ def VerbTranslator(words):
         details=pastverb(verb[1])
         rootverb=details[0]
         person=details[1]
-        output=FindVerb(rootverb,person)
+        output=Finder.FindVerb(rootverb,person)
     elif verb[0] in presentTags:
         details = presentverb(verb[1])
         rootverb = details[0]
         person = details[1]
-        output=FindVerb(rootverb,person)
+        output=Finder.FindVerb(rootverb,person)
 
     return output
 
