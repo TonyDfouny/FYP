@@ -6,9 +6,6 @@ def TranslateOnline(sourcesentence):
     """
     import translators as ts
     translatedsentence=ts.translate_text(sourcesentence,'google','en','ar')
-    # for i in ts.translators_pool:
-        # translatedsentence=ts.translate_text(sourcesentence,i,'en','ar')
-        # print(translatedsentence)
     return translatedsentence
 
 
@@ -31,8 +28,11 @@ def TranslateOffline(sourcesentence):
 """
 #####TESTTT#######
 #####ONLINE#######
-#import translators as ts
 
+#import translators as ts
+# import translators as ts
+# for i in ts.translators_pool:
+#         print(i)
 # help(ts.translate_text)
 # print(ts.translators_pool)
 #

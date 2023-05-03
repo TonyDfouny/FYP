@@ -21,4 +21,17 @@ get root for words with h or al exemple:'gharadouHOU' 'AL walad' and create a fc
 
 get a wider database and try the code with many more exemples
 
-in test folder there is 2 methodes to remove AL in words to find them in the dictionnary 
+in test folder there is 2 methodes to remove AL in words to find them in the dictionnary
+
+
+
+
+
+phoe:
+al --> h
+y-->1ps
+k-->2ps
+h-->3ps
+n-->1pp
+km-->2pp
+m-->3pp
