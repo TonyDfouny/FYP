@@ -14,6 +14,8 @@ from ArPhoeTranslator import *
 
 
 ##########TRANSLATE FROM ARABIC TO PHOENICIAN#############
-translatedsentence='هو يأتي مع الحيوانات الى بيروت '
+#translatedsentence='هو يأتي مع الحيوانات الى بيروت '
 translatedsentence='هو يأتي مع ابنه الى بيروت'
+#translatedsentence='هو يأتي مع إبنهم الى بيروت'
+#translatedsentence='أكلنا'
 print(ArPhoeTranslator(translatedsentence))

@@ -1,9 +1,5 @@
 import DB
-from nltk.stem import arlstem2
-
-import PossesivewordsTranslator
-
-stemmer = arlstem2.ARLSTem2()
+import WordFinder
 
 def FindVerb(rootverb,person):
     """
@@ -13,30 +9,34 @@ def FindVerb(rootverb,person):
     :return: 'verb in phoe'
     """
     try:    #get translated verb where dict[rootverb] and person[person]
-        infphoeverb=DB.ArPhoeDB[rootverb]
-        phoeverb=DB.VerbDB[infphoeverb][person]
+        rootphoeverb=WordFinder.DBwordFinder(rootverb)
+        phoeverb=WordFinder.DBverbFinder(rootphoeverb,person)
         #print('root =',rootverb,'\n',person)
+        return phoeverb
     except KeyError:
         return rootverb
 
-    return phoeverb
 
-def DBwordFinder(word):
-    return DB.ArPhoeDB[word]
+
+
 def FindWord(word):
+
+    from nltk.stem import arlstem2
+    import PossesivewordsTranslator
+    stemmer = arlstem2.ARLSTem2()
     """
 
     :param word: word in arabic
     :return: word in phoenician
     """
     try:
-        return DBwordFinder(word)
+        return WordFinder.DBwordFinder(word)
     except KeyError:
         try: #If possessive 'ابنه','ابنها','إبنهم','إبنك'
             return PossesivewordsTranslator.Possesive(word)
         except KeyError:
             try:
-                return DBwordFinder(stemmer.stem(word))
+                return WordFinder.DBwordFinder(stemmer.stem(word))
             except KeyError:
                 return word
 

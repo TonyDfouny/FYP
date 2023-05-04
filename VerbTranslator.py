@@ -7,7 +7,7 @@ def presentverb(verb):
     :return: ['rootverb','person']
     """
     from nltk.stem import arlstem2
-    stemmer = arlstem2.ARLSTem2()
+    stemmer = arlstem2.CustomARLSTem2()
     grammar=stemmer.presentverb(stemmer.norm(verb)) #Present verb custom fct in arlstem2.py (not pushed in github)
     #print(grammar) ('اكل', 'ت', 'ين')
     presentdict={('ا',):'1p.s.c.',('',''):'1p.s.c.',
@@ -76,18 +76,21 @@ def VerbTranslator(words):
     verb=words.split()
     pastTags=['VB','VBD','VBN']
     presentTags=['VBG','VBP','VBZ']
-    if verb[0] in pastTags:
-        details=pastverb(verb[1])
-        rootverb=details[0]
-        person=details[1]
-        output=Finder.FindVerb(rootverb,person)
-    elif verb[0] in presentTags:
-        details = presentverb(verb[1])
-        rootverb = details[0]
-        person = details[1]
-        output=Finder.FindVerb(rootverb,person)
+    try:
+        if verb[0] in pastTags:
+            details=pastverb(verb[1])
+            rootverb=details[0]
+            person=details[1]
+            output=Finder.FindVerb(rootverb,person)
+        elif verb[0] in presentTags:
+            details = presentverb(verb[1])
+            rootverb = details[0]
+            person = details[1]
+            output=Finder.FindVerb(rootverb,person)
 
-    return output
+        return output
+    except KeyError:
+        return Finder.FindWord(verb[1])
 
 ########TEST###########
 #print(VerbTranslator('VBP ياتي'))
