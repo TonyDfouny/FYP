@@ -20,15 +20,14 @@ def FindVerb(rootverb,person):
 
 
 def FindWord(word):
+    """
 
+    :param word: 'arword'
+    :return: 'phoeword'
+    """
     from nltk.stem import arlstem2
-    import PossesivewordsTranslator
+    import PossesivewordsTranslator,SynonymFinder
     stemmer = arlstem2.ARLSTem2()
-    """
-
-    :param word: word in arabic
-    :return: word in phoenician
-    """
     try:
         return WordFinder.DBwordFinder(word)
     except KeyError:
@@ -38,7 +37,10 @@ def FindWord(word):
             try:
                 return WordFinder.DBwordFinder(stemmer.stem(word))
             except KeyError:
-                return word
+                try:
+                    return SynonymFinder.Synonym(word)
+                except KeyError:
+                    return word
 
 
 

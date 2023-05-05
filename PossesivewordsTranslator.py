@@ -1,7 +1,10 @@
-
 def Possesive(word):
-    import WordFinder
+    """
 
+    :param word: 'word' in arabic with possessive suffix
+    :return: 'phoeword' with the corresponding possessive suffix
+    """
+    import WordFinder
     from nltk.stem import arlstem2
     customstemmer = arlstem2.CustomARLSTem2()
     Posdict={'ي':'y',
