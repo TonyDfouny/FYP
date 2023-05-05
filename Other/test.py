@@ -1,4 +1,4 @@
-
+"""
 from nltk.stem import arlstem2
 
 words=['ابنه','ابنها','إبنهم','إبنك','كلبنا','كلبكي','كلبكم','كلبي']
@@ -22,3 +22,9 @@ for word in words:
 # print(token[0]+token[-2])
 # L=[1,2,'sadsad']
 # print(len(L))
+"""
+l=[1,3,4,6,7]
+l.remove(4)
+print(l)
+n='tony'
+print(n.count(' '))
