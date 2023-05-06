@@ -225,9 +225,9 @@ class ARLSTem2(StemmerI):
         # ^Alif, Alif, $Yaa
         if len(token) > 5:
             if (
-                token.startswith("\u0627")
-                and token[-3] == "\u0627"
-                and token.endswith("\u064A")
+                    token.startswith("\u0627")
+                    and token[-3] == "\u0627"
+                    and token.endswith("\u064A")
             ):
                 return token[:-3] + token[-2]
 
@@ -268,16 +268,16 @@ class ARLSTem2(StemmerI):
         if len(token) > 6:
             # ^Taa, Yaa, $Yaa and Taa Marbuta
             if (
-                token.startswith("\u062A")
-                and token[-4] == "\u064A"
-                and token.endswith("\u064A\u0629")
+                    token.startswith("\u062A")
+                    and token[-4] == "\u064A"
+                    and token.endswith("\u064A\u0629")
             ):
                 return token[1:-4] + token[-3]
             # ^Alif, Yaa, $Yaa and Taa Marbuta
             if (
-                token.startswith("\u0627")
-                and token[-4] == "\u0627"
-                and token.endswith("\u064A\u0629")
+                    token.startswith("\u0627")
+                    and token[-4] == "\u0627"
+                    and token.endswith("\u064A\u0629")
             ):
                 return token[:-4] + token[-3]
         # $Alif, Yaa and Taa Marbuta
@@ -392,16 +392,16 @@ class ARLSTem2(StemmerI):
                 return token[2:-2]
         # ^Siin Taa, Noon$
         if (
-            len(token) > 5
-            and token.startswith(self.verb_pr2[0])
-            and token.endswith("\u0646")
+                len(token) > 5
+                and token.startswith(self.verb_pr2[0])
+                and token.endswith("\u0646")
         ):
             return token[2:-1]
         # ^Siin Yaa, Noon$
         if (
-            len(token) > 5
-            and token.startswith(self.verb_pr2[1])
-            and token.endswith("\u0646")
+                len(token) > 5
+                and token.startswith(self.verb_pr2[1])
+                and token.endswith("\u0646")
         ):
             return token[2:-1]
 
@@ -455,6 +455,7 @@ class ARLSTem2(StemmerI):
                     return token[2:]
 
         return token
+
 
 ##################CUSTOMCLASS###########
 class CustomARLSTem2(StemmerI):
@@ -536,8 +537,8 @@ class CustomARLSTem2(StemmerI):
         """
         call this function to get the first stem
         """
-        if type(token)==list:
-            token=token[0]
+        if type(token) == list:
+            token = token[0]
         try:
             if token is None:
                 raise ValueError(
@@ -578,8 +579,8 @@ class CustomARLSTem2(StemmerI):
 
     def stem(self, token):
         # stem the input word
-        if type(token)==list:
-            token=token[0]
+        if type(token) == list:
+            token = token[0]
         try:
             if token is None:
                 raise ValueError(
@@ -592,20 +593,20 @@ class CustomARLSTem2(StemmerI):
             if len(token) > 4:
                 # ^Taa, $Yaa + char
                 if token.startswith("\u062A") and token[-2] == "\u064A":
-                    token = [token[1:-2] + token[-1],token[:1],token[-1:]]
+                    token = [token[1:-2] + token[-1], token[:1], token[-1:]]
                     return token
                 # ^Miim, $Waaw + char
                 if token.startswith("\u0645") and token[-2] == "\u0648":
-                    token = [token[1:-2] + token[-1],token[:1],token[-1:]]
+                    token = [token[1:-2] + token[-1], token[:1], token[-1:]]
                     return token
             if len(token) > 3:
                 # !^Alif, $Yaa
                 if not token.startswith("\u0627") and token.endswith("\u064A"):
-                    token = [token[:-1],token[-1:]]
+                    token = [token[:-1], token[-1:]]
                     return token
                 # $Laam
                 if token.startswith("\u0644"):
-                    return [token[1:],token[:1]]
+                    return [token[1:], token[:1]]
             return token
         except ValueError as e:
             print(e)
@@ -616,8 +617,8 @@ class CustomARLSTem2(StemmerI):
         with Alif bare, replace AlifMaqsura with Yaa and remove Waaw at the
         beginning.
         """
-        if type(token)==list:
-            token=token[0]
+        if type(token) == list:
+            token = token[0]
         # strip Arabic diacritics
         token = self.re_diacritics.sub("", token)
         # replace Hamzated Alif with Alif bare
@@ -634,37 +635,37 @@ class CustomARLSTem2(StemmerI):
         """
         remove prefixes from the words' beginning.
         """
-        if type(token)==list:
-            token=token[0]
+        if type(token) == list:
+            token = token[0]
         if len(token) > 5:
             for p3 in self.pr3:
                 if token.startswith(p3):
-                    return [token[3:],token[:3]]
+                    return [token[3:], token[:3]]
         if len(token) > 6:
             for p4 in self.pr4:
                 if token.startswith(p4):
-                    return [token[4:],token[:4]]
+                    return [token[4:], token[:4]]
         if len(token) > 5:
             for p3 in self.pr32:
                 if token.startswith(p3):
-                    return [token[3:],token[:3]]
+                    return [token[3:], token[:3]]
         if len(token) > 4:
             for p2 in self.pr2:
                 if token.startswith(p2):
-                    return [token[2:],token[:2]]
+                    return [token[2:], token[:2]]
 
     def adjective(self, token):
         """
         remove the infixes from adjectives
         """
-        if type(token)==list:
-            token=token[0]
+        if type(token) == list:
+            token = token[0]
         # ^Alif, Alif, $Yaa
         if len(token) > 5:
             if (
-                token.startswith("\u0627")
-                and token[-3] == "\u0627"
-                and token.endswith("\u064A")
+                    token.startswith("\u0627")
+                    and token[-3] == "\u0627"
+                    and token.endswith("\u064A")
             ):
                 return token[:-3] + token[-2]
 
@@ -675,15 +676,16 @@ class CustomARLSTem2(StemmerI):
         if type(token) == list:
             liste = token
             token = token[0]
-        print('liste', liste)
+            print(liste[1])
         if token.endswith("\u0643") and len(token) > 3:
             return [token[:-1], token[-1:]]
         if len(token) > 4:
 
             for s2 in self.su2:
                 if token.endswith(s2):
-                    return liste.append([token[:-2], token[-2:]])
+                    return [token[:-2], token[-2:]]
         if len(token) > 5:
+
             for s3 in self.su3:
                 if token.endswith(s3):
                     return [token[:-3], token[-3:]]
@@ -691,6 +693,7 @@ class CustomARLSTem2(StemmerI):
             # token = token[:-1]
             return [token[:-1], token[-1:]]
         if len(token) > 4:
+
             for s2 in self.su22:
                 if token.endswith(s2):
                     return [token[:-2], token[-2:]]
@@ -702,26 +705,54 @@ class CustomARLSTem2(StemmerI):
         if token.endswith("\u0646\u0627") and len(token) > 4:
             return [token[:-2], token[-2:]]
         return token
+    def possessive(self,token):
+        output=self.suff(token)
+        if type(output)==list:
+            return output
+        else:
+            try:
+                if len(token) > 4:
+                    # ^Taa, $Yaa + char
+                    if token.startswith("\u062A") and token[-2] == "\u064A":
+                        token = [token[1:-2] + token[-1], token[:1], token[-1:]]
+                        return token
+                    # ^Miim, $Waaw + char
+                    if token.startswith("\u0645") and token[-2] == "\u0648":
+                        token = [token[1:-2] + token[-1], token[:1], token[-1:]]
+                        return token
+                if len(token) > 3:
+                    # !^Alif, $Yaa
+                    if not token.startswith("\u0627") and token.endswith("\u064A"):
+                        token = [token[:-1], token[-1:]]
+                        return token
+                    # $Laam
+                    if token.startswith("\u0644"):
+                        return [token[1:], token[:1]]
+                return token
+            except ValueError as e:
+                print(e)
+
+
 
     def fem2masc(self, token):
         """
         transform the word from the feminine form to the masculine form.
         """
-        if type(token)==list:
-            token=token[0]
+        if type(token) == list:
+            token = token[0]
         if len(token) > 6:
             # ^Taa, Yaa, $Yaa and Taa Marbuta
             if (
-                token.startswith("\u062A")
-                and token[-4] == "\u064A"
-                and token.endswith("\u064A\u0629")
+                    token.startswith("\u062A")
+                    and token[-4] == "\u064A"
+                    and token.endswith("\u064A\u0629")
             ):
                 return token[1:-4] + token[-3]
             # ^Alif, Yaa, $Yaa and Taa Marbuta
             if (
-                token.startswith("\u0627")
-                and token[-4] == "\u0627"
-                and token.endswith("\u064A\u0629")
+                    token.startswith("\u0627")
+                    and token[-4] == "\u0627"
+                    and token.endswith("\u064A\u0629")
             ):
                 return token[:-4] + token[-3]
         # $Alif, Yaa and Taa Marbuta
@@ -789,7 +820,7 @@ class CustomARLSTem2(StemmerI):
         vb = self.verb_t6(token)
         return vb
 
-    def presentverb(self,token):
+    def presentverb(self, token):
         """
         custom stem function
         """
@@ -852,16 +883,16 @@ class CustomARLSTem2(StemmerI):
                 return token[2:-2]
         # ^Siin Taa, Noon$
         if (
-            len(token) > 5
-            and token.startswith(self.verb_pr2[0])
-            and token.endswith("\u0646")
+                len(token) > 5
+                and token.startswith(self.verb_pr2[0])
+                and token.endswith("\u0646")
         ):
             return token[2:-1]
         # ^Siin Yaa, Noon$
         if (
-            len(token) > 5
-            and token.startswith(self.verb_pr2[1])
-            and token.endswith("\u0646")
+                len(token) > 5
+                and token.startswith(self.verb_pr2[1])
+                and token.endswith("\u0646")
         ):
             return token[2:-1]
 

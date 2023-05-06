@@ -23,6 +23,10 @@ get a wider database and try the code with many more exemples
 
 in test folder there is 2 methodes to remove AL in words to find them in the dictionnary
 
+GUI: add scroll bar
+     test with some word
+     add transcript fct
+     test
 
 
 

@@ -5,7 +5,8 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 from ArPhoeTranslator import *
-
+from PIL import ImageTk,Image
+import tkinter.font as tkFont
 # class LanguageTranslator:
 #     def __init__(self, master):
 #         self.master = master
@@ -38,33 +39,56 @@ root=Tk()
 root.title("Phoenician Translator")
 #root.geometry("1080x400")
 
+#Icon
+icon=PhotoImage(file='icon.png')
+root.iconphoto(False,icon)
+
 #Variables
 languages=['English','Phoenician']
-sourcetext=tkinter.StringVar()
+#sourcetext=tkinter.StringVar()
 inputlanguage=tkinter.StringVar()
 outputlanguage=tkinter.StringVar()
-outputtext=tkinter.StringVar()
+#outputtext=tkinter.StringVar()
 
 #Combobox for input
 
 inputcombo=ttk.Combobox(root,textvariable=inputlanguage,values=languages,state='readonly')
 inputcombo.grid(column=10,row=5)
+
+
 #TextBox For input
 Label(root,text='Enter your sentence').grid(column=10,row=10)
-SourceText=Entry(root,textvariable=sourcetext)
-SourceText.grid(column=10,row=12)
+
+#SourceText=Entry(root,textvariable=sourcetext)
+customFont = tkFont.Font(family='Segoe UI Historic', size=14)
+
+
+
+
+SourceTextBox=Text(root,font=customFont,width=60,height=15)
+SourceTextBox.grid(column=10,row=12)
+
 
 #Logo in the middle
-Label(root,text='two arrows goes here').grid(column=12,row=10)
+img= (Image.open("two-way-arrow-icon-14.jpg"))
+resized_image= img.resize((40,30), Image.ANTIALIAS)
+Arrowimg= ImageTk.PhotoImage(resized_image)
+Arrowbtn=Button(root,image=Arrowimg,state='disabled')
+Arrowbtn.grid(column=12,row=5,rowspan=5)
 
 #Combobox for Output
 
-outputcombo=ttk.Combobox(root,textvariable=outputlanguage,state='disabled')
+outputcombo=ttk.Combobox(root,textvariable=outputlanguage,values=languages,state='disabled')
 outputcombo.grid(column=13,row=5)
+
+
 #Label for Output
 Label(root,text='Output').grid(column=13,row=10)
-OutputText=Label(root,textvariable=outputtext)
-OutputText.grid(column=13,row=11)
+
+
+#OutputText=Entry(root,textvariable=outputtext,state='disabled',width=200,height=200)
+OutputTextBox=Text(root,font=customFont,width=60,height=15,state='disabled')
+OutputTextBox.grid(column=13,row=12)
 
 
 
@@ -77,38 +101,61 @@ OutputText.grid(column=13,row=11)
 
 #Language Selection
 def InputLanguageSelection(event):
-    newlang = languages
-    selected=inputlanguage.get()
-    newlang.remove(selected)
-    outputcombo['values']=newlang
     outputcombo['state']='readonly'
-    newlang.append(selected)
+
 
 def OutputLanguageSelection(event):
     Translatebtn['state']='normal'
+    Arrowbtn['state']='normal'
 
 inputcombo.bind('<<ComboboxSelected>>', InputLanguageSelection)
 outputcombo.bind('<<ComboboxSelected>>', OutputLanguageSelection)
 
 def GetText():
-    if ((len(sourcetext.get()))-(sourcetext.get().count(' ')))<=0:
-        showerror('Error','You need to enter a text')
+    sourcetext=SourceTextBox.get("1.0","end-1c")
+    if ((len(sourcetext))-(sourcetext.count(' ')))<=0:
+        #showerror('Error','You need to enter a text')
+        raise ValueError('You need to enter a text')
     else:
-        return sourcetext.get()
+        return sourcetext
 
 
-def LanguageSelection():
+
+def Translate():
     srclang=inputlanguage.get()
     destlang=outputlanguage.get()
+    if srclang==destlang:
+        showerror('Error', "You can't translate to the same language!")
     if srclang=='English':
-        srctext=GetText()
-        outputtext.set(ArPhoeTranslator(srctext))
+        try:
+            srctext=GetText()
+            OutputTextBox['state'] = 'normal'
+            OutputTextBox.delete("1.0", 'end-1c')
+            OutputTextBox.insert("1.0", ArPhoeTranslator(srctext))
+            OutputTextBox['state'] = 'disabled'
 
 
+        except ValueError:
+            showerror('Error', 'You need to enter a text')
+
+
+def ArrowBtn():
+    temp=inputlanguage.get()
+    inputlanguage.set(outputcombo.get())
+    outputcombo.set(temp)
+    # newlang = languages
+    # # selected = inputlanguage.get()
+    # print(newlang[0],newlang[1])
+    # newlang.remove(temp)
+    # outputcombo['values'] = newlang
+    #newlang.append(temp)
+
+
+Arrowbtn['command']=ArrowBtn
 
 
 #Button Translate
-Translatebtn=Button(root,text='Translate',command=LanguageSelection,state='disabled')
+Translatebtn=Button(root,text='Translate',command=Translate,state='disabled')
 Translatebtn.grid(column=50,row=20)
 
 #Exit Button
