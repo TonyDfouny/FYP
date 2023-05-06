@@ -107,3 +107,236 @@ VerbDB={
 #                        "بيروت": "𐤕𐤓𐤉𐤁"}
 # print("\nAll the words from Arabic to Phoenician: ")
 # print(DictionaryAraToPhoe)
+
+# (`transcript`, `meaning`, `root_t`, `type`,'arabic') VALUES
+liste = [
+    ['ʾnk', 'I', '', 'personal pronoun'],
+
+    ['tbnt', 'Tabnit', '', 'proper noun']]
+"""
+
+['khn', 'priest', '', 'common noun'] ,
+
+['ʿštrt', 'ʿAštart', '', 'proper noun'] ,
+
+['mlk', 'king', '', 'common noun'] ,
+
+['ṣdnm', 'Sidonians', '', 'common noun'] ,
+
+['bn', 'son', '', 'common noun'] ,
+
+['ʾšmnʿzr', 'ʾEšmunʿazor', '', 'proper noun'] ,
+
+['škb', 'lie down', '', 'verb'] ,
+
+['z', 'this', '', 'determiner'] ,
+
+['my', 'whoever', '', 'conjunction'] ,
+
+['ʾt', 'you', '', 'personal pronoun'] ,
+
+['kl', 'all', '', 'determiner'] ,
+
+['ʾdm', 'man', '', 'common noun'] ,
+
+['ʾš', 'who', '', 'determiner'] ,
+
+['tpq', 'find', 'pwq', 'verb'] ,
+
+['ʾyt', '', '', 'accusative particle'] ,
+
+['ʾrn', 'sarcophagus', '', 'common noun'] ,
+
+['ʾl', 'do not', '', 'adverb'] ,
+
+['tptḥ', 'open', 'ptḥ', 'verb'] ,
+
+['ʿlt', 'upon', '', 'preposition'] ,
+
+['w', 'and', '', 'conjunction'] ,
+
+['trgz', 'disturb', 'rgz', 'verb'] ,
+
+['k', 'as', '', 'conjunction'] ,
+
+['h', 'the', '', 'article'] ,
+
+['b', 'in', '', 'preposition'] ,
+
+['y', 'mine', '', 'possessive suffix'] ,
+
+['n', 'me', '', 'personal pronoun'] ,
+
+['ʾy', 'not', '', 'determiner'] ,
+
+['ʾr', 'collect', 'ʾry', 'verb'] ,
+
+['ln', 'to us', 'l', 'preposition'] ,
+
+['ksp', 'silver', '', 'common noun'] ,
+
+['ḥrṣ', 'gold', '', 'common noun'] ,
+
+['mnm', 'whatever', '', 'determiner'] ,
+
+['mšd', 'wealth', '', 'common noun'] ,
+
+['blt', 'but', '', 'conjunction'] ,
+
+['tʿbt', 'mess', 'ʿbt', 'verb'] ,
+
+['dbr', 'matter', '', 'common noun'] ,
+
+['hʾ', 'he', '', 'personal pronoun'] ,
+
+['ʾm', 'if', '', 'conjunction'] ,
+
+['ptḥ', 'open', '', 'verb'] ,
+
+['rgz', 'disturb', '', 'verb'] ,
+
+['ykn', 'be', 'kwn', 'verb'] ,
+
+['lk', 'to you', 'l', 'preposition'] ,
+
+['zrʿ', 'semence,offspring', '', 'common noun'] ,
+
+['ḥym', 'living', '', 'common noun'] ,
+
+['tḥt', 'under', '', 'preposition'] ,
+
+['šmš', 'sun', '', 'common noun'] ,
+
+['mškb', 'rest place', 'škb', 'common noun'] ,
+
+['rpʾm', 'Old spirits', '', 'common noun'] ,
+
+['w', 'his', '', 'possessive suffix'] ,
+
+['mš', 'statue', '', 'common noun'] ,
+
+['bʾ', 'bring', 'bwʾ', 'verb'] ,
+
+['ʾbbʿl', 'ʾAbibaʿl', '', 'proper noun'] ,
+
+['gbl', 'Byblos', '', 'proper noun'] ,
+
+['yḥmlk', 'Yeḥimilk', '', 'proper noun'] ,
+
+['mṣrm', 'Egypt', '', 'proper noun'] ,
+
+['l', 'To', '', 'preposition'] ,
+
+['bʿlt', 'goddess', '', 'proper noun'] ,
+
+['ʾdt', 'lady', '', 'common noun'] ,
+
+['tʾrk', 'prolong', 'ʾrk', 'verb'] ,
+
+['ymt', 'days', 'ym', 'common noun'] ,
+
+['šnt', 'years', 'št', 'common noun'] ,
+
+['ʿl', 'on', '', 'preposition'] ,
+
+['pʿl', 'make', '', 'verb'] ,
+
+['ʾlbʿl', 'ʾElibaʿl', '', 'proper noun'] ,
+
+['qr', 'wall', '', 'common noun'] ,
+
+['bny', 'construct,build', '', 'verb'] ,
+
+['špṭbʿl', 'Shiptibaal', '', 'proper noun'] ,
+
+['ḥnwtm', 'Perfume Autel', 'ḥnwt', 'common noun'] ,
+
+['ʿbdʾšmn', 'ʿAbdʾešmun', '', 'proper noun'] ,
+
+['bnh', 'constructor', '', 'common noun'] ,
+
+['ʾṣʿʾ', 'ʾIṣaʿʾ', '', 'proper noun'] ,
+
+['ʾdn', 'master', '', 'common noun'] ,
+
+['sml', 'statue', '', 'common noun'] ,
+
+['bʿl', 'god', '', 'proper noun'] ,
+
+['ybrk', 'bless', 'brk', 'verb'] ,
+
+['yḥw', 'live', 'ḥwy', 'verb'] ,
+
+['ʾl', 'god', '', 'common noun'] ,
+
+['ʾl', 'these', '', 'determiner'] ,
+
+['kwn', 'be', '', 'verb'] ,
+
+['kn', 'so', '', 'adverb'] ,
+
+['ʾt', 'you', '', 'personal pronoun'] ,
+
+['hʾ', 'she', '', 'personal pronoun'] ,
+
+['ʾnḥn', 'we', '', 'personal pronoun'] ,
+
+['ʾtm', 'you', '', 'personal pronoun'] ,
+
+['hmt', 'they', '', 'personal pronoun'] ,
+
+['hmt', 'they', '', 'personal pronoun'] ,
+
+['plsbʿl', 'Pelsibaʿl', '', 'proper noun'] ,
+
+['ʾḥrm', 'ʾAḥirom', '', 'proper noun'] ,
+
+['ʾb', 'father', '', 'common noun'] ,
+
+['št', 'sleeping bed', '', 'common noun'] ,
+
+['ʿlm', 'eternity', '', 'common noun'] ,
+
+['mlkm', 'kings', 'mlk', 'common noun'] ,
+
+['skn', 'governor', '', 'common noun'] ,
+
+['sknm', 'governors', 'skn', 'common noun'] ,
+
+['tmʾ', 'commander', '', 'common noun'] ,
+
+['mḥnt', 'army,camp', '', 'common noun'] ,
+
+['ʿly', 'invade,come up', '', 'verb'] ,
+
+['ygl', 'move,remove', 'gly', 'verb'] ,
+
+['zn', 'there', '', 'determiner'] ,
+
+['tḥtsp', 'break,split', 'ḥsp', 'verb'] ,
+
+['ḥṭr', 'scepter', '', 'common noun'] ,
+
+['mšpṭ', 'royal authority', '', 'common noun'] ,
+
+['thtpk', 'overturn', 'hpk', 'verb'] ,
+
+['ksʾ', 'throne', '', 'common noun'] ,
+
+['nḥt', 'peace', '', 'common noun'] ,
+
+['tbrḥ', 'depart', 'brḥ', 'verb'] ,
+
+['ymḥ', 'erase,eradicate,wipe', 'mḥy', 'verb'] ,
+
+['spr', 'inscription,document', '', 'common noun'] ,
+
+['lpp', 'tear', '', 'verb'] ,
+
+['šbl', 'royal robe', '', 'common noun'] 
+]"""
+import EngArTranslator
+
+for i in liste:
+    i.append(EngArTranslator.TranslateOffline(i[1]))
+print(liste)

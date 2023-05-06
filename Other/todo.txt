@@ -28,7 +28,7 @@ GUI: add scroll bar
      add transcript fct
      test
 
-
+    fix DB , offline translator not working mac try it on toshiba
 
 
 phoe:
