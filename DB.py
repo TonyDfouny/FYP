@@ -109,234 +109,298 @@ VerbDB={
 # print(DictionaryAraToPhoe)
 
 # (`transcript`, `meaning`, `root_t`, `type`,'arabic') VALUES
-liste = [
-    ['ʾnk', 'I', '', 'personal pronoun'],
 
-    ['tbnt', 'Tabnit', '', 'proper noun']]
+
+liste=[
+
+    ['ʾnk', 'I', '', 'personal pronoun', 'انا', 'online =', 'انا'],
+
+    ['tbnt', 'Tabnit', '', 'proper noun', 'Tabnit', 'online =', 'Tabnit'],
+
+    ['khn', 'priest', '', 'common noun', 'كاهن', 'online =', 'كاهن'],
+
+    ['ʿštrt', 'ʿAštart', '', 'proper noun', ' Aštart', 'online =', 'بداية'],
+
+    ['mlk', 'king', '', 'common noun', 'ملك', 'online =', 'ملك'],
+
+    ['ṣdnm', 'Sidonians', '', 'common noun', 'Sidonians', 'online =', 'الصياريون'],
+
+    ['bn', 'son', '', 'common noun', 'ابني', 'online =', 'ابن'],
+
+    ['ʾšmnʿzr', 'ʾEšmunʿazor', '', 'proper noun', 'ʾEšmun azor', 'online =', 'ʾešmunʿazor'],
+
+    ['škb', 'lie down', '', 'verb', 'استلقي', 'online =', 'ضطجع'],
+
+    ['z', 'this', '', 'determiner', None, 'online =', None],
+
+    ['my', 'whoever', '', 'conjunction', 'ايا كان', 'online =', 'ايا كان'],
+
+    ['ʾt', 'you', '', 'personal pronoun', 'انت', 'online =', 'انت'],
+
+    ['kl', 'all', '', 'determiner', 'كل شيء', 'online =', 'الجميع'],
+
+    ['ʾdm', 'man', '', 'common noun', 'رجل', 'online =', 'رجل'],
+
+    ['ʾš', 'who', '', 'determiner', 'الذي', 'online =', 'من'],
+
+    ['tpq', 'find', 'pwq', 'verb', 'تجد', 'online =', 'يجد'],
+
+    ['ʾrn', 'sarcophagus', '', 'common noun', 'Sarcophagus', 'online =', 'تابوت الحجري'],
+
+    ['ʾl', 'do not', '', 'adverb', 'لا', 'online =', 'لا'],
+
+    ['tptḥ', 'open', 'ptḥ', 'verb', 'مفتوحة', 'online =', 'فتح'],
+
+    ['ʿlt', 'upon', '', 'preposition', 'علي', 'online =', 'علي'],
+
+    ['w', 'and', '', 'conjunction', 'و', 'online =', 'و'],
+
+    ['trgz', 'disturb', 'rgz', 'verb', 'اضطراب', 'online =', 'زعج'],
+
+    ['k', 'as', '', 'conjunction', 'as', 'online =', 'مثل'],
+
+    ['h', 'the', '', 'article', 'the', 'online =', 'ال'],
+
+    ['b', 'in', '', 'preposition', 'في', 'online =', 'في'],
+
+    ['y', 'mine', '', 'possessive suffix', 'الغام', 'online =', 'ملكي'],
+
+    ['n', 'me', '', 'personal pronoun', 'انا', 'online =', 'انا'],
+
+    ['ʾy', 'not', '', 'determiner', 'لا', 'online =', 'لا'],
+
+    ['ʾr', 'collect', 'ʾry', 'verb', 'جمع', 'online =', 'جمع'],
+
+    ['ln', 'to us', 'l', 'preposition', 'لنا', 'online =', 'لنا'],
+    
+    ['ksp', 'silver', '', 'common noun', 'فضة', 'online =', 'فضة'] ,
+
+    ['ḥrṣ', 'gold', '', 'common noun', 'ذهب', 'online =', 'ذهب'] ,
+    
+    ['mnm', 'whatever', '', 'determiner', 'مهما يكن', 'online =', 'ايا كان'] ,
+    
+    ['mšd', 'wealth', '', 'common noun', 'ثروة', 'online =', 'ثروة'] ,
+
+    ['blt', 'but', '', 'conjunction', 'لكن', 'online =', 'لكن'] ,
+    
+    ['tʿbt', 'mess', 'ʿbt', 'verb', 'فوضى', 'online =', 'فوض'] ,
+    
+    ['dbr', 'matter', '', 'common noun', 'مسالة', 'online =', 'موضوع'] ,
+    
+    ['hʾ', 'he', '', 'personal pronoun', 'هو', 'online =', 'هو'] ,
+    
+    ['ʾm', 'if', '', 'conjunction', 'اذا', 'online =', 'لو'] ,
+    
+    ['ptḥ', 'open', '', 'verb', 'مفتوحة', 'online =', 'فتح'] ,
+    
+    ['rgz', 'disturb', '', 'verb', 'اضطراب', 'online =', 'زعج'] ,
+    
+    ['lk', 'to you', 'l', 'preposition', 'لك', 'online =', 'لك'] ,
+
+    ['zrʿ', 'semence,offspring', '', 'common noun', 'حساسية، طفح', 'online =', 'Semence ، ذرية'] ,
+    
+    ['ḥym', 'living', '', 'common noun', 'معيشة', 'online =', 'معيشة'] ,
+    
+    ['tḥt', 'under', '', 'preposition', 'تحت بند', 'online =', 'تحت'] ,
+    
+    ['šmš', 'sun', '', 'common noun', 'شمس', 'online =', 'شمس'] ,
+    
+    ['mškb', 'rest place', 'škb', 'common noun', 'راحة', 'online =', 'مكان الراحة'] ,
+    
+    ['rpʾm', 'Old spirits', '', 'common noun', 'ارواح القديمة', 'online =', 'ارواح القديمة'] ,
+    
+    ['w', 'his', '', 'possessive suffix', 'له', 'online =', 'له'] ,
+    
+    ['mš', 'statue', '', 'common noun', 'تمثال', 'online =', 'تمثال'] ,
+    
+    ['bʾ', 'bring', 'bwʾ', 'verb', 'أحضر', 'online =', 'حضر'] ,
+    
+    ['ʾbbʿl', 'ʾAbibaʿl', '', 'proper noun', 'ʾAbiba l', 'online =', 'ʾabibaʿl'] ,
+    
+    ['gbl', 'Byblos', '', 'proper noun', 'Byblos', 'online =', 'byblos'] ,
+    
+    ['yḥmlk', 'Yeḥimilk', '', 'proper noun', 'Yeḥimilk', 'online =', 'ييميلك'] ,
+    
+    ['mṣrm', 'Egypt', '', 'proper noun', 'مصر', 'online =', 'مصر'] ,
+    
+    ['l', 'To', '', 'preposition', 'الي', 'online =', 'ل'] ,
+    
+    ['bʿlt', 'goddess', '', 'proper noun', 'الالهة', 'online =', 'الهة'] ,
+    
+    ['ʾdt', 'lady', '', 'common noun', 'سيدة', 'online =', 'سيدة'] ,
+    
+    ['tʾrk', 'prolong', 'ʾrk', 'verb', 'إطالة', 'online =', 'اطال'] ,
+    
+    ['ymt', 'days', 'ym', 'common noun', 'ايام', 'online =', 'ايام'] ,
+    
+    ['šnt', 'years', 'št', 'common noun', 'سنوات', 'online =', 'سنين'] ,
+    
+    ['ʿl', 'on', '', 'preposition', 'on', 'online =', 'علي'] ,
+    
+    ['pʿl', 'make', '', 'verb', 'جعل', 'online =', 'صنع'] ,
+    
+    ['ʾlbʿl', 'ʾElibaʿl', '', 'proper noun', 'ʾEliball', 'online =', 'ʾelibaʿl'] ,
+    
+    ['qr', 'wall', '', 'common noun', 'جدار', 'online =', 'حائط'] ,
+    
+    ['bny', 'construct,build', '', 'verb', 'بناء', 'online =', 'بناء ، بناء'] ,
+    
+    ['špṭbʿl', 'Shiptibaal', '', 'proper noun', 'Shiptibaal', 'online =', 'Shiptibaal'] ,
+    
+    ['ḥnwtm', 'Perfume Autel', 'ḥnwt', 'common noun', 'Perfume Autel', 'online =', 'قال العطور'] ,
+    
+    ['ʿbdʾšmn', 'ʿAbdʾešmun', '', 'proper noun', ' Abd ešmun', 'online =', 'عبد'] ,
+    
+    ['bnh', 'constructor', '', 'common noun', 'بناء', 'online =', 'بناء'] ,
+    
+    ['ʾṣʿʾ', 'ʾIṣaʿʾ', '', 'proper noun', '♪ I aina ♪', 'online =', 'هو'] ,
+    
+    ['ʾdn', 'master', '', 'common noun', 'سيدي', 'online =', 'يتقن'] ,
+    
+    ['sml', 'statue', '', 'common noun', 'تمثال', 'online =', 'تمثال'] ,
+    
+    ['bʿl', 'god', '', 'proper noun', 'الله', 'online =', 'اله'] ,
+    
+    ['ybrk', 'bless', 'brk', 'verb', 'نعم', 'online =', 'بار'] ,
+    
+    ['yḥw', 'live', 'ḥwy', 'verb', 'عيش', 'online =', 'عيش'] ,
+    
+    ['ʾl', 'god', '', 'common noun', 'الله', 'online =', 'اله'] ,
+    
+    ['ʾl', 'these', '', 'determiner', 'هذه', 'online =', None] ,
+
+    ['kn', 'so', '', 'adverb', 'هكذا', 'online =', 'لذا'] ,
+
+    ['ʾt', 'you', '', 'personal pronoun', 'انت', 'online =', 'انت'] ,
+
+    ['hʾ', 'she', '', 'personal pronoun', 'هي', 'online =', 'هي'] ,
+
+    ['ʾnḥn', 'we', '', 'personal pronoun', 'نحن', 'online =', 'نحن'] ,
+
+    ['ʾtm', 'you', '', 'personal pronoun', 'انت', 'online =', 'انت'] ,
+
+    ['hmt', 'they', '', 'personal pronoun', 'هم', 'online =', 'هم'] ,
+
+    ['plsbʿl', 'Pelsibaʿl', '', 'proper noun', 'Pelsiball', 'online =', 'بيلسيباب'] ,
+
+    ['ʾḥrm', 'ʾAḥirom', '', 'proper noun', 'ʾA irom', 'online =', 'ʾaḥirom'] ,
+
+    ['ʾb', 'father', '', 'common noun', 'ابي', 'online =', 'اب'] ,
+
+    ['št', 'sleeping bed', '', 'common noun', 'نوم', 'online =', 'سرير النوم'] ,
+
+    ['ʿlm', 'eternity', '', 'common noun', 'خلود', 'online =', 'خلود'] ,
+
+    ['mlkm', 'kings', 'mlk', 'common noun', 'ملوك', 'online =', 'ملوك'] ,
+
+    ['skn', 'governor', '', 'common noun', 'حاكم', 'online =', 'محافظ حاكم'] ,
+
+    ['sknm', 'governors', 'skn', 'common noun', 'حكام', 'online =', 'محافظون'] ,
+
+    ['tmʾ', 'commander', '', 'common noun', 'قائد', 'online =', 'قائد'] ,
+
+    ['mḥnt', 'army,camp', '', 'common noun', 'جيش', 'online =', 'مخيم الجيش'] ,
+
+    ['ʿly', 'invade,come up', '', 'verb', 'غزا، تعال', 'online =', 'غزو ، تعال'] ,
+
+    ['ygl', 'move,remove', 'gly', 'verb', 'تحركوا', 'online =', 'تحرك ، ازال'] ,
+
+    ['zn', 'there', '', 'determiner', 'هناك', 'online =', 'هناك'] ,
+
+    ['tḥtsp', 'break,split', 'ḥsp', 'verb', 'استراحة', 'online =', 'كسر ، انقسام'] ,
+
+    ['ḥṭr', 'scepter', '', 'common noun', 'صدر', 'online =', 'صولجان'] ,
+
+    ['mšpṭ', 'royal authority', '', 'common noun', 'سلطة الملكية', 'online =', 'سلطة الملكية'] ,
+
+    ['thtpk', 'overturn', 'hpk', 'verb', 'تراجع', 'online =', 'نقلب'] ,
+
+    ['ksʾ', 'throne', '', 'common noun', 'عرش', 'online =', 'عرش'] ,
+
+    ['nḥt', 'peace', '', 'common noun', 'سلام', 'online =', 'سلام'] ,
+
+    ['tbrḥ', 'depart', 'brḥ', 'verb', 'غادر', 'online =', 'غادر'] ,
+
+    ['ymḥ', 'erase,eradicate,wipe', 'mḥy', 'verb', 'امسحوا , ارقصوا', 'online =', 'محو ، القضاء ، امسح'] ,
+
+    ['spr', 'inscription,document', '', 'common noun', 'inscription,document', 'online =', 'نقش ، وثيقة'] ,
+
+    ['lpp', 'tear', '', 'verb', 'دموع', 'online =', 'قطع'] ,
+
+    ['šbl', 'royal robe', '', 'common noun', 'سرقة ملكية', 'online =', 'رداء الملكي'] ,
+    
+    ]
+    #['ʾyt', '', '', 'accusative particle', ''],
+
+    #['ykn', 'be', 'kwn', 'verb', '...'],
+
+    #['kwn', 'be', '', 'verb', '...'],
+
+
+import EngArTranslator
+import ArabicParser
+from nltk.stem import arlstem2
+from translators.server import TranslatorError
+stemmer = arlstem2.ARLSTem2()
+
+Format={
+    'Transcript':'',
+    'English':'',
+    'root_t':'',
+    'Type':'',
+    'Oflline':'',
+    'Stemmed':'',
+    'Online':'',
+    'Stemmed':'',
+}
+DATABASE=[]
+
+"""
+    MAKE DATABSE LOOK LIKE :
+    DATABSE=[{'Transcript':'',
+    'English':'',
+    'root_t':'',
+    'Type':'',
+    'Oflline':'',
+    'Stemmed':'',
+    'Online':'',
+    'Stemmed':'',}
+    ,{}
+    ,{}]
+    AND SAVE IT TO DATABSE.txt TO ALWAYS HAVE THE OUTPUT
 """
 
-['khn', 'priest', '', 'common noun'] ,
-
-['ʿštrt', 'ʿAštart', '', 'proper noun'] ,
-
-['mlk', 'king', '', 'common noun'] ,
-
-['ṣdnm', 'Sidonians', '', 'common noun'] ,
-
-['bn', 'son', '', 'common noun'] ,
-
-['ʾšmnʿzr', 'ʾEšmunʿazor', '', 'proper noun'] ,
-
-['škb', 'lie down', '', 'verb'] ,
-
-['z', 'this', '', 'determiner'] ,
-
-['my', 'whoever', '', 'conjunction'] ,
-
-['ʾt', 'you', '', 'personal pronoun'] ,
-
-['kl', 'all', '', 'determiner'] ,
-
-['ʾdm', 'man', '', 'common noun'] ,
-
-['ʾš', 'who', '', 'determiner'] ,
-
-['tpq', 'find', 'pwq', 'verb'] ,
-
-['ʾyt', '', '', 'accusative particle'] ,
-
-['ʾrn', 'sarcophagus', '', 'common noun'] ,
-
-['ʾl', 'do not', '', 'adverb'] ,
-
-['tptḥ', 'open', 'ptḥ', 'verb'] ,
-
-['ʿlt', 'upon', '', 'preposition'] ,
-
-['w', 'and', '', 'conjunction'] ,
-
-['trgz', 'disturb', 'rgz', 'verb'] ,
-
-['k', 'as', '', 'conjunction'] ,
-
-['h', 'the', '', 'article'] ,
-
-['b', 'in', '', 'preposition'] ,
-
-['y', 'mine', '', 'possessive suffix'] ,
-
-['n', 'me', '', 'personal pronoun'] ,
-
-['ʾy', 'not', '', 'determiner'] ,
-
-['ʾr', 'collect', 'ʾry', 'verb'] ,
-
-['ln', 'to us', 'l', 'preposition'] ,
-
-['ksp', 'silver', '', 'common noun'] ,
-
-['ḥrṣ', 'gold', '', 'common noun'] ,
-
-['mnm', 'whatever', '', 'determiner'] ,
-
-['mšd', 'wealth', '', 'common noun'] ,
-
-['blt', 'but', '', 'conjunction'] ,
-
-['tʿbt', 'mess', 'ʿbt', 'verb'] ,
-
-['dbr', 'matter', '', 'common noun'] ,
-
-['hʾ', 'he', '', 'personal pronoun'] ,
-
-['ʾm', 'if', '', 'conjunction'] ,
-
-['ptḥ', 'open', '', 'verb'] ,
-
-['rgz', 'disturb', '', 'verb'] ,
-
-['ykn', 'be', 'kwn', 'verb'] ,
-
-['lk', 'to you', 'l', 'preposition'] ,
-
-['zrʿ', 'semence,offspring', '', 'common noun'] ,
-
-['ḥym', 'living', '', 'common noun'] ,
-
-['tḥt', 'under', '', 'preposition'] ,
-
-['šmš', 'sun', '', 'common noun'] ,
-
-['mškb', 'rest place', 'škb', 'common noun'] ,
-
-['rpʾm', 'Old spirits', '', 'common noun'] ,
-
-['w', 'his', '', 'possessive suffix'] ,
-
-['mš', 'statue', '', 'common noun'] ,
-
-['bʾ', 'bring', 'bwʾ', 'verb'] ,
-
-['ʾbbʿl', 'ʾAbibaʿl', '', 'proper noun'] ,
-
-['gbl', 'Byblos', '', 'proper noun'] ,
-
-['yḥmlk', 'Yeḥimilk', '', 'proper noun'] ,
-
-['mṣrm', 'Egypt', '', 'proper noun'] ,
-
-['l', 'To', '', 'preposition'] ,
-
-['bʿlt', 'goddess', '', 'proper noun'] ,
-
-['ʾdt', 'lady', '', 'common noun'] ,
-
-['tʾrk', 'prolong', 'ʾrk', 'verb'] ,
-
-['ymt', 'days', 'ym', 'common noun'] ,
-
-['šnt', 'years', 'št', 'common noun'] ,
-
-['ʿl', 'on', '', 'preposition'] ,
-
-['pʿl', 'make', '', 'verb'] ,
-
-['ʾlbʿl', 'ʾElibaʿl', '', 'proper noun'] ,
-
-['qr', 'wall', '', 'common noun'] ,
-
-['bny', 'construct,build', '', 'verb'] ,
-
-['špṭbʿl', 'Shiptibaal', '', 'proper noun'] ,
-
-['ḥnwtm', 'Perfume Autel', 'ḥnwt', 'common noun'] ,
-
-['ʿbdʾšmn', 'ʿAbdʾešmun', '', 'proper noun'] ,
-
-['bnh', 'constructor', '', 'common noun'] ,
-
-['ʾṣʿʾ', 'ʾIṣaʿʾ', '', 'proper noun'] ,
-
-['ʾdn', 'master', '', 'common noun'] ,
-
-['sml', 'statue', '', 'common noun'] ,
-
-['bʿl', 'god', '', 'proper noun'] ,
-
-['ybrk', 'bless', 'brk', 'verb'] ,
-
-['yḥw', 'live', 'ḥwy', 'verb'] ,
-
-['ʾl', 'god', '', 'common noun'] ,
-
-['ʾl', 'these', '', 'determiner'] ,
-
-['kwn', 'be', '', 'verb'] ,
-
-['kn', 'so', '', 'adverb'] ,
-
-['ʾt', 'you', '', 'personal pronoun'] ,
-
-['hʾ', 'she', '', 'personal pronoun'] ,
-
-['ʾnḥn', 'we', '', 'personal pronoun'] ,
-
-['ʾtm', 'you', '', 'personal pronoun'] ,
-
-['hmt', 'they', '', 'personal pronoun'] ,
-
-['hmt', 'they', '', 'personal pronoun'] ,
-
-['plsbʿl', 'Pelsibaʿl', '', 'proper noun'] ,
-
-['ʾḥrm', 'ʾAḥirom', '', 'proper noun'] ,
-
-['ʾb', 'father', '', 'common noun'] ,
-
-['št', 'sleeping bed', '', 'common noun'] ,
-
-['ʿlm', 'eternity', '', 'common noun'] ,
-
-['mlkm', 'kings', 'mlk', 'common noun'] ,
-
-['skn', 'governor', '', 'common noun'] ,
-
-['sknm', 'governors', 'skn', 'common noun'] ,
-
-['tmʾ', 'commander', '', 'common noun'] ,
-
-['mḥnt', 'army,camp', '', 'common noun'] ,
-
-['ʿly', 'invade,come up', '', 'verb'] ,
-
-['ygl', 'move,remove', 'gly', 'verb'] ,
-
-['zn', 'there', '', 'determiner'] ,
-
-['tḥtsp', 'break,split', 'ḥsp', 'verb'] ,
-
-['ḥṭr', 'scepter', '', 'common noun'] ,
-
-['mšpṭ', 'royal authority', '', 'common noun'] ,
-
-['thtpk', 'overturn', 'hpk', 'verb'] ,
-
-['ksʾ', 'throne', '', 'common noun'] ,
-
-['nḥt', 'peace', '', 'common noun'] ,
-
-['tbrḥ', 'depart', 'brḥ', 'verb'] ,
-
-['ymḥ', 'erase,eradicate,wipe', 'mḥy', 'verb'] ,
-
-['spr', 'inscription,document', '', 'common noun'] ,
-
-['lpp', 'tear', '', 'verb'] ,
-
-['šbl', 'royal robe', '', 'common noun'] 
-]"""
-import EngArTranslator
-
 for i in liste:
-    i.append(EngArTranslator.TranslateOffline(i[1]))
-print(liste)
+    for j in i:
+
+
+# t=[['lpp', 'father', '', 'noun','الدموع','online =']]
+# t[0].append('غادر')
+# print(t[0])
+# print(t[0][5])
+# for i in liste:
+#     i.append('online =')
+#     try:
+#         i.append(EngArTranslator.TranslateOnline(i[1]))
+#     except TranslatorError:
+#         i.append('Error')
+#     if i[3]=='verb':
+#         i[6]=stemmer.stem(i[6])
+#     else:
+#         i[6]=stemmer.norm(i[6])
+#         i[4]=stemmer.norm(i[4])
+#     ar=ArabicParser.ArabicParser(i[4])
+#     if ar[0][:2]=='DT':
+#         i[4]=stemmer.pref(i[4])
+#     ar = ArabicParser.ArabicParser(i[6])
+#     if ar[0][:2] == 'DT':
+#         i[6] = stemmer.pref(i[6])
+#     print(i,',\n')
+
+####TRY WITH ON TO SE IF 3ALA OR 3ALI
+
+#print(ArabicParser.ArabicParser('الملك'))
+#print(EngArTranslator.TranslateOffline('tear'))
+
+print(EngArTranslator.TranslateOnline('on'))
+print(stemmer.norm('على'))

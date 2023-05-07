@@ -1,8 +1,10 @@
-"""
+
 from nltk.stem import arlstem2
 
 words=['ابنه','ابنها','إبنهم','إبنك','كلبنا','كلبكي','كلبكم','كلبي']
 stemmer = arlstem2.ARLSTem2()
+print(stemmer.norm('كاهن'))
+"""
 customstemmer=arlstem2.CustomARLSTem2()
 for word in words:
     #print(stemmer.customsuff(stemmer.norm(word)) )#remove prefix and suffix
