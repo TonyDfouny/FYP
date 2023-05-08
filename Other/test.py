@@ -1,9 +1,9 @@
 
 from nltk.stem import arlstem2
 
-words=['ابنه','ابنها','إبنهم','إبنك','كلبنا','كلبكي','كلبكم','كلبي']
-stemmer = arlstem2.ARLSTem2()
-print(stemmer.norm('كاهن'))
+# words=['ابنه','ابنها','إبنهم','إبنك','كلبنا','كلبكي','كلبكم','كلبي']
+# stemmer = arlstem2.ARLSTem2()
+# print(stemmer.norm('كاهن'))
 """
 customstemmer=arlstem2.CustomARLSTem2()
 for word in words:
@@ -25,8 +25,22 @@ for word in words:
 # L=[1,2,'sadsad']
 # print(len(L))
 """
-l=[1,3,4,6,7]
-l.remove(4)
-print(l)
-n='tony'
-print(n.count(' '))
+# l=[1,3,4,6,7]
+# l.remove(4)
+# print(l)
+# n='tony'
+# print(n.count(' '))
+
+DATABSE={'Transcript':'1',
+    'English':'2',
+    'root_t':'3',
+    'Type':'4',
+    'Oflline':'5',
+    'Stemmed':'6',
+    'Online':'7',
+    'Stemmed':'8',}
+
+for key in DATABSE.keys():
+    i=0
+    print("Format['",key,"']=i[",i,']')
+    i=i+1

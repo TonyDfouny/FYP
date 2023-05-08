@@ -131,7 +131,7 @@ liste=[
 
     ['škb', 'lie down', '', 'verb', 'استلقي', 'online =', 'ضطجع'],
 
-    ['z', 'this', '', 'determiner', None, 'online =', None],
+    ['z', 'this', '', 'determiner', 'None', 'online =', 'None'],
 
     ['my', 'whoever', '', 'conjunction', 'ايا كان', 'online =', 'ايا كان'],
 
@@ -267,7 +267,7 @@ liste=[
     
     ['ʾl', 'god', '', 'common noun', 'الله', 'online =', 'اله'] ,
     
-    ['ʾl', 'these', '', 'determiner', 'هذه', 'online =', None] ,
+    ['ʾl', 'these', '', 'determiner', 'هذه', 'online =', 'None'] ,
 
     ['kn', 'so', '', 'adverb', 'هكذا', 'online =', 'لذا'] ,
 
@@ -343,18 +343,18 @@ from nltk.stem import arlstem2
 from translators.server import TranslatorError
 stemmer = arlstem2.ARLSTem2()
 
-Format={
-    'Transcript':'',
-    'English':'',
-    'root_t':'',
-    'Type':'',
-    'Oflline':'',
-    'Stemmed':'',
-    'Online':'',
-    'Stemmed':'',
-}
+# Format={
+#     'Transcript':'',
+#     'English':'',
+#     'root_t':'',
+#     'Type':'',
+#     'Oflline':'',
+#     'Stemmed Offline':'',
+#     'Online':'',
+#     'Stemmed Online':'',
+# }
 DATABASE=[]
-
+VERBDATABASE=[]
 """
     MAKE DATABSE LOOK LIKE :
     DATABSE=[{'Transcript':'',
@@ -369,9 +369,74 @@ DATABASE=[]
     ,{}]
     AND SAVE IT TO DATABSE.txt TO ALWAYS HAVE THE OUTPUT
 """
+t=[['ʾnk', 'I', '', 'personal pronoun', 'انا', 'online =', 'انا'],
 
-for i in liste:
-    for j in i:
+    ['tbnt', 'Tabnit', '', 'proper noun', 'Tabnit', 'online =', 'Tabnit'],
+
+    ['khn', 'priest', '', 'common noun', 'كاهن', 'online =', 'كاهن']]
+
+# for i in liste:
+#     print(i[1])
+#     try:
+#         Format={}
+#         Format['Transcript'] = i[0]
+#         Format['English'] = i[1]
+#         Format['root_t'] = i[2]
+#         Format['Type'] = i[3]
+#         Format['Oflline'] = EngArTranslator.TranslateOffline(i[1])
+#         Format['Stemmed Offline'] = i[4]
+#         Format['Online'] = EngArTranslator.TranslateOnline(i[1])
+#         Format['Stemmed Online']=i[6]
+#         DATABASE.append(Format)
+#     except TypeError:
+#         pass
+#
+# for line in DATABASE:
+#     print(line)
+#f = open("DATABASE.txt", 'r',encoding='utf-8')
+#f.close()
+
+
+##############VERBS###############
+# for line in liste:
+#     if line[3]=='verb':
+#         Format = {}
+#         Format['Transcript'] = line[0]
+#         Format['English'] = line[1]
+#         Format['root_t']=line[2]
+#         Format['Type'] = line[3]
+#         Format['Grammar']='GrammarDict'
+#         VERBDATABASE.append(Format)
+#
+# for i in VERBDATABASE:
+#     print(i)
+
+############ABJAD###############
+abjad=[{'𐤀':'ʾ'},
+{'𐤁':'b'},
+{'𐤂':'g'},
+{'𐤃':'d'},
+{'𐤄':'h'},
+{'𐤅':'w'},
+{'𐤆':'z'},
+{'𐤇':'ḥ'},
+{'𐤈':'ṭ'},
+{'𐤉':'y'},
+{'𐤊':'k'},
+{'𐤋':'l'},
+{'𐤌':'m'},
+{'𐤍':'n'},
+{'𐤎':'s'},
+{'𐤏':'ʿ'},
+{'𐤐':'p'},
+{'𐤑':'ṣ'},
+{'𐤒':'q'},
+{'𐤓':'r'},
+{'𐤔':'š'},
+{'𐤕':'t'},
+]
+
+
 
 
 # t=[['lpp', 'father', '', 'noun','الدموع','online =']]
@@ -402,5 +467,5 @@ for i in liste:
 #print(ArabicParser.ArabicParser('الملك'))
 #print(EngArTranslator.TranslateOffline('tear'))
 
-print(EngArTranslator.TranslateOnline('on'))
-print(stemmer.norm('على'))
+# print(EngArTranslator.TranslateOnline('on'))
+# print(stemmer.norm('على'))
