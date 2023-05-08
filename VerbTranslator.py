@@ -21,9 +21,10 @@ def presentverb(verb):
                  ('ي', 'ون'):'3p.pl.c',('ي', 'ن'):'3p.pl.c',('ت', 'ان'):'3p.pl.c',('ي', 'ان'):'3p.pl.c'       ###تأكلان NO DUAL IN PHOE, ONLY PLURIAL
     }
 
-    output=[grammar[0],presentdict[grammar[1:]]]
-
-    return output
+    try:
+        return [grammar[0],presentdict[grammar[1:]]]
+    except KeyError:
+        return [grammar[0],'3p.s.m.']
 
 def pastverb(verb):
     """
@@ -36,7 +37,11 @@ def pastverb(verb):
     ArListem.light_stem(verb)
     suffix=ArListem.get_suffix()
     l = len(suffix)
-    rootverb = verb[:-l]
+    if l==0:
+        rootverb=verb
+    else:
+        rootverb = verb[:-l]
+
     pastdict = {('ت'):'1p.s.c.',
                  ('ت'):'2p.s.m.',
                  ('ت'):'2p.s.f',
@@ -48,8 +53,10 @@ def pastverb(verb):
                  ('وا'):'3p.pl.c',('ن'):'3p.pl.c',('تما'):'3p.pl.c',('ا'):'3p.pl.c'
                 }
 
-    output=[rootverb,pastdict[suffix]]
-    return output
+    try:
+        return [rootverb,pastdict[suffix]]
+    except KeyError:
+        return [rootverb,'3p.s.m.']
 
 # def FindVerb(rootverb,person):
 #     """
@@ -66,6 +73,14 @@ def pastverb(verb):
 #     return phoeverb
 
 #FindVerb(pastverb(words[0])[0],pastverb(words[0])[1])
+# def verb(details):
+#     """
+#     :param details: ['rootverb','person']
+#     :return: Finder.FindVerb(rootverb,person)
+#     """
+#     rootverb = details[0]
+#     person = details[1]
+#     return Finder.FindVerb(rootverb, person)
 
 def VerbTranslator(words):
     """
@@ -76,22 +91,24 @@ def VerbTranslator(words):
     verb=words.split()
     pastTags=['VB','VBD','VBN']
     presentTags=['VBG','VBP','VBZ']
-    try:
-        if verb[0] in pastTags:
-            details=pastverb(verb[1])
-            rootverb=details[0]
-            person=details[1]
-            output=Finder.FindVerb(rootverb,person)
-        elif verb[0] in presentTags:
-            details = presentverb(verb[1])
-            rootverb = details[0]
-            person = details[1]
-            output=Finder.FindVerb(rootverb,person)
 
-        return output
-    except KeyError:
-        return Finder.FindWord(verb[1])
+    if verb[0] in pastTags:
+        details=pastverb(verb[1])
+        rootverb=details[0]
+        person=details[1]
+        return Finder.FindVerb(rootverb,person)
 
+
+    elif verb[0] in presentTags:
+        details = presentverb(verb[1])
+        rootverb = details[0]
+        person = details[1]
+        return Finder.FindVerb(rootverb,person)
+
+
+
+
+#print(VerbTranslator('VBD أجمع'))
 ########TEST###########
 #print(VerbTranslator('VBP ياتي'))
 

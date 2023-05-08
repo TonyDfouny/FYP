@@ -1,23 +1,4 @@
-import DB
 import WordFinder
-
-def FindVerb(rootverb,person):
-    """
-
-    :param rootverb: 'rootverb' of the original verb in arabic
-    :param person:  'person'
-    :return: 'verb in phoe'
-    """
-    try:    #get translated verb where dict[rootverb] and person[person]
-        rootphoeverb=WordFinder.DBwordFinder(rootverb)
-        phoeverb=WordFinder.DBverbFinder(rootphoeverb,person)
-        #print('root =',rootverb,'\n',person)
-        return phoeverb
-    except KeyError:
-        return rootverb
-
-
-
 
 def FindWord(word):
     """
@@ -46,3 +27,26 @@ def FindWord(word):
 
 #print(FindVerb('اتي','1p.s.c.'))
 #print (FindWord('ابنه'))
+
+def FindVerb(rootverb,person):
+    """
+
+    :param rootverb: 'rootverb' of the original verb in arabic
+    :param person:  'person'
+    :return: 'verb in phoe'
+    """
+    #get translated verb where dict[rootverb] and person[person]
+    from nltk.stem import arlstem2
+    stemmer = arlstem2.ARLSTem2()
+    try:
+        return WordFinder.DBverbFinder(rootverb,person)
+    #If nothing is found we try with a stemed verb
+    except KeyError:
+        try:
+            return WordFinder.DBverbFinder(stemmer.stem(rootverb),person)
+        except KeyError:
+            return FindWord(rootverb)
+
+
+
+#print(FindVerb('أجمع','person'))

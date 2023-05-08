@@ -1,13 +1,22 @@
 #PARSER#
 import ArabicParser,VerbTranslator,Finder,ALwordsTranslator
+from EngArTranslator import *
 
 def ArPhoeTranslator(sourcesentence):
     """
 
-    :param sourcesentence: 'sentence in arabic'
+    :param sourcesentence: 'sentence english'
     :return: 'sentence in phoenician'
     """
-    parsedsentence=ArabicParser.ArabicParser(sourcesentence)
+    # TRANSLATE FROM ENGLISH TO ARABIC#
+    translatedsentence = TranslateOffline(sourcesentence)
+    # print('offline: ',translatedsentence)
+    #
+    # translatedsentence=TranslateOnline(sourcesentence)
+    # print('online: ',translatedsentence)
+
+    parsedsentence=ArabicParser.ArabicParser(translatedsentence)
+
     output_sentence=''
     for words in parsedsentence:
         if words[0]=='V':

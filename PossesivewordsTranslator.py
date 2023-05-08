@@ -18,4 +18,16 @@ def Possesive(word):
      }
 
     suffix = customstemmer.possessive(word)
-    return WordFinder.DBwordFinder(suffix[0])+Posdict[suffix[1]]
+    try:
+        suffix[0]
+        suffix[1]
+        try:
+            phoeword=WordFinder.DBwordFinder(suffix[0])
+            return phoeword + Posdict[suffix[1]]
+        except KeyError:
+            raise KeyError
+    except IndexError:
+        raise KeyError
+
+
+
