@@ -28,9 +28,9 @@ def FindWord(word):
 #print(FindVerb('اتي','1p.s.c.'))
 #print (FindWord('ابنه'))
 
-def FindVerb(rootverb,person):
+def FindVerb(verb,rootverb,person):
     """
-
+    :param verb: 'verb' original verb in arabic (as translated)
     :param rootverb: 'rootverb' of the original verb in arabic
     :param person:  'person'
     :return: 'verb in phoe'
@@ -45,7 +45,17 @@ def FindVerb(rootverb,person):
         try:
             return WordFinder.DBverbFinder(stemmer.stem(rootverb),person)
         except KeyError:
-            return FindWord(rootverb)
+            try:
+                return WordFinder.DBverbFinder(verb,person)
+            except KeyError:
+                try:
+                    return WordFinder.DBverbFinder(stemmer.stem(verb),person)
+                except KeyError:
+                    phoe=FindWord(rootverb)
+                    if phoe==rootverb:
+                        return FindWord(verb)
+                    else:
+                        return phoe
 
 
 

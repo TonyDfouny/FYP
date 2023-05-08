@@ -96,14 +96,14 @@ def VerbTranslator(words):
         details=pastverb(verb[1])
         rootverb=details[0]
         person=details[1]
-        return Finder.FindVerb(rootverb,person)
+        return Finder.FindVerb(verb[1],rootverb,person)
 
 
     elif verb[0] in presentTags:
         details = presentverb(verb[1])
         rootverb = details[0]
         person = details[1]
-        return Finder.FindVerb(rootverb,person)
+        return Finder.FindVerb(verb[1],rootverb,person)
 
 
 

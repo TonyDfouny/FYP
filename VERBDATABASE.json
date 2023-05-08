@@ -10,5 +10,5 @@
 {"Transcript": "tḥtsp", "English": "break,split", "root_t": "ḥsp", "Type": "verb", "Oflline": "استراحة", "Stemmed Offline": "استراحة", "Online": "كسر ، انقسام", "Stemmed Online": "كسر ، انقسام", "Grammar": "GrammarDict"},
 {"Transcript": "thtpk", "English": "overturn", "root_t": "hpk", "Type": "verb", "Oflline": "التراجع", "Stemmed Offline": "تراجع", "Online": "انقلب", "Stemmed Online": "نقلب", "Grammar": "GrammarDict"},
 {"Transcript": "tbrḥ", "English": "depart", "root_t": "brḥ", "Type": "verb", "Oflline": "غادر", "Stemmed Offline": "غادر", "Online": "تغادر", "Stemmed Online": "غادر", "Grammar": "GrammarDict"},
-{"Transcript": "ymḥ", "English": "erase,eradicate,wipe", "root_t": "mḥy", "Type": "verb", "Oflline": "امسحوا , ارقصوا", "Stemmed Offline": "امسحوا , ارقصوا", "Online": "تمحو ، القضاء ، امسح", "Stemmed Online": "محو ، القضاء ، امسح", "Grammar": "GrammarDict"}
+{"Transcript": "ymḥ", "English": "erase,eradicate,wipe", "root_t": "mḥy", "Type": "verb", "Oflline": "امسحوا , ارقصوا", "Stemmed Offline": "امسحوا,ارقصوا,مسح", "Online": "تمحو ، القضاء ، امسح", "Stemmed Online": "محو ، القضاء ، امسح", "Grammar": "GrammarDict"}
 ]

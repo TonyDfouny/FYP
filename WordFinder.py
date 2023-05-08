@@ -5,7 +5,9 @@ wordsDB = json.load(words)
 
 def wordFinder(word):
     for line in wordsDB:
-        if line['Stemmed Offline']==word:
+        # if line['Stemmed Offline']==word:
+        #     return line['Transcript']
+        if word in line['Stemmed Offline'].split(','):
             return line['Transcript']
 def DBwordFinder(word):
     """
@@ -24,9 +26,11 @@ verbsDB = json.load(verbs)
 
 def verbFinder(verb,person):
     for line in verbsDB:
-        if line['Stemmed Offline'] == verb:
-            return line['Transcript']
+        # if line['Stemmed Offline'] == verb:
+        #     return line['Transcript']
             # return line['Grammar'][person]
+        if verb in line['Stemmed Offline'].split(','):
+            return line['Transcript']
 def DBverbFinder(verb,person):
     """
     :param verb: 'verb in arabic'
