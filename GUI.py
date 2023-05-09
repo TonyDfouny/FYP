@@ -4,6 +4,8 @@ from tkinter.messagebox import showerror
 import tkinter
 from tkinter import *
 from tkinter import ttk
+
+import PhoeEnTranslator
 from ArPhoeTranslator import *
 from PIL import ImageTk,Image
 import tkinter.font as tkFont
@@ -66,6 +68,8 @@ def LanguageTranslator():
         Arrowbtn['state'] = 'normal'
         if outputlanguage.get()=='Phoenician':
             checkbox['state'] = 'normal'
+        else:
+            checkbox['state'] = 'disabled'
 
     inputcombo.bind('<<ComboboxSelected>>', InputLanguageSelection)
     outputcombo.bind('<<ComboboxSelected>>', OutputLanguageSelection)
@@ -94,7 +98,15 @@ def LanguageTranslator():
 
             except ValueError:
                 showerror('Error', 'You need to enter a text')
-
+        else:
+            try:
+                srctext = GetText()
+                OutputTextBox['state'] = 'normal'
+                OutputTextBox.delete("1.0", 'end-1c')
+                OutputTextBox.insert("1.0", PhoeEnTranslator.PhoeEnTranslate(srctext))
+                OutputTextBox['state'] = 'disabled'
+            except ValueError:
+                showerror('Error', 'You need to enter a text')
     def ArrowBtn():
         temp = inputlanguage.get()
         inputlanguage.set(outputcombo.get())

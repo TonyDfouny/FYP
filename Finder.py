@@ -28,11 +28,10 @@ def FindWord(word,translationtype):
 #print(FindVerb('اتي','1p.s.c.'))
 #print (FindWord('ابنه'))
 
-def FindVerb(verb,rootverb,person,translationtype):
+def FindVerb(verb,rootverb,translationtype):
     """
     :param verb: 'verb' original verb in arabic (as translated)
     :param rootverb: 'rootverb' of the original verb in arabic
-    :param person:  'person'
     :param translationtype: 'online or offline'
     :return: 'verb in phoe'
     """
@@ -40,17 +39,17 @@ def FindVerb(verb,rootverb,person,translationtype):
     from nltk.stem import arlstem2
     stemmer = arlstem2.ARLSTem2()
     try:
-        return WordFinder.DBverbFinder(rootverb,person,translationtype)
+        return WordFinder.DBverbFinder(rootverb,translationtype)
     #If nothing is found we try with a stemed verb
     except KeyError:
         try:
-            return WordFinder.DBverbFinder(stemmer.stem(rootverb),person,translationtype)
+            return WordFinder.DBverbFinder(stemmer.stem(rootverb),translationtype)
         except KeyError:
             try:
-                return WordFinder.DBverbFinder(verb,person,translationtype)
+                return WordFinder.DBverbFinder(verb,translationtype)
             except KeyError:
                 try:
-                    return WordFinder.DBverbFinder(stemmer.stem(verb),person,translationtype)
+                    return WordFinder.DBverbFinder(stemmer.stem(verb),translationtype)
                 except KeyError:
                     phoe=FindWord(rootverb,translationtype)
                     if phoe==rootverb:

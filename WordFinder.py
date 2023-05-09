@@ -31,29 +31,28 @@ verbsDB = json.load(verbs)
 
 
 
-def verbFinder(verb,person,translationtype):
+def verbFinder(verb,translationtype):
     if translationtype=='Offline':
         for line in verbsDB:
             # if line['Stemmed Offline'] == verb:
             #     return line['Transcript']
                 # return line['Grammar'][person]
             if verb in line['Stemmed Offline'].split(','):
-                return line['Transcript']
+                return line['root_t']
     else:
         for line in verbsDB:
             # if line['Stemmed Offline'] == verb:
             #     return line['Transcript']
                 # return line['Grammar'][person]
             if verb in line['Stemmed Online'].split(','):
-                return line['Transcript']
-def DBverbFinder(verb,person,translationtype):
+                return line['root_t']
+def DBverbFinder(verb,translationtype):
     """
     :param verb: 'verb in arabic'
-    :param person: 'person'
     :return: the corresponding 'phoeverb'
     """
-    if verbFinder(verb,person,translationtype) is None:
+    if verbFinder(verb,translationtype) is None:
         raise KeyError
     else:
-        return verbFinder(verb,person,translationtype)
+        return verbFinder(verb,translationtype)
 

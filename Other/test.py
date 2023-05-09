@@ -73,3 +73,5 @@ for word in words:
 #
 # Application().start()
 
+# t='tony'
+# print(t[1:])

@@ -1,4 +1,7 @@
 import Finder
+import PhoePastVerbPattern
+import PhoePresentVerbPattern
+
 
 def presentverb(verb):
     """
@@ -12,13 +15,13 @@ def presentverb(verb):
     #print(grammar) ('اكل', 'ت', 'ين')
     presentdict={('ا',):'1p.s.c.',('',''):'1p.s.c.',
                  ('ت',):'2p.s.m.',
-                 ('ت', 'ين'):'2p.s.f',
+                 ('ت', 'ين'):'2p.s.f.',
                  ('ي',):'3p.s.m.',
-                 ('ت',):'3p.s.f',
+                 ('ت',):'3p.s.f.',
                  ('ن',):'1p.pl.c.',
-                 ('ت', 'ون'):'2p.pl.m',
+                 ('ت', 'ون'):'2p.pl.m.',
                  ('ت', 'ن'):'2p.pl.f.',
-                 ('ي', 'ون'):'3p.pl.c',('ي', 'ن'):'3p.pl.c',('ت', 'ان'):'3p.pl.c',('ي', 'ان'):'3p.pl.c'       ###تأكلان NO DUAL IN PHOE, ONLY PLURIAL
+                 ('ي', 'ون'):'3p.pl.c.',('ي', 'ن'):'3p.pl.c.',('ت', 'ان'):'3p.pl.c.',('ي', 'ان'):'3p.pl.c.'       ###تأكلان NO DUAL IN PHOE, ONLY PLURIAL
     }
 
     try:
@@ -44,13 +47,13 @@ def pastverb(verb):
 
     pastdict = {('ت'):'1p.s.c.',
                  ('ت'):'2p.s.m.',
-                 ('ت'):'2p.s.f',
+                 ('ت'):'2p.s.f.',
                  (''):'3p.s.m.',
-                 ('ت'):'3p.s.f',
+                 ('ت'):'3p.s.f.',
                  ('نا'):'1p.pl.c.',
-                 ('تم'):'2p.pl.m',
+                 ('تم'):'2p.pl.m.',
                  ('تن'):'2p.pl.f.',
-                 ('وا'):'3p.pl.c',('ن'):'3p.pl.c',('تما'):'3p.pl.c',('ا'):'3p.pl.c'
+                 ('وا'):'3p.pl.c.',('ن'):'3p.pl.c.',('تما'):'3p.pl.c.',('ا'):'3p.pl.c.'
                 }
 
     try:
@@ -97,14 +100,22 @@ def VerbTranslator(words,translationtype):
         details=pastverb(verb[1])
         rootverb=details[0]
         person=details[1]
-        return Finder.FindVerb(verb[1],rootverb,person,translationtype)
+        phoerootverb=Finder.FindVerb(verb[1],rootverb,translationtype)
+        if phoerootverb==rootverb:
+            return rootverb
+        else:
+            return PhoePastVerbPattern.PastPattern(phoerootverb,person)
 
 
     elif verb[0] in presentTags:
         details = presentverb(verb[1])
         rootverb = details[0]
         person = details[1]
-        return Finder.FindVerb(verb[1],rootverb,person,translationtype)
+        phoerootverb=Finder.FindVerb(verb[1],rootverb,translationtype)
+        if phoerootverb==rootverb:
+            return rootverb
+        else:
+            return PhoePresentVerbPattern.PresentPattern(phoerootverb,person)
 
 
 
