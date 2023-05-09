@@ -1,27 +1,56 @@
-def TranslateOnline(sourcesentence):
+def TranslateOnline(sourcesentence,from_code,to_code):
     """
-
-    :param sourcesentence: 'sentence in english'
-    :return: 'sentence in arabic'
+    :param sourcesentence: 'sentence in source lang'
+    :param from_code: 'lang code' en for english
+    :param from_code: 'lang code' ar for arabic
+    :return: 'sentence in destination lang'
     """
     import translators as ts
-    translatedsentence=ts.translate_text(sourcesentence,'google','en','ar')
+    translatedsentence=ts.translate_text(sourcesentence,'google',from_code,to_code)
     return translatedsentence
 
 
-def TranslateOffline(sourcesentence):
+def TranslateOffline(sourcesentence,from_code,to_code):
     """
-
-    :param sourcesentence: 'sentence in english'
-    :return: 'sentence in arabic'
+    :param sourcesentence: 'sentence in source lang'
+    :param from_code: 'lang code' en for english
+    :param from_code: 'lang code' ar for arabic
+    :return: 'sentence in destination lang'
     """
 
     import argostranslate.translate
-    from_code = "en"
-    to_code = "ar"
+    # from_code = "en"
+    # to_code = "ar"
     translatedsentence = argostranslate.translate.translate(sourcesentence, from_code, to_code)
 
     return translatedsentence
+
+def Translate(sourcesentence,translationtype):
+    """
+
+    :param sourcesentence: 'sentence in english'
+    :param translationtype: 'offline or online'
+    :return: 'sentence in arabic'
+    """
+    if translationtype=='Offline':
+        return TranslateOffline(sourcesentence,'en','ar')
+    elif translationtype=='Online':
+        return TranslateOnline(sourcesentence,'en','ar')
+
+def ReTranslate(sourcesentence,translationtype):
+    """
+
+    :param sourcesentence: 'sentence in arabic'
+    :param translationtype: 'offline or online'
+    :return: 'sentence in english'
+    """
+    if translationtype=='Offline':
+        return TranslateOffline(sourcesentence,'ar','en')
+    elif translationtype=='Online':
+        return TranslateOnline(sourcesentence,'ar','en')
+
+
+
 
 """
 آكل false translation lezim tkoun أأكل

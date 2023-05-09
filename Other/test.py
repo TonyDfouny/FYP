@@ -31,19 +31,19 @@ for word in words:
 # n='tony'
 # print(n.count(' '))
 
-DATABSE={'Transcript':'1',
-    'English':'2',
-    'root_t':'3',
-    'Type':'4',
-    'Oflline':'5',
-    'Stemmed':'6',
-    'Online':'7',
-    'Stemmed':'8',}
-
-for key in DATABSE.keys():
-    i=0
-    print("Format['",key,"']=i[",i,']')
-    i=i+1
+# DATABSE={'Transcript':'1',
+#     'English':'2',
+#     'root_t':'3',
+#     'Type':'4',
+#     'Oflline':'5',
+#     'Stemmed':'6',
+#     'Online':'7',
+#     'Stemmed':'8',}
+#
+# for key in DATABSE.keys():
+#     i=0
+#     print("Format['",key,"']=i[",i,']')
+#     i=i+1
 
 
 # import tkinter as tk
@@ -72,3 +72,4 @@ for key in DATABSE.keys():
 #
 #
 # Application().start()
+

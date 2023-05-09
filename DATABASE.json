@@ -2,7 +2,7 @@
 {"Transcript": "tbnt", "English": "Tabnit", "root_t": "", "Type": "proper noun", "Oflline": "Tabnit", "Stemmed Offline": "Tabnit", "Online": "Tabnit", "Stemmed Online": "Tabnit"},
 {"Transcript": "mlk", "English": "king", "root_t": "", "Type": "common noun", "Oflline": "الملك", "Stemmed Offline": "ملك", "Online": "ملِك", "Stemmed Online": "ملك"},
 {"Transcript": "ṣdnm", "English": "Sidonians", "root_t": "", "Type": "common noun", "Oflline": "Sidonians", "Stemmed Offline": "Sidonians", "Online": "الصياريون", "Stemmed Online": "الصياريون"},
-{"Transcript": "bn", "English": "son", "root_t": "", "Type": "common noun", "Oflline": "إبني", "Stemmed Offline": "ابني", "Online": "ابن", "Stemmed Online": "ابن"},
+{"Transcript": "bn", "English": "son", "root_t": "", "Type": "common noun", "Oflline": "إبني", "Stemmed Offline": "ابن", "Online": "ابن", "Stemmed Online": "ابن"},
 {"Transcript": "z", "English": "this", "root_t": "", "Type": "determiner", "Oflline": "هذا", "Stemmed Offline": "None", "Online": "هذا", "Stemmed Online": "None"},
 {"Transcript": "my", "English": "whoever", "root_t": "", "Type": "conjunction", "Oflline": "أيا كان", "Stemmed Offline": "ايا كان", "Online": "أيا كان", "Stemmed Online": "ايا كان"},
 {"Transcript": "kl", "English": "all", "root_t": "", "Type": "determiner", "Oflline": "كل شيء", "Stemmed Offline": "كل شيء", "Online": "الجميع", "Stemmed Online": "الجميع"},

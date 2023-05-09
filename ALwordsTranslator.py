@@ -1,6 +1,6 @@
 import Finder
 
-def Alwords(words):
+def Alwords(words,translationtype):
 
     from nltk.stem import arlstem2
     """
@@ -11,7 +11,7 @@ def Alwords(words):
     stemmer = arlstem2.ARLSTem2()
     word=words.split()[1]
     stemmedword=stemmer.pref(word)
-    phoeword=Finder.FindWord(stemmedword)
+    phoeword=Finder.FindWord(stemmedword,translationtype)
     if phoeword==stemmedword:
         return word
     else:

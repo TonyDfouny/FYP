@@ -23,7 +23,8 @@ def LanguageTranslator():
     inputlanguage = tkinter.StringVar()
     outputlanguage = tkinter.StringVar()
     # outputtext=tkinter.StringVar()
-
+    online=tkinter.StringVar()
+    online.set('Offline')
     # Combobox for input
 
     inputcombo = ttk.Combobox(root, textvariable=inputlanguage, values=languages, state='readonly')
@@ -63,6 +64,8 @@ def LanguageTranslator():
     def OutputLanguageSelection(event):
         Translatebtn['state'] = 'normal'
         Arrowbtn['state'] = 'normal'
+        if outputlanguage.get()=='Phoenician':
+            checkbox['state'] = 'normal'
 
     inputcombo.bind('<<ComboboxSelected>>', InputLanguageSelection)
     outputcombo.bind('<<ComboboxSelected>>', OutputLanguageSelection)
@@ -85,7 +88,7 @@ def LanguageTranslator():
                 srctext = GetText()
                 OutputTextBox['state'] = 'normal'
                 OutputTextBox.delete("1.0", 'end-1c')
-                OutputTextBox.insert("1.0", ArPhoeTranslator(srctext))
+                OutputTextBox.insert("1.0", ArPhoeTranslator(srctext,online.get()))
                 OutputTextBox['state'] = 'disabled'
 
 
@@ -105,6 +108,9 @@ def LanguageTranslator():
 
     Arrowbtn['command'] = ArrowBtn
 
+    #Check box for online offline
+    checkbox=Checkbutton(root,text='Online',variable=online,onvalue='Online',offvalue='Offline',state='disabled')
+    checkbox.grid(column=49,row=20)
     # Button Translate
     Translatebtn = Button(root, text='Translate', command=Translate, state='disabled')
     Translatebtn.grid(column=50, row=20)

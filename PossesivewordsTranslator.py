@@ -1,4 +1,4 @@
-def Possesive(word):
+def Possesive(word,translationtype):
     """
 
     :param word: 'word' in arabic with possessive suffix
@@ -6,6 +6,7 @@ def Possesive(word):
     """
     import WordFinder
     from nltk.stem import arlstem2
+    stemmer=arlstem2.ARLSTem2()
     customstemmer = arlstem2.CustomARLSTem2()
     Posdict={'ي':'y',
      'ك':'k',
@@ -18,16 +19,29 @@ def Possesive(word):
      }
 
     suffix = customstemmer.possessive(word)
+    #
+    # print(suffix[0][:-1]+'ة')
     try:
-        suffix[0]
-        suffix[1]
+        if type(suffix) != list:
+            raise IndexError
+        if suffix[0][-1]=='ت':
+            suffix[0]=suffix[0][:-1]+'ة'
         try:
-            phoeword=WordFinder.DBwordFinder(suffix[0])
+            phoeword=WordFinder.DBwordFinder(suffix[0],translationtype)
             return phoeword + Posdict[suffix[1]]
         except KeyError:
             raise KeyError
     except IndexError:
-        raise KeyError
+        if suffix[-1]=='ي':
+            try:
+                phoeword = WordFinder.DBwordFinder(suffix[:-1], translationtype)
+                return phoeword + Posdict['ي']
+            except KeyError:
+                raise KeyError
+        else:
+            raise KeyError
 
-
+#print(Possesive('شمسه','Offline'))
+#print(Possesive('ابني','Online'))
+#print(Possesive('m','Online'))
 

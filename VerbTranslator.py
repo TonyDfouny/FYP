@@ -82,10 +82,11 @@ def pastverb(verb):
 #     person = details[1]
 #     return Finder.FindVerb(rootverb, person)
 
-def VerbTranslator(words):
+def VerbTranslator(words,translationtype):
     """
 
     :param words: 'verb TAG'
+    :param translationtype: 'online or offline'
     :return:  'verb in phoe'
     """
     verb=words.split()
@@ -96,14 +97,14 @@ def VerbTranslator(words):
         details=pastverb(verb[1])
         rootverb=details[0]
         person=details[1]
-        return Finder.FindVerb(verb[1],rootverb,person)
+        return Finder.FindVerb(verb[1],rootverb,person,translationtype)
 
 
     elif verb[0] in presentTags:
         details = presentverb(verb[1])
         rootverb = details[0]
         person = details[1]
-        return Finder.FindVerb(verb[1],rootverb,person)
+        return Finder.FindVerb(verb[1],rootverb,person,translationtype)
 
 
 
