@@ -12,15 +12,15 @@ class PhoePastVerbPattern:
         :return:'verb with the correct grammar'
         """
         Pattern = {
-            "1p.s.c.": self.self.verb + "t",
-            "2p.s.m.": self.self.verb + "t",
-            "2p.s.f.": self.self.verb + "t",
-            "3p.s.m.": self.self.verb,
-            "3p.s.f.": self.self.verb,
-            "1p.pl.c.": self.self.verb + "n",
-            "2p.pl.m.": self.self.verb + "tm",
-            "2p.pl.f.": self.self.verb + "tn",
-            "3p.pl.c.": self.self.verb
+            "1p.s.c.": self.verb + "t",
+            "2p.s.m.": self.verb + "t",
+            "2p.s.f.": self.verb + "t",
+            "3p.s.m.": self.verb,
+            "3p.s.f.": self.verb,
+            "1p.pl.c.": self.verb + "n",
+            "2p.pl.m.": self.verb + "tm",
+            "2p.pl.f.": self.verb + "tn",
+            "3p.pl.c.": self.verb
         }
         return Pattern[self.person]
 

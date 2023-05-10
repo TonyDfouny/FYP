@@ -1,4 +1,4 @@
-[{"Transcript": "tpq", "English": "find", "root_t": "pwq", "Type": "verb", "Oflline": "تجد", "Stemmed Offline": "تجد", "Online": "يجد", "Stemmed Online": "يجد", "Grammar": "GrammarDict"},
+[{"Transcript": "tpq", "English": "find", "root_t": "pwq", "Type": "verb", "Oflline": "تجد", "Stemmed Offline": "تجد,وجد", "Online": "يجد", "Stemmed Online": "وجد,يجد,تجد", "Grammar": "GrammarDict"},
 {"Transcript": "tptḥ", "English": "open", "root_t": "ptḥ", "Type": "verb", "Oflline": "مفتوحة", "Stemmed Offline": "مفتوحة", "Online": "يفتح", "Stemmed Online": "فتح", "Grammar": "GrammarDict"},
 {"Transcript": "ʾr", "English": "collect", "root_t": "ʾry", "Type": "verb", "Oflline": "الجمع", "Stemmed Offline": "جمع", "Online": "يجمع", "Stemmed Online": "جمع", "Grammar": "GrammarDict"},
 {"Transcript": "rgz", "English": "disturb", "root_t": "", "Type": "verb", "Oflline": "الاضطراب", "Stemmed Offline": "اضطراب", "Online": "يزعج", "Stemmed Online": "زعج", "Grammar": "GrammarDict"},

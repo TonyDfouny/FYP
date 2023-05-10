@@ -36,9 +36,14 @@ class VerbTranslator:
             return [grammar[0],presentdict[grammar[1:]]]
         except KeyError:
             if type(grammar)==tuple:
-                return [grammar[0],'3p.s.m.']
+                return [grammar[0],'2p.s.m.']
             else:
-                return [self.verb,'3p.s.m.']
+                return [self.verb,'2p.s.m.']
+        except TypeError:
+            if type(grammar)==tuple:
+                return [grammar[0],'2p.s.m.']
+            else:
+                return [self.verb,'2p.s.m.']
 
     def __pastverb(self):
         """
@@ -68,7 +73,9 @@ class VerbTranslator:
         try:
             return [rootverb,pastdict[suffix]]
         except KeyError:
-            return [rootverb,'3p.s.m.']
+            return [rootverb,'2p.s.m.']
+        except TypeError:
+            return [rootverb, '2p.s.m.']
 
 
     def Translate(self):
@@ -81,9 +88,11 @@ class VerbTranslator:
             details=self.__pastverb()
             rootverb=details[0]
             person=details[1]
+
             phoerootverb=Finder.FindVerb(self.verb,rootverb,self.translationtype)
-            if phoerootverb==rootverb:
-                return rootverb
+            print('root ', rootverb, ' original ', self.verb, ' phoeroot ', phoerootverb, ' person ', person)
+            if phoerootverb==self.verb:
+                return self.verb
             else:
                 return PhoePastVerbPattern.PhoePastVerbPattern(phoerootverb,person).PastPattern()
 
@@ -91,7 +100,9 @@ class VerbTranslator:
             details = self.__presentverb()
             rootverb = details[0]
             person = details[1]
+
             phoerootverb=Finder.FindVerb(self.verb,rootverb,self.translationtype)
+            print('root ', rootverb, ' original ', self.verb,' phoeroot ',phoerootverb,' person ',person)
             if phoerootverb==self.verb:
                 return self.verb
             else:
@@ -103,7 +114,7 @@ class VerbTranslator:
 
 #print(VerbTranslator('VBD أجمع','Offline'))
 ########TEST###########
-# print(VerbTranslator('VBP ياتي','Offline').Translate())
+#print(VerbTranslator('VBP تجد','Offline').Translate())
 
 # words=['تأكل','تأكلين']#,'يأكل','تأكل','نأكل','تأكلون','تأكلن','يأكلون','يأكلن','تأكلان','يأكلان','تأكلان','ألعب','أأكل']
 # for word in words:

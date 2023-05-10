@@ -86,7 +86,7 @@ def LanguageTranslator():
         srclang = inputlanguage.get()
         destlang = outputlanguage.get()
         if srclang == destlang:
-            showerror('Error', "You can't translate to the same language!")
+            return showerror('Error', "You can't translate to the same language!")
         if srclang == 'English':
             try:
                 srctext = GetText()
@@ -97,7 +97,7 @@ def LanguageTranslator():
 
 
             except ValueError:
-                showerror('Error', 'You need to enter a text')
+                return showerror('Error', 'You need to enter a text')
         else:
             try:
                 srctext = GetText()
@@ -106,7 +106,7 @@ def LanguageTranslator():
                 OutputTextBox.insert("1.0", PhoeEnTranslator.PhoeEnTranslate(srctext))
                 OutputTextBox['state'] = 'disabled'
             except ValueError:
-                showerror('Error', 'You need to enter a text')
+                return showerror('Error', 'You need to enter a text')
     def ArrowBtn():
         temp = inputlanguage.get()
         inputlanguage.set(outputcombo.get())
