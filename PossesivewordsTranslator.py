@@ -27,14 +27,14 @@ def Possesive(word,translationtype):
         if suffix[0][-1]=='ت':
             suffix[0]=suffix[0][:-1]+'ة'
         try:
-            phoeword=WordFinder.DBwordFinder(suffix[0],translationtype)
+            phoeword=WordFinder.WordFinder(suffix[0],translationtype).DBwordFinder()
             return phoeword + Posdict[suffix[1]]
         except KeyError:
             raise KeyError
     except IndexError:
         if suffix[-1]=='ي':
             try:
-                phoeword = WordFinder.DBwordFinder(suffix[:-1], translationtype)
+                phoeword = WordFinder.WordFinder(suffix[:-1], translationtype).DBwordFinder()
                 return phoeword + Posdict['ي']
             except KeyError:
                 raise KeyError

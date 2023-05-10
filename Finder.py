@@ -10,13 +10,13 @@ def FindWord(word,translationtype):
     import PossesivewordsTranslator
     stemmer = arlstem2.ARLSTem2()
     try:
-        return WordFinder.DBwordFinder(word,translationtype)
+        return WordFinder.WordFinder(word,translationtype).DBwordFinder()
     except KeyError:
         try: #If possessive 'ابنه','ابنها','إبنهم','إبنك'
             return PossesivewordsTranslator.Possesive(word,translationtype)
         except KeyError:
             try:
-                return WordFinder.DBwordFinder(stemmer.stem(word),translationtype)
+                return WordFinder.WordFinder(stemmer.stem(word),translationtype).DBwordFinder()
             except KeyError:
                 # try:
                 #     return SynonymFinder.Synonym(word)
@@ -39,17 +39,17 @@ def FindVerb(verb,rootverb,translationtype):
     from nltk.stem import arlstem2
     stemmer = arlstem2.ARLSTem2()
     try:
-        return WordFinder.DBverbFinder(rootverb,translationtype)
+        return WordFinder.WordFinder(rootverb,translationtype).DBverbFinder()
     #If nothing is found we try with a stemed verb
     except KeyError:
         try:
-            return WordFinder.DBverbFinder(stemmer.stem(rootverb),translationtype)
+            return WordFinder.WordFinder(stemmer.stem(rootverb),translationtype).DBverbFinder()
         except KeyError:
             try:
-                return WordFinder.DBverbFinder(verb,translationtype)
+                return WordFinder.WordFinder(verb,translationtype).DBverbFinder()
             except KeyError:
                 try:
-                    return WordFinder.DBverbFinder(stemmer.stem(verb),translationtype)
+                    return WordFinder.WordFinder(stemmer.stem(verb),translationtype).DBverbFinder()
                 except KeyError:
                     phoe=FindWord(rootverb,translationtype)
                     if phoe==rootverb:

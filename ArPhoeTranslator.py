@@ -1,5 +1,6 @@
 #PARSER#
 import ArabicParser,VerbTranslator,Finder,ALwordsTranslator
+import EngArTranslator
 from EngArTranslator import *
 
 def ArPhoeTranslator(sourcesentence,translationtype):
@@ -11,7 +12,8 @@ def ArPhoeTranslator(sourcesentence,translationtype):
     """
     # TRANSLATE FROM ENGLISH TO ARABIC#
 
-    translatedsentence=Translate(sourcesentence,translationtype)
+    translator=EngArTranslator.Translator(sourcesentence,'en','ar',translationtype)
+    translatedsentence=translator.Translate()
 
     parsedsentence=ArabicParser.ArabicParser(translatedsentence)
 
@@ -24,7 +26,7 @@ def ArPhoeTranslator(sourcesentence,translationtype):
             #     output_sentence = output_sentence + ' ' + ReTranslate(word,translationtype)
             # else:
             #     output_sentence=output_sentence+' '+newword
-            output_sentence = output_sentence+' '+VerbTranslator.VerbTranslator(words,translationtype)
+            output_sentence = output_sentence+' '+VerbTranslator.VerbTranslator(words,translationtype).Translate()
         elif words[:2]=='DT':
             # newword = ALwordsTranslator.Alwords(words)
             # if newword == word:
@@ -45,4 +47,4 @@ def ArPhoeTranslator(sourcesentence,translationtype):
 
 ########TEST###########
 # translatedsentence='هو يأتي مع ابن الى بيروت'
-#print(ArPhoeTranslator('god','Online'))
+# print(ArPhoeTranslator('god','Offline'))
