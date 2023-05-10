@@ -1,20 +1,18 @@
 import json
 class WordFinder:
-    def __init__(self,word,verb,translationtype):
+    def __init__(self,word,translationtype):
         """
 
-        :param word: 'arword'
-        :param verb: 'verb in arabic'(root and stemmed)
+        :param word: 'arword' or 'verb in arabic'(root and stemmed)
         :param translationtype: 'Online' or 'Offline'
         """
         self.word=word
-        self.verb=verb
         self.translationtype=translationtype
 
     def __wordFinder(self):
         words = open('DATABASE.json', 'r', encoding='utf-8')
         wordsDB = json.load(words)
-        if self.ranslationtype == 'Offline':
+        if self.translationtype == 'Offline':
             for line in wordsDB:
                 # if line['Stemmed Offline']==word:
                 #     return line['Transcript']
@@ -44,14 +42,14 @@ class WordFinder:
                 # if line['Stemmed Offline'] == verb:
                 #     return line['Transcript']
                     # return line['Grammar'][person]
-                if self.verb in line['Stemmed Offline'].split(','):
+                if self.word in line['Stemmed Offline'].split(','):
                     return line['root_t']
         else:
             for line in verbsDB:
                 # if line['Stemmed Offline'] == verb:
                 #     return line['Transcript']
                     # return line['Grammar'][person]
-                if self.verb in line['Stemmed Online'].split(','):
+                if self.word in line['Stemmed Online'].split(','):
                     return line['root_t']
     def DBverbFinder(self):
         """
