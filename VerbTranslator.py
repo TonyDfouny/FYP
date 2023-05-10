@@ -104,7 +104,9 @@ def VerbTranslator(words,translationtype):
         if phoerootverb==rootverb:
             return rootverb
         else:
-            return PhoePastVerbPattern.PastPattern(phoerootverb,person)
+            return PhoePastVerbPattern.PhoePastVerbPattern(phoerootverb,person).PastPattern()
+
+
 
 
     elif verb[0] in presentTags:
@@ -112,17 +114,21 @@ def VerbTranslator(words,translationtype):
         rootverb = details[0]
         person = details[1]
         phoerootverb=Finder.FindVerb(verb[1],rootverb,translationtype)
+        print(phoerootverb)
+        print(rootverb)
         if phoerootverb==rootverb:
+            print('here')
             return rootverb
         else:
-            return PhoePresentVerbPattern.PresentPattern(phoerootverb,person)
+            return PhoePresentVerbPattern.PhoePresentVerbPattern(phoerootverb,person).PresentPattern()
 
 
 
 
-#print(VerbTranslator('VBD أجمع'))
+
+#print(VerbTranslator('VBD أجمع','Offline'))
 ########TEST###########
-#print(VerbTranslator('VBP ياتي'))
+print(VerbTranslator('VBP ياتي','Offline'))
 
 # words=['تأكل','تأكلين']#,'يأكل','تأكل','نأكل','تأكلون','تأكلن','يأكلون','يأكلن','تأكلان','يأكلان','تأكلان','ألعب','أأكل']
 # for word in words:

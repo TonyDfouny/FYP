@@ -1,97 +1,82 @@
-def StrongPattern(verb,person):
-    """
+class PhoePresentVerbPattern:
+    def __init__(self,verb,person):
+        self.verb=verb
+        self.person=person
+        
+    def __StrongPattern(self):
+        Pattern={
+                "1p.s.c.":"ʾ"+self.verb,
+                "2p.s.m.":"t"+self.verb,
+                "2p.s.f.":"t"+self.verb,
+                "3p.s.m.":"y"+self.verb,
+                "3p.s.f.":"t"+self.verb,
+                "1p.pl.c.":"n"+self.verb,
+                "2p.pl.m.":"t"+self.verb+"n",
+                "2p.pl.f.":"t"+self.verb+"n",
+                "3p.pl.c.":"y"+self.verb+"n"
+                 }
+        return Pattern[self.person]
 
-    :param verb: 'verb' root verb in phoenician
-    :param person: 'person'
-    :return:'verb with the correct grammar'
-    """
-    Pattern={
-            "1p.s.c.":"ʾ"+verb,
-            "2p.s.m.":"t"+verb,
-            "2p.s.f.":"t"+verb,
-            "3p.s.m.":"y"+verb,
-            "3p.s.f.":"t"+verb,
-            "1p.pl.c.":"n"+verb,
-            "2p.pl.m.":"t"+verb+"n",
-            "2p.pl.f.":"t"+verb+"n",
-            "3p.pl.c.":"y"+verb+"n"
-             }
-    return Pattern[person]
+    def __WeakPattern_1y__ytn(self):
 
-def WeakPattern_1y__ytn(verb,person):
-    """
+        Pattern = {
+            "1p.s.c.": "ʾ" + self.verb[1]+self.verb[2],
+            "2p.s.m.": "t" + self.verb[1]+self.verb[2],
+            "2p.s.f.": "t" + self.verb[1]+self.verb[2],
+            "3p.s.m.": "y" + self.verb[1]+self.verb[2],
+            "3p.s.f.": "t" + self.verb[1]+self.verb[2],
+            "1p.pl.c.": "n" + self.verb[1]+self.verb[2],
+            "2p.pl.m.": "t" + self.verb[1]+self.verb[2]+ "n",
+            "2p.pl.f.": "t" + self.verb[1]+self.verb[2] + "n",
+            "3p.pl.c.": "y" + self.verb[1]+self.verb[2] + "n"
+        }
+        return Pattern[self.person]
 
-    :param verb: 'verb' root verb in phoenician
-    :param person: 'person'
-    :return:'verb with the correct grammar'
-    """
-    Pattern = {
-        "1p.s.c.": "ʾ" + verb[1]+verb[2],
-        "2p.s.m.": "t" + verb[1]+verb[2],
-        "2p.s.f.": "t" + verb[1]+verb[2],
-        "3p.s.m.": "y" + verb[1]+verb[2],
-        "3p.s.f.": "t" + verb[1]+verb[2],
-        "1p.pl.c.": "n" + verb[1]+verb[2],
-        "2p.pl.m.": "t" + verb[1]+verb[2]+ "n",
-        "2p.pl.f.": "t" + verb[1]+verb[2] + "n",
-        "3p.pl.c.": "y" + verb[1]+verb[2] + "n"
-    }
-    return Pattern[person]
+    def __WeakPattern_2y__2w(self):
+        """
+        :return:'self.verb with the correct grammar'
+        """
+        Pattern = {
+            "1p.s.c.": "ʾ" + self.verb[0] + self.verb[2],
+            "2p.s.m.": "t" + self.verb[0] + self.verb[2],
+            "2p.s.f.": "t" + self.verb[0] + self.verb[2],
+            "3p.s.m.": "y" + self.verb[0] + self.verb[2],
+            "3p.s.f.": "t" + self.verb[0] + self.verb[2],
+            "1p.pl.c.": "n" + self.verb[0] + self.verb[2],
+            "2p.pl.m.": "t" + self.verb[0] + self.verb[2] + "n",
+            "2p.pl.f.": "t" + self.verb[0] + self.verb[2] + "n",
+            "3p.pl.c.": "y" + self.verb[0] + self.verb[2] + "n"
+        }
+        return Pattern[self.person]
 
-def WeakPattern_2y__2w(verb,person):
-    """
-
-    :param verb: 'verb' root verb in phoenician
-    :param person: 'person'
-    :return:'verb with the correct grammar'
-    """
-    Pattern = {
-        "1p.s.c.": "ʾ" + verb[0] + verb[2],
-        "2p.s.m.": "t" + verb[0] + verb[2],
-        "2p.s.f.": "t" + verb[0] + verb[2],
-        "3p.s.m.": "y" + verb[0] + verb[2],
-        "3p.s.f.": "t" + verb[0] + verb[2],
-        "1p.pl.c.": "n" + verb[0] + verb[2],
-        "2p.pl.m.": "t" + verb[0] + verb[2] + "n",
-        "2p.pl.f.": "t" + verb[0] + verb[2] + "n",
-        "3p.pl.c.": "y" + verb[0] + verb[2] + "n"
-    }
-    return Pattern[person]
-
-def WeakPattern_3y(verb,person):
-    """
-
-    :param verb: 'verb' root verb in phoenician
-    :param person: 'person'
-    :return:'verb with the correct grammar'
-    """
-    Pattern = {
-        "1p.s.c.": "ʾ" + verb[0] + verb[1],
-        "2p.s.m.": "t" + verb[0] + verb[1],
-        "2p.s.f.": "t" + verb[0] + verb[1],
-        "3p.s.m.": "y" + verb[0] + verb[1],
-        "3p.s.f.": "t" + verb[0] + verb[1],
-        "1p.pl.c.": "n" + verb[0] + verb[1],
-        "2p.pl.m.": "t" + verb[0] + verb[1] + "n",
-        "2p.pl.f.": "t" + verb[0] + verb[1] + "n",
-        "3p.pl.c.": "y" + verb[0] + verb[1] + "n"
-    }
-    return Pattern[person]
+    def __WeakPattern_3y(self):
+        """
+        :return:'self.verb with the correct grammar'
+        """
+        Pattern = {
+            "1p.s.c.": "ʾ" + self.verb[0] + self.verb[1],
+            "2p.s.m.": "t" + self.verb[0] + self.verb[1],
+            "2p.s.f.": "t" + self.verb[0] + self.verb[1],
+            "3p.s.m.": "y" + self.verb[0] + self.verb[1],
+            "3p.s.f.": "t" + self.verb[0] + self.verb[1],
+            "1p.pl.c.": "n" + self.verb[0] + self.verb[1],
+            "2p.pl.m.": "t" + self.verb[0] + self.verb[1] + "n",
+            "2p.pl.f.": "t" + self.verb[0] + self.verb[1] + "n",
+            "3p.pl.c.": "y" + self.verb[0] + self.verb[1] + "n"
+        }
+        return Pattern[self.person]
 
 
-def PresentPattern(verb,person):
-    """
-    :param verb: 'verb' root verb in phoenician
-    :param person: 'person'
-    :return:
-
-    """
-    if verb[0]=='y': ###########YTN?????????#################
-        return WeakPattern_1y__ytn(verb,person)
-    elif verb[1]=='y' or verb[1]=='w':
-        return WeakPattern_2y__2w(verb,person)
-    elif verb[2]=='y':
-        return WeakPattern_3y(verb,person)
-    else:
-        return StrongPattern(verb,person)
+    def PresentPattern(self):
+        """
+        :return:
+        """
+        if self.verb[0]=='y': ###########YTN?????????#################
+            return self.__WeakPattern_1y__ytn()
+        elif self.verb[1]=='y' or self.verb[1]=='w':
+            return self.__WeakPattern_2y__2w()
+        elif self.verb[2]=='y':
+            return self.__WeakPattern_3y()
+        else:
+            return self.__StrongPattern()
 

@@ -75,3 +75,37 @@ for word in words:
 
 # t='tony'
 # print(t[1:])
+
+class Translateclass:
+
+    def __init__(self, sourcesentence, from_code,to_code, translationtype):
+        self.sourcesentence=sourcesentence
+        self.from_code=from_code
+        self.to_code=to_code
+        self.translationtype=translationtype
+
+    def __TranslateOnline(self):
+        """
+        :param sourcesentence: 'sentence in source lang'
+        :param from_code: 'lang code' en for english
+        :param from_code: 'lang code' ar for arabic
+        :return: 'sentence in destination lang'
+        """
+        import translators as ts
+        translatedsentence = ts.translate_text(self.sourcesentence, 'google', self.from_code, self.to_code)
+        return translatedsentence
+
+    def Translate(self):
+        """
+
+        :param sourcesentence: 'sentence in english'
+        :param translationtype: 'offline or online'
+        :return: 'sentence in arabic'
+        """
+
+        if self.translationtype == 'Online':
+            return self.__TranslateOnline()
+
+
+translatedsentence=Translateclass('dog','en','ar','Online')
+print(translatedsentence.Translate())
