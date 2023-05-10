@@ -34,8 +34,8 @@ plural=['WE','You','THEY']
 # print("entities = \n",entities)
 
 
-# Pronouns=[[word, tag] for word, tag in tagged if (tag=='PRP')]
-# print('Pronouns = ',Pronouns)
+Pronouns=[[word, tag] for word, tag in tagged]
+print('Pronouns = ',Pronouns)
 #
 # for i in Pronouns:
 #     if i[0].upper() in singular:

@@ -1,9 +1,9 @@
 import spacy
 nlp = spacy.load("en_core_web_sm")
-sentence ="They are eating an apple and an orange.Tony is sleeping"
+sentence ="They are eating their apple and an orange.Tony is sleeping"
 sentence2="Tony Dfouny,the kids and I are sleeping"
 sentence3='There are many factors affecting teacher retention'
-doc = nlp(sentence2)
+doc = nlp(sentence)
 doc2=nlp(sentence3)
 
 
@@ -34,8 +34,9 @@ doc2=nlp(sentence3)
 #             children=[t.text]
 #             print(children)
 
-
-
+for token in doc:
+    print([token,token.tag_])
+    #print('TOKEN: '[str(token),'TAG: ',str(token.tag_)])
 
 
 
@@ -47,18 +48,18 @@ doc2=nlp(sentence3)
 ##############ORIGINAL###################
 
 #########TAGS#########
-for token in doc:
-     print(
-         f"""
-TOKEN: {str(token)}
-=====
-TAG: {str(token.tag_):10} POS: {token.pos_}
-EXPLANATION: {spacy.explain(token.tag_)}""" )
-
-##########DEPENDENCY#########
-for token in doc:
-    print(token.text, "\t", token.dep_, "\t",
-    spacy.explain(token.dep_))
+# for token in doc:
+#      print(
+#          f"""
+# TOKEN: {str(token)}
+# =====
+# TAG: {str(token.tag_):10} POS: {token.pos_}
+# EXPLANATION: {spacy.explain(token.tag_)}""" )
+#
+# ##########DEPENDENCY#########
+# for token in doc:
+#     print(token.text, "\t", token.dep_, "\t",
+#     spacy.explain(token.dep_))
 
 ########ANCESTORS###########
 # for token in doc:

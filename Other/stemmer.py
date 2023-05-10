@@ -1,4 +1,5 @@
 from snowballstemmer import stemmer
 
 ar_stemmer = stemmer("arabic")
-print(ar_stemmer.stemWord(u'أَكَلْنَا'))
+en_stemmer = stemmer("english")
+print(en_stemmer.stemWord('sleeping'))
