@@ -11,11 +11,14 @@ def Alwords(words,translationtype):
     stemmer = arlstem2.ARLSTem2()
     word=words.split()[1]
     stemmedword=stemmer.pref(word)
-    phoeword=Finder.FindWord(stemmedword,translationtype)
-    if phoeword==stemmedword:
+    if stemmedword is None:
         return word
     else:
-        output='h'+phoeword
-        return output
+        phoeword=Finder.FindWord(stemmedword,translationtype)
+        if phoeword==stemmedword:
+            return word
+        else:
+            output='h'+phoeword
+            return output
 
 

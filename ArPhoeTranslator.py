@@ -30,19 +30,22 @@ def ArPhoeTranslator(sourcesentence,translationtype):
                 output_sentence=output_sentence+' '+newword
             #output_sentence = output_sentence+' '+VerbTranslator.VerbTranslator(words,translationtype).Translate()
         elif words[:2]=='DT':
-            # newword = ALwordsTranslator.Alwords(words)
-            # if newword == word:
-            #     output_sentence = output_sentence + ' ' + ReTranslate(word,translationtype)
-            # else:
-            #     output_sentence = output_sentence + ' ' + newword
-            output_sentence=output_sentence+' '+ALwordsTranslator.Alwords(words,translationtype)
+            newword = ALwordsTranslator.Alwords(words,translationtype)
+            if newword == word:
+                engword = EngArTranslator.Translator(word, 'ar', 'en', 'Online').Translate()
+
+                output_sentence = output_sentence + ' ' + EngPhoeTranslator.EngPhoeTranslator(engword).Translate()
+            else:
+                output_sentence = output_sentence + ' ' + newword
+            #output_sentence=output_sentence+' '+ALwordsTranslator.Alwords(words,translationtype)
         else:
-            # newword=Finder.FindWord(word)
-            # if newword == word:
-            #     output_sentence = output_sentence + ' ' + ReTranslate(word,translationtype)
-            # else:
-            #     output_sentence = output_sentence + ' ' + newword
-            output_sentence=output_sentence+' '+Finder.FindWord(word,translationtype)
+            newword=Finder.FindWord(word,translationtype)
+            if newword == word:
+                engword = EngArTranslator.Translator(word, 'ar', 'en', 'Online').Translate()
+                output_sentence = output_sentence + ' ' + EngPhoeTranslator.EngPhoeTranslator(engword).Translate()
+            else:
+                output_sentence = output_sentence + ' ' + newword
+            #output_sentence=output_sentence+' '+Finder.FindWord(word,translationtype)
 
 
     return output_sentence
