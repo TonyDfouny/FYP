@@ -31,7 +31,7 @@ class Translator():
 
     def Translate(self):
         """
-        :return: 'sentence in arabic'
+        :return: 'sentence in destination language'
         """
         if self.translationtype=='Offline':
             return self.__TranslateOffline()
@@ -47,3 +47,7 @@ class Translator():
     #     elif self.translationtype=='Online':
     #         return
 
+# print(Translator('son','en','ar','Online').Translate())
+# print(Translator('son','en','ar','Offline').Translate())
+# print(Translator('ابن','ar','en','Online').Translate())
+# print(Translator('إبني','ar','en','Online').Translate())

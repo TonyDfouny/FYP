@@ -1,6 +1,7 @@
 #PARSER#
 import ArabicParser,VerbTranslator,Finder,ALwordsTranslator
 import EngArTranslator
+import EngPhoeTranslator
 from EngArTranslator import *
 
 def ArPhoeTranslator(sourcesentence,translationtype):
@@ -21,12 +22,13 @@ def ArPhoeTranslator(sourcesentence,translationtype):
     for words in parsedsentence:
         word=words.split()[1]
         if words[0]=='V':
-            # newword=VerbTranslator.VerbTranslator(words)
-            # if newword==word:
-            #     output_sentence = output_sentence + ' ' + ReTranslate(word,translationtype)
-            # else:
-            #     output_sentence=output_sentence+' '+newword
-            output_sentence = output_sentence+' '+VerbTranslator.VerbTranslator(words,translationtype).Translate()
+            newword=VerbTranslator.VerbTranslator(words,translationtype).Translate()
+            if newword==word:
+                engword=EngArTranslator.Translator(word, 'ar', 'en', 'Online').Translate()
+                output_sentence = output_sentence + ' ' + EngPhoeTranslator.EngPhoeTranslator(engword).Translate()
+            else:
+                output_sentence=output_sentence+' '+newword
+            #output_sentence = output_sentence+' '+VerbTranslator.VerbTranslator(words,translationtype).Translate()
         elif words[:2]=='DT':
             # newword = ALwordsTranslator.Alwords(words)
             # if newword == word:
@@ -47,4 +49,5 @@ def ArPhoeTranslator(sourcesentence,translationtype):
 
 ########TEST###########
 # translatedsentence='هو يأتي مع ابن الى بيروت'
-# print(ArPhoeTranslator('god','Offline'))
+#print(ArPhoeTranslator('he eat','Offline'))
+#print(ArPhoeTranslator('he eat','Online'))

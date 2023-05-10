@@ -1,6 +1,6 @@
 import spacy
 nlp = spacy.load("en_core_web_sm")
-sentence ="They are eating their apple and an orange.Tony is sleeping"
+sentence ="eat"
 sentence2="Tony Dfouny,the kids and I are sleeping"
 sentence3='There are many factors affecting teacher retention'
 doc = nlp(sentence)

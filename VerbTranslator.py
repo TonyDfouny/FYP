@@ -90,7 +90,7 @@ class VerbTranslator:
             person=details[1]
 
             phoerootverb=Finder.FindVerb(self.verb,rootverb,self.translationtype)
-            print('root ', rootverb, ' original ', self.verb, ' phoeroot ', phoerootverb, ' person ', person)
+            #print('root ', rootverb, ' original ', self.verb, ' phoeroot ', phoerootverb, ' person ', person)
             if phoerootverb==self.verb:
                 return self.verb
             else:
@@ -102,7 +102,7 @@ class VerbTranslator:
             person = details[1]
 
             phoerootverb=Finder.FindVerb(self.verb,rootverb,self.translationtype)
-            print('root ', rootverb, ' original ', self.verb,' phoeroot ',phoerootverb,' person ',person)
+            #print('root ', rootverb, ' original ', self.verb,' phoeroot ',phoerootverb,' person ',person)
             if phoerootverb==self.verb:
                 return self.verb
             else:
