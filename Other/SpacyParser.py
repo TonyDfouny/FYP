@@ -28,7 +28,7 @@ doc2=nlp(sentence3)
 
 
 
-for token in doc:
+for token in doc2:
     print(token.text, token.tag_ , token.dep_)
     for t in token.children:
         children = [t.text, t.tag_, t.dep_]
