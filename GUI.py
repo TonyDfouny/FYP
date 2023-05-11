@@ -4,7 +4,7 @@ from tkinter.messagebox import showerror
 import tkinter
 from tkinter import *
 from tkinter import ttk
-
+from EngPhoeTranslator import *
 import PhoeEnTranslator
 from ArPhoeTranslator import *
 from PIL import ImageTk,Image
@@ -115,7 +115,15 @@ def LanguageTranslator():
             except ValueError:
                 return showerror('Error', 'You need to enter a text')
         elif srclang == 'English':
-            return showerror('Error', 'We are still developping')
+            try:
+                srctext = GetText()
+                OutputTextBox['state'] = 'normal'
+                OutputTextBox.delete("1.0", 'end-1c')
+                OutputTextBox.insert("1.0", EngPhoeTranslator.EngPhoeTranslator(srctext).Translate())
+                OutputTextBox['state'] = 'disabled'
+
+            except ValueError:
+                return showerror('Error', 'You need to enter a text')
         elif srclang=='Phoenician':
             try:
                 srctext = GetText()

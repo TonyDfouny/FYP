@@ -50,22 +50,23 @@ class EngPhoeVerbTranslator:
         }
         verbsubject = []
         for child in self.children[self.verb]:
-            if child[2] == 'nsubj' and child[1] == 'PRP':
+            if child[2] == 'nsubj' :
                 verbsubject.append(child[0])
         if len(verbsubject)==0: ####no subject found as pronouns
                 return self.__VerbFinder()
         elif len(verbsubject)>1: ####at least one pronoun + another subject in subject
-            for subject in verbsubject:
-                if subject.upper() in andperson.keys():
-                    return PhoePastVerbPattern.PhoePastVerbPattern(self.__VerbFinder(),person[subject.upper()]).PastPattern()
-                else:
-                    return self.__VerbFinder()
+            subject=verbsubject[-1]
+            if subject.upper() in andperson.keys():
+                return PhoePastVerbPattern.PhoePastVerbPattern(self.__VerbFinder(),person[subject.upper()]).PastPattern()
+            else:
+                return self.__VerbFinder()
         elif len(verbsubject)==1: ####exactly one subject and it is a pronoun
-            for subject in verbsubject:
-                if subject.upper() in person.keys():
-                    return PhoePastVerbPattern.PhoePastVerbPattern(self.__VerbFinder(),person[subject.upper()]).PastPattern()
-                else:
-                    return self.__VerbFinder()
+            if verbsubject[0].upper() in person.keys():
+                return PhoePastVerbPattern.PhoePastVerbPattern(self.__VerbFinder(),person[verbsubject[0].upper()]).PastPattern()
+            else:
+                return self.__VerbFinder()
+
+
     def __ChildrenAndPresent(self):
         andperson={
             'I':'1p.pl.c.','WE':'1p.pl.c.',
@@ -80,44 +81,57 @@ class EngPhoeVerbTranslator:
             'THEY': '3p.pl.c.'
         }
         aux={
-            'AM':'1p.pl.c.',
-            'IS':'3p.s.m.',
-            'ARE':'2p.pl.m.'
+            'AM': '1p.s.c.',
+            'IS': '3p.s.m.',
+            'ARE': '2p.pl.m.'
         }
         verbaux=[]
         verbsubject=[]
+
         for child in self.children[self.verb]:
             if child[2]=='aux':
                 verbaux.append(child[0])
-            elif child[2]=='nsubj' and child[1]=='PRP':
+            elif child[2]=='nsubj':
                 verbsubject.append(child[0])
         if len(verbsubject)==0 and len(verbaux) == 0: ####no subject found as pronouns and no aux###
                 return self.__VerbFinder()
 
-        elif len(verbsubject) == 0 and len(verbaux)>1:###no pronouns was found in subject but at least the aux
-            for auxilary in verbaux:
-                if auxilary.upper() in aux.keys():
-                    return PhoePresentVerbPattern.PhoePresentVerbPattern(self.__VerbFinder(),person[auxilary.upper()]).PresentPattern()
-                else:
-                    return self.__VerbFinder()
 
         elif len(verbsubject)>1: ####at least one pronoun + another subject in subject
-            for subject in verbsubject:
-                if subject.upper() in andperson.keys():
-                    return PhoePresentVerbPattern.PhoePresentVerbPattern(self.__VerbFinder(),person[subject.upper()]).PresentPattern()
+            subject=verbsubject[-1]
+
+            if subject.upper() in andperson.keys():
+                return PhoePresentVerbPattern.PhoePresentVerbPattern(self.__VerbFinder(),person[subject.upper()]).PresentPattern()
+            elif len(verbaux) > 0:  ###no pronouns was found in subject but at least the aux
+                if verbaux[0].upper() in aux.keys():
+                    return PhoePresentVerbPattern.PhoePresentVerbPattern(self.__VerbFinder(),
+                                                                         aux[verbaux[0].upper()]).PresentPattern()
                 else:
                     return self.__VerbFinder()
+
         elif len(verbsubject)==1: ####exactly one subject and it is a pronoun
-            for subject in verbsubject:
-                if subject.upper() in person.keys():
-                    return PhoePresentVerbPattern.PhoePresentVerbPattern(self.__VerbFinder(),person[subject.upper()]).PresentPattern()
+
+            if verbsubject[0].upper() in person.keys():
+                return PhoePresentVerbPattern.PhoePresentVerbPattern(self.__VerbFinder(),person[verbsubject[0].upper()]).PresentPattern()
+            elif len(verbaux) > 0:  ###no pronouns was found in subject but at least the aux
+                if verbaux[0].upper() in aux.keys():
+                    return PhoePresentVerbPattern.PhoePresentVerbPattern(self.__VerbFinder(),
+                                                                         aux[verbaux[0].upper()]).PresentPattern()
                 else:
                     return self.__VerbFinder()
 
 
+        elif len(verbaux)>0:###no pronouns was found in subject but at least the aux
+            if verbaux[0].upper() in aux.keys():
+                return PhoePresentVerbPattern.PhoePresentVerbPattern(self.__VerbFinder(),aux[verbaux[0].upper()]).PresentPattern()
+            else:
+                return self.__VerbFinder()
 
 
-    def Translate(self):
+
+
+
+    def __CheckTranslate(self):
         pastTags = ['VB', 'VBD', 'VBN']
         presentTags = ['VBG', 'VBP', 'VBZ']
 
@@ -129,6 +143,12 @@ class EngPhoeVerbTranslator:
             return self.__ChildrenAndPast()
         elif self.tag in presentTags:
             return self.__ChildrenAndPresent()
+
+    def Translate(self):
+        if self.__CheckTranslate() is None:
+            raise KeyError
+        else:
+            return self.__CheckTranslate()
 
 
 

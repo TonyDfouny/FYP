@@ -70,7 +70,8 @@ class EngPhoeTranslator:
                 outputsentence = outputsentence +' '+self.__Finder(str(word))
 
         return outputsentence
-# print(EngPhoeTranslator('I am eating').Translate())
+
+#print(EngPhoeTranslator('The children am eating').Translate())
 #print(Finder('King'))
 # parsedsentence = []
 # for token in nlp('his son'):
