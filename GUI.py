@@ -69,7 +69,6 @@ def LanguageTranslator():
                 outputcombo['values']=outputlanguages
                 outputlanguages.append('English')
             elif inputlanguage.get()=='Phoenician':
-                outputlanguages
                 outputlanguages.remove('Phoenician')
                 outputcombo['values'] =outputlanguages
                 outputlanguages.append('Phoenician')
@@ -97,7 +96,7 @@ def LanguageTranslator():
     def Translate():
         srclang = inputlanguage.get()
         destlang = outputlanguage.get()
-        if srclang == destlang:
+        if srclang == destlang or srclang == 'EngAr' and destlang=='English' or srclang == 'English' and destlang=='EngAr':
             return showerror('Error', "You can't translate to the same language!")
         if srclang == 'EngAr':
             try:
