@@ -26,16 +26,28 @@ doc2=nlp(sentence3)
 #         ancestors = [t.text for t in token.ancestors]
 #         print(token.text,'verb = ',ancestors)
 
+parsedsentence=[]
+allchildren={}
+for token in doc:
+    parsedsentence.append([token, token.tag_, token.dep_])
+    allchildren[token]=[]
+    for child in token.children:
+        allchildren[str(token)]=[child.text,child.tag_,child.dep_]
+print('parsed ',parsedsentence)
+print('allchildren',allchildren['eating'])
 
-
-for token in doc2:
-    print(token.text, token.tag_ , token.dep_)
-    for t in token.children:
-        children = [t.text, t.tag_, t.dep_]
-        print(children)
-        # if t.dep_=='nsubj' or t.dep_=='aux':
-        #     children=[t.text,t.tag_,t.dep_]
-        #     print(children)
+# for token in doc:
+#     print(token.text, token.tag_ , token.dep_)
+#     if token.tag_[0]=='V':
+#         for child in token.children:
+#             children=[child.text,child.tag_,child.dep_]
+#             print(children)
+    # for t in token.children:
+    #     children = [t.text, t.tag_, t.dep_]
+    #     print(children)
+    #     # if t.dep_=='nsubj' or t.dep_=='aux':
+    #     #     children=[t.text,t.tag_,t.dep_]
+    #     #     print(children)
 
 # for token in doc:
 #     print([token,token.tag_])
