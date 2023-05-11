@@ -20,7 +20,8 @@ def LanguageTranslator():
     root.iconphoto(False, icon)
 
     # Variables
-    languages = ['English', 'Phoenician']
+    inputlanguages = ['English', 'EngAr', 'Phoenician']
+    outputlanguages=['English', 'Phoenician']
     # sourcetext=tkinter.StringVar()
     inputlanguage = tkinter.StringVar()
     outputlanguage = tkinter.StringVar()
@@ -29,7 +30,7 @@ def LanguageTranslator():
     online.set('Offline')
     # Combobox for input
 
-    inputcombo = ttk.Combobox(root, textvariable=inputlanguage, values=languages, state='readonly')
+    inputcombo = ttk.Combobox(root, textvariable=inputlanguage, values=inputlanguages, state='readonly')
     inputcombo.grid(column=10, row=5)
 
     # TextBox For input
@@ -50,7 +51,7 @@ def LanguageTranslator():
 
     # Combobox for Output
 
-    outputcombo = ttk.Combobox(root, textvariable=outputlanguage, values=languages, state='disabled')
+    outputcombo = ttk.Combobox(root, textvariable=outputlanguage, values=outputlanguages, state='disabled')
     outputcombo.grid(column=13, row=5)
 
     # Label for Output
@@ -62,7 +63,18 @@ def LanguageTranslator():
 
     def InputLanguageSelection(event):
         outputcombo['state'] = 'readonly'
-
+        try:
+            if inputlanguage.get()=='English' or inputlanguage.get()=='EngAr':
+                outputlanguages.remove('English')
+                outputcombo['values']=outputlanguages
+                outputlanguages.append('English')
+            elif inputlanguage.get()=='Phoenician':
+                outputlanguages
+                outputlanguages.remove('Phoenician')
+                outputcombo['values'] =outputlanguages
+                outputlanguages.append('Phoenician')
+        except ValueError:
+            pass
     def OutputLanguageSelection(event):
         Translatebtn['state'] = 'normal'
         Arrowbtn['state'] = 'normal'
@@ -87,7 +99,7 @@ def LanguageTranslator():
         destlang = outputlanguage.get()
         if srclang == destlang:
             return showerror('Error', "You can't translate to the same language!")
-        if srclang == 'English':
+        if srclang == 'EngAr':
             try:
                 srctext = GetText()
                 OutputTextBox['state'] = 'normal'
@@ -98,7 +110,9 @@ def LanguageTranslator():
 
             except ValueError:
                 return showerror('Error', 'You need to enter a text')
-        else:
+        elif srclang == 'English':
+            return showerror('Error', 'We are still developping')
+        elif srclang=='Phoenician':
             try:
                 srctext = GetText()
                 OutputTextBox['state'] = 'normal'
