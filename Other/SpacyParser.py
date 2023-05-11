@@ -1,7 +1,7 @@
 import spacy
 nlp = spacy.load("en_core_web_sm")
 sentence ="eat"
-sentence2="I am sleeping, he is eating"
+sentence2="I am sleeping, he is eating the food"
 sentence3='There are many factors affecting teacher retention'
 doc = nlp(sentence2)
 doc2=nlp(sentence3)
@@ -31,9 +31,11 @@ doc2=nlp(sentence3)
 for token in doc:
     print(token.text, token.tag_ , token.dep_)
     for t in token.children:
-        if t.dep_=='nsubj' or t.dep_=='aux':
-            children=[t.text,t.tag_,t.dep_]
-            print(children)
+        children = [t.text, t.tag_, t.dep_]
+        print(children)
+        # if t.dep_=='nsubj' or t.dep_=='aux':
+        #     children=[t.text,t.tag_,t.dep_]
+        #     print(children)
 
 # for token in doc:
 #     print([token,token.tag_])

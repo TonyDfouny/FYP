@@ -63,24 +63,29 @@ def LanguageTranslator():
 
     def InputLanguageSelection(event):
         outputcombo['state'] = 'readonly'
-        try:
-            if inputlanguage.get()=='English' or inputlanguage.get()=='EngAr':
-                outputlanguages.remove('English')
-                outputcombo['values']=outputlanguages
-                outputlanguages.append('English')
-            elif inputlanguage.get()=='Phoenician':
-                outputlanguages.remove('Phoenician')
-                outputcombo['values'] =outputlanguages
-                outputlanguages.append('Phoenician')
-        except ValueError:
-            pass
+        outputcombo.set('')
+        if inputlanguage.get()=='EngAr':
+            checkbox['state'] = 'normal'
+            outputlanguages.remove('English')
+            outputcombo['values'] = outputlanguages
+            outputlanguages.append('English')
+        elif inputlanguage.get()=='English':
+            checkbox['state'] = 'disabled'
+            outputlanguages.remove('English')
+            outputcombo['values']=outputlanguages
+            outputlanguages.append('English')
+        elif inputlanguage.get()=='Phoenician':
+            checkbox['state'] = 'disabled'
+            outputlanguages.remove('Phoenician')
+            outputcombo['values'] =outputlanguages
+            outputlanguages.append('Phoenician')
     def OutputLanguageSelection(event):
         Translatebtn['state'] = 'normal'
         Arrowbtn['state'] = 'normal'
-        if outputlanguage.get()=='Phoenician':
-            checkbox['state'] = 'normal'
-        else:
-            checkbox['state'] = 'disabled'
+        # if outputlanguage.get()=='Phoenician':
+        #     checkbox['state'] = 'normal'
+        # else:
+        #     checkbox['state'] = 'disabled'
 
     inputcombo.bind('<<ComboboxSelected>>', InputLanguageSelection)
     outputcombo.bind('<<ComboboxSelected>>', OutputLanguageSelection)
