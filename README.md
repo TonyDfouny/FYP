@@ -2,6 +2,11 @@
 
 Token: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
 
+#Try first:
+pip install -r requirements.txt
+nltk.download()
+
+#In case of problems
 pip install nltk (pip3 for mac)
 nltk.download()
 
@@ -33,3 +38,5 @@ COPY THE CONTENT OF ARLSTEM2 IN C:\Users\tony_\AppData\Local\Programs\Python\Pyt
 
 ###GUI###
 pip install ttkbootstrap pyttsx3 pyperclip
+
+
