@@ -63,5 +63,12 @@
 {"Transcript": "tbrḥ", "English": "depart", "root_t": "brḥ", "Type": "verb", "Oflline": "غادر", "Stemmed Offline": "غادر", "Online": "تغادر", "Stemmed Online": "غادر"},
 {"Transcript": "ymḥ", "English": "erase,eradicate,wipe", "root_t": "mḥy", "Type": "verb", "Oflline": "امسحوا , ارقصوا", "Stemmed Offline": "امسحوا,ارقصوا,مسح", "Online": "تمحو ، القضاء ، امسح", "Stemmed Online": "محو ، القضاء ، امسح"},
 {"Transcript": "spr", "English": "inscription,document", "root_t": "", "Type": "common noun", "Oflline": "inscription,document", "Stemmed Offline": "inscription,document", "Online": "نقش ، وثيقة", "Stemmed Online": "نقش ، وثيقة"},
-{"Transcript": "šbl", "English": "royal robe", "root_t": "", "Type": "common noun", "Oflline": "سرقة ملكية", "Stemmed Offline": "سرقة ملكية", "Online": "رداء الملكي", "Stemmed Online": "رداء الملكي"}
+{"Transcript": "šbl", "English": "royal robe", "root_t": "", "Type": "common noun", "Oflline": "سرقة ملكية", "Stemmed Offline": "سرقة ملكية", "Online": "رداء الملكي", "Stemmed Online": "رداء الملكي"},
+{"Transcript": "ḥlt", "English": "coffin", "root_t": "", "Type": "common noun", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": ""},
+{"Transcript": "pʿl", "English": "make,made", "root_t": "pʿl", "Type": "verb", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": ""},
+{"Transcript": "l", "English": "for", "root_t": "", "Type": "", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": ""},
+{"Transcript": "hʾ", "English": "he", "root_t": "", "Type": "personal pronoun", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": ""},
+{"Transcript": "him", "English": "h", "root_t": "", "Type": "object pronoun", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": ""},
+{"Transcript": "šyt", "English": "put,place", "root_t": "šyt", "Type": "verb", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": ""}
+
 ]

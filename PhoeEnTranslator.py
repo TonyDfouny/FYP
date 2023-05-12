@@ -1,5 +1,6 @@
 import PhoeVerbFinder
 import PhoeWordFinder
+import PhoePossessiveFinder
 import Caribe as cb
 
 def PhoeEnTranslate(sourcesentence):
@@ -11,6 +12,7 @@ def PhoeEnTranslate(sourcesentence):
     """
     outputsentence=''
     words=sourcesentence.split()
+
     for word in words:
         try:
             outputsentence = outputsentence+' '+PhoeWordFinder.PhoeWordFinder(word).WordFinder()
@@ -18,17 +20,21 @@ def PhoeEnTranslate(sourcesentence):
             try:#If it is a verb in StrongPatterns
                 outputsentence = outputsentence + ' ' + '*'+PhoeVerbFinder.PhoeVerbFinder(word)
             except KeyError:
-                try:#If it start with h(AL)
-                    outputsentence = outputsentence + ' ' + '*'+PhoeWordFinder.PhoeWordFinder(word[1:]).WordFinder()
+                try:
+                    if word[0]=='h' or word[0]=='H':#If it start with h(AL)
+                        outputsentence = outputsentence + ' ' + 'the '+PhoeWordFinder.PhoeWordFinder(word[1:]).WordFinder()
+                    elif word[0]=='w' or word[0]=='W':#If it start with w
+                        outputsentence = outputsentence + ' ' + 'and ' + PhoeWordFinder.PhoeWordFinder(word[1:]).WordFinder()
+                    else: # If it ends with possessive letters (h,..)
+                        outputsentence = outputsentence + ' ' + PhoePossessiveFinder.PhoePossessiveFinder(
+                            word).Translate()
                 except KeyError:
-                    try:#If it ends with 1 possessive letter (h,..)
-                        outputsentence = outputsentence + ' ' + '*'+PhoeWordFinder.PhoeWordFinder(word[:-1]).WordFinder()
+                    try:
+                        if word[0]=='w' or word[0]=='W':#If it start with wand ends with possessive
+                            outputsentence = outputsentence + ' ' + 'and ' + PhoePossessiveFinder.PhoePossessiveFinder(word[1:]).Translate()
                     except KeyError:
-                        try:#If it ends with 2 possessive letter (km,..)
-                            outputsentence = outputsentence + ' ' + '*'+PhoeWordFinder.PhoeWordFinder(word[-2]).WordFinder()
-                        except KeyError:
-                            outputsentence = outputsentence + ' ' + word
-
+                        outputsentence = outputsentence + ' ' + word
     #correctedouputsentence=cb.caribe_corrector(outputsentence)
     #return correctedouputsentence
     return outputsentence
+
