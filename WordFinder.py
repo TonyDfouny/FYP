@@ -43,14 +43,16 @@ class WordFinder:
                 #     return line['Transcript']
                     # return line['Grammar'][person]
                 if self.word in line['Stemmed Offline'].split(','):
-                    return line['root_t']
+                    if line['root_t'] != '':
+                        return line['root_t']
         else:
             for line in verbsDB:
                 # if line['Stemmed Offline'] == verb:
                 #     return line['Transcript']
                     # return line['Grammar'][person]
                 if self.word in line['Stemmed Online'].split(','):
-                    return line['root_t']
+                    if line['root_t'] != '':
+                        return line['root_t']
     def DBverbFinder(self):
         """
         :return: the corresponding 'phoeverb'

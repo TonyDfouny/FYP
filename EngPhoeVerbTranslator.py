@@ -23,7 +23,9 @@ class EngPhoeVerbTranslator:
 
         for line in verbsDB:
             if self.rootverb in line['English'].split(','):
-                return line['root_t']
+                if line['root_t']!='':
+                    return line['root_t']
+
 
     def __VerbFinder(self):
 

@@ -111,233 +111,313 @@
 # # print(DictionaryAraToPhoe)
 #
 # # (`transcript`, `meaning`, `root_t`, `type`,'arabic') VALUES
-#
-#
-# liste=[
-#
-#     ['ʾnk', 'I', '', 'personal pronoun', 'انا', 'online =', 'انا'],
-#
-#     ['tbnt', 'Tabnit', '', 'proper noun', 'Tabnit', 'online =', 'Tabnit'],
-#
-#     ['khn', 'priest', '', 'common noun', 'كاهن', 'online =', 'كاهن'],
-#
-#     ['ʿštrt', 'ʿAštart', '', 'proper noun', ' Aštart', 'online =', 'بداية'],
-#
-#     ['mlk', 'king', '', 'common noun', 'ملك', 'online =', 'ملك'],
-#
-#     ['ṣdnm', 'Sidonians', '', 'common noun', 'Sidonians', 'online =', 'الصياريون'],
-#
-#     ['bn', 'son', '', 'common noun', 'ابني', 'online =', 'ابن'],
-#
-#     ['ʾšmnʿzr', 'ʾEšmunʿazor', '', 'proper noun', 'ʾEšmun azor', 'online =', 'ʾešmunʿazor'],
-#
-#     ['škb', 'lie down', '', 'verb', 'استلقي', 'online =', 'ضطجع'],
-#
-#     ['z', 'this', '', 'determiner', 'None', 'online =', 'None'],
-#
-#     ['my', 'whoever', '', 'conjunction', 'ايا كان', 'online =', 'ايا كان'],
-#
-#     ['ʾt', 'you', '', 'personal pronoun', 'انت', 'online =', 'انت'],
-#
-#     ['kl', 'all', '', 'determiner', 'كل شيء', 'online =', 'الجميع'],
-#
-#     ['ʾdm', 'man', '', 'common noun', 'رجل', 'online =', 'رجل'],
-#
-#     ['ʾš', 'who', '', 'determiner', 'الذي', 'online =', 'من'],
-#
-#     ['tpq', 'find', 'pwq', 'verb', 'تجد', 'online =', 'يجد'],
-#
-#     ['ʾrn', 'sarcophagus', '', 'common noun', 'Sarcophagus', 'online =', 'تابوت الحجري'],
-#
-#     ['ʾl', 'do not', '', 'adverb', 'لا', 'online =', 'لا'],
-#
-#     ['tptḥ', 'open', 'ptḥ', 'verb', 'مفتوحة', 'online =', 'فتح'],
-#
-#     ['ʿlt', 'upon', '', 'preposition', 'علي', 'online =', 'علي'],
-#
-#     ['w', 'and', '', 'conjunction', 'و', 'online =', 'و'],
-#
-#     ['trgz', 'disturb', 'rgz', 'verb', 'اضطراب', 'online =', 'زعج'],
-#
-#     ['k', 'as', '', 'conjunction', 'as', 'online =', 'مثل'],
-#
-#     ['h', 'the', '', 'article', 'the', 'online =', 'ال'],
-#
-#     ['b', 'in', '', 'preposition', 'في', 'online =', 'في'],
-#
-#     ['y', 'mine', '', 'possessive suffix', 'الغام', 'online =', 'ملكي'],
-#
-#     ['n', 'me', '', 'personal pronoun', 'انا', 'online =', 'انا'],
-#
-#     ['ʾy', 'not', '', 'determiner', 'لا', 'online =', 'لا'],
-#
-#     ['ʾr', 'collect', 'ʾry', 'verb', 'جمع', 'online =', 'جمع'],
-#
-#     ['ln', 'to us', 'l', 'preposition', 'لنا', 'online =', 'لنا'],
-#
-#     ['ksp', 'silver', '', 'common noun', 'فضة', 'online =', 'فضة'] ,
-#
-#     ['ḥrṣ', 'gold', '', 'common noun', 'ذهب', 'online =', 'ذهب'] ,
-#
-#     ['mnm', 'whatever', '', 'determiner', 'مهما يكن', 'online =', 'ايا كان'] ,
-#
-#     ['mšd', 'wealth', '', 'common noun', 'ثروة', 'online =', 'ثروة'] ,
-#
-#     ['blt', 'but', '', 'conjunction', 'لكن', 'online =', 'لكن'] ,
-#
-#     ['tʿbt', 'mess', 'ʿbt', 'verb', 'فوضى', 'online =', 'فوض'] ,
-#
-#     ['dbr', 'matter', '', 'common noun', 'مسالة', 'online =', 'موضوع'] ,
-#
-#     ['hʾ', 'he', '', 'personal pronoun', 'هو', 'online =', 'هو'] ,
-#
-#     ['ʾm', 'if', '', 'conjunction', 'اذا', 'online =', 'لو'] ,
-#
-#     ['ptḥ', 'open', '', 'verb', 'مفتوحة', 'online =', 'فتح'] ,
-#
-#     ['rgz', 'disturb', '', 'verb', 'اضطراب', 'online =', 'زعج'] ,
-#
-#     ['lk', 'to you', 'l', 'preposition', 'لك', 'online =', 'لك'] ,
-#
-#     ['zrʿ', 'semence,offspring', '', 'common noun', 'حساسية، طفح', 'online =', 'Semence ، ذرية'] ,
-#
-#     ['ḥym', 'living', '', 'common noun', 'معيشة', 'online =', 'معيشة'] ,
-#
-#     ['tḥt', 'under', '', 'preposition', 'تحت بند', 'online =', 'تحت'] ,
-#
-#     ['šmš', 'sun', '', 'common noun', 'شمس', 'online =', 'شمس'] ,
-#
-#     ['mškb', 'rest place', 'škb', 'common noun', 'راحة', 'online =', 'مكان الراحة'] ,
-#
-#     ['rpʾm', 'Old spirits', '', 'common noun', 'ارواح القديمة', 'online =', 'ارواح القديمة'] ,
-#
-#     ['w', 'his', '', 'possessive suffix', 'له', 'online =', 'له'] ,
-#
-#     ['mš', 'statue', '', 'common noun', 'تمثال', 'online =', 'تمثال'] ,
-#
-#     ['bʾ', 'bring', 'bwʾ', 'verb', 'أحضر', 'online =', 'حضر'] ,
-#
-#     ['ʾbbʿl', 'ʾAbibaʿl', '', 'proper noun', 'ʾAbiba l', 'online =', 'ʾabibaʿl'] ,
-#
-#     ['gbl', 'Byblos', '', 'proper noun', 'Byblos', 'online =', 'byblos'] ,
-#
-#     ['yḥmlk', 'Yeḥimilk', '', 'proper noun', 'Yeḥimilk', 'online =', 'ييميلك'] ,
-#
-#     ['mṣrm', 'Egypt', '', 'proper noun', 'مصر', 'online =', 'مصر'] ,
-#
-#     ['l', 'To', '', 'preposition', 'الي', 'online =', 'ل'] ,
-#
-#     ['bʿlt', 'goddess', '', 'proper noun', 'الالهة', 'online =', 'الهة'] ,
-#
-#     ['ʾdt', 'lady', '', 'common noun', 'سيدة', 'online =', 'سيدة'] ,
-#
-#     ['tʾrk', 'prolong', 'ʾrk', 'verb', 'إطالة', 'online =', 'اطال'] ,
-#
-#     ['ymt', 'days', 'ym', 'common noun', 'ايام', 'online =', 'ايام'] ,
-#
-#     ['šnt', 'years', 'št', 'common noun', 'سنوات', 'online =', 'سنين'] ,
-#
-#     ['ʿl', 'on', '', 'preposition', 'on', 'online =', 'علي'] ,
-#
-#     ['pʿl', 'make', '', 'verb', 'جعل', 'online =', 'صنع'] ,
-#
-#     ['ʾlbʿl', 'ʾElibaʿl', '', 'proper noun', 'ʾEliball', 'online =', 'ʾelibaʿl'] ,
-#
-#     ['qr', 'wall', '', 'common noun', 'جدار', 'online =', 'حائط'] ,
-#
-#     ['bny', 'construct,build', '', 'verb', 'بناء', 'online =', 'بناء ، بناء'] ,
-#
-#     ['špṭbʿl', 'Shiptibaal', '', 'proper noun', 'Shiptibaal', 'online =', 'Shiptibaal'] ,
-#
-#     ['ḥnwtm', 'Perfume Autel', 'ḥnwt', 'common noun', 'Perfume Autel', 'online =', 'قال العطور'] ,
-#
-#     ['ʿbdʾšmn', 'ʿAbdʾešmun', '', 'proper noun', ' Abd ešmun', 'online =', 'عبد'] ,
-#
-#     ['bnh', 'constructor', '', 'common noun', 'بناء', 'online =', 'بناء'] ,
-#
-#     ['ʾṣʿʾ', 'ʾIṣaʿʾ', '', 'proper noun', '♪ I aina ♪', 'online =', 'هو'] ,
-#
-#     ['ʾdn', 'master', '', 'common noun', 'سيدي', 'online =', 'يتقن'] ,
-#
-#     ['sml', 'statue', '', 'common noun', 'تمثال', 'online =', 'تمثال'] ,
-#
-#     ['bʿl', 'god', '', 'proper noun', 'الله', 'online =', 'اله'] ,
-#
-#     ['ybrk', 'bless', 'brk', 'verb', 'نعم', 'online =', 'بار'] ,
-#
-#     ['yḥw', 'live', 'ḥwy', 'verb', 'عيش', 'online =', 'عيش'] ,
-#
-#     ['ʾl', 'god', '', 'common noun', 'الله', 'online =', 'اله'] ,
-#
-#     ['ʾl', 'these', '', 'determiner', 'هذه', 'online =', 'None'] ,
-#
-#     ['kn', 'so', '', 'adverb', 'هكذا', 'online =', 'لذا'] ,
-#
-#     ['ʾt', 'you', '', 'personal pronoun', 'انت', 'online =', 'انت'] ,
-#
-#     ['hʾ', 'she', '', 'personal pronoun', 'هي', 'online =', 'هي'] ,
-#
-#     ['ʾnḥn', 'we', '', 'personal pronoun', 'نحن', 'online =', 'نحن'] ,
-#
-#     ['ʾtm', 'you', '', 'personal pronoun', 'انت', 'online =', 'انت'] ,
-#
-#     ['hmt', 'they', '', 'personal pronoun', 'هم', 'online =', 'هم'] ,
-#
-#     ['plsbʿl', 'Pelsibaʿl', '', 'proper noun', 'Pelsiball', 'online =', 'بيلسيباب'] ,
-#
-#     ['ʾḥrm', 'ʾAḥirom', '', 'proper noun', 'ʾA irom', 'online =', 'ʾaḥirom'] ,
-#
-#     ['ʾb', 'father', '', 'common noun', 'ابي', 'online =', 'اب'] ,
-#
-#     ['št', 'sleeping bed', '', 'common noun', 'نوم', 'online =', 'سرير النوم'] ,
-#
-#     ['ʿlm', 'eternity', '', 'common noun', 'خلود', 'online =', 'خلود'] ,
-#
-#     ['mlkm', 'kings', 'mlk', 'common noun', 'ملوك', 'online =', 'ملوك'] ,
-#
-#     ['skn', 'governor', '', 'common noun', 'حاكم', 'online =', 'محافظ حاكم'] ,
-#
-#     ['sknm', 'governors', 'skn', 'common noun', 'حكام', 'online =', 'محافظون'] ,
-#
-#     ['tmʾ', 'commander', '', 'common noun', 'قائد', 'online =', 'قائد'] ,
-#
-#     ['mḥnt', 'army,camp', '', 'common noun', 'جيش', 'online =', 'مخيم الجيش'] ,
-#
-#     ['ʿly', 'invade,come up', '', 'verb', 'غزا، تعال', 'online =', 'غزو ، تعال'] ,
-#
-#     ['ygl', 'move,remove', 'gly', 'verb', 'تحركوا', 'online =', 'تحرك ، ازال'] ,
-#
-#     ['zn', 'there', '', 'determiner', 'هناك', 'online =', 'هناك'] ,
-#
-#     ['tḥtsp', 'break,split', 'ḥsp', 'verb', 'استراحة', 'online =', 'كسر ، انقسام'] ,
-#
-#     ['ḥṭr', 'scepter', '', 'common noun', 'صدر', 'online =', 'صولجان'] ,
-#
-#     ['mšpṭ', 'royal authority', '', 'common noun', 'سلطة الملكية', 'online =', 'سلطة الملكية'] ,
-#
-#     ['thtpk', 'overturn', 'hpk', 'verb', 'تراجع', 'online =', 'نقلب'] ,
-#
-#     ['ksʾ', 'throne', '', 'common noun', 'عرش', 'online =', 'عرش'] ,
-#
-#     ['nḥt', 'peace', '', 'common noun', 'سلام', 'online =', 'سلام'] ,
-#
-#     ['tbrḥ', 'depart', 'brḥ', 'verb', 'غادر', 'online =', 'غادر'] ,
-#
-#     ['ymḥ', 'erase,eradicate,wipe', 'mḥy', 'verb', 'امسحوا , ارقصوا', 'online =', 'محو ، القضاء ، امسح'] ,
-#
-#     ['spr', 'inscription,document', '', 'common noun', 'inscription,document', 'online =', 'نقش ، وثيقة'] ,
-#
-#     ['lpp', 'tear', '', 'verb', 'دموع', 'online =', 'قطع'] ,
-#
-#     ['šbl', 'royal robe', '', 'common noun', 'سرقة ملكية', 'online =', 'رداء الملكي'] ,
-#
-#     ]
-#     #['ʾyt', '', '', 'accusative particle', ''],
-#
-#     #['ykn', 'be', 'kwn', 'verb', '...'],
-#
-#     #['kwn', 'be', '', 'verb', '...'],
-#
+# #
+# #
+# liste=[('ytn', 'give,present', 'verb', ''),
+# ('bʿlšlm', 'Baʿlšillem', 'proper noun', ''),
+# ('bʿnʾ', 'Baʿnaʾ', 'proper noun', ''),
+# ('ʿbdʾmn', 'ʿAbdʾAmun', 'proper noun', ''),
+# ('ʾšmn', 'ʾEšmun', 'proper noun', ''),
+# ('ʿn', 'spring', 'common noun', ''),
+# ('ydl', 'Ydll', 'proper noun', ''),
+# ('št', 'year', 'common noun', ''),
+# ('h', 'his', 'possessive suffix', ''),
+# ('ʾp', 'moreover', 'adverb', ''),
+# ('ʾršt', 'ʾArišot', 'proper noun', ''),
+# ('bt', 'daughter', 'common noun', ''),
+# ('ʾšmnytn', 'ʾEšmunyaton', 'proper noun', ''),
+# ('ʾḥt', 'sister', 'common noun', ''),
+# ('ʾmr', 'say', 'verb', ''),
+# ('bš', 'Biša', 'proper noun', ''),
+# ('šlm', 'greet', 'verb', ''),
+# ('ʾmr', 'word', 'common noun', ''),
+# ('šlm', 'pay back', 'verb', ''),
+# ('šlm', 'be-well,propser', 'common noun', ''),
+# ('bt bt', 'granddaughter', 'common noun', ''),
+# ('bt', 'house', 'common noun', ''),
+# ('bt', 'temple', 'common noun', ''),
+# ('bt ʿlm', 'tomb', 'common noun', ''),
+# ('bt ʾlm', 'temple', 'common noun', ''),
+# ('bt ʾlnm', 'temples', 'common noun', ''),
+# ('bt ʾdn', 'palace,dynasty', 'common noun', ''),
+# ('bt ʾb', 'palace,dynasty', 'common noun', ''),
+# ('bn bn', 'grandson', 'common noun', ''),
+# ('p', 'mouth', 'common noun', ''),
+# ('yrḥ', 'month', 'common noun', ''),
+# ('yrḥ', 'moon', 'common noun', ''),
+# ('ydll', 'Ydll', 'proper noun', ''),
+# ('ʿn', 'eye', 'common noun', ''),
+# ('ʿnm', 'eyes', 'common noun', ''),
+# ('nḥšt', 'bronze', 'common noun', ''),
+# ('ʾḥd', 'one', 'number', ''),
+# ('ʾḥt', 'one', 'number', ''),
+# ('šnm', 'two', 'number', ''),
+# ('ʾšnm', 'two', 'number', ''),
+# ('šn', 'two', 'number', ''),
+# ('ʾšn', 'two', 'number', ''),
+# ('štm', 'two', 'number', ''),
+# ('št', 'two', 'number', ''),
+# ('šlšt', 'three', 'number', ''),
+# ('šlš', 'three', 'number', ''),
+# ('ʾrbʿt', 'four', 'number', ''),
+# ('ʾrbʿ', 'four', 'number', ''),
+# ('ḥmšt', 'five', 'number', ''),
+# ('ḥmš', 'five', 'number', ''),
+# ('ššt', 'six', 'number', ''),
+# ('šš', 'six', 'number', ''),
+# ('šbʿt', 'seven', 'number', ''),
+# ('šbʿ', 'seven', 'number', ''),
+# ('šmnt', 'eight', 'number', ''),
+# ('šmn', 'eight', 'number', ''),
+# ('tsʿt', 'nine', 'number', ''),
+# ('tsʿ', 'nine', 'number', ''),
+# ('ʿsrt', 'ten', 'number', ''),
+# ('ʿsr', 'ten', 'number', ''),
+# ('ʿšrm', 'twenty', 'number', ''),
+# ('šlšm', 'thirty', 'number', ''),
+# ('ʾrbʿm', 'forty', 'number', ''),
+# ('ḥmšm', 'fifty', 'number', ''),
+# ('ššm', 'sixty', 'number', ''),
+# ('šbʿm', 'seventy', 'number', ''),
+# ('šmnm', 'eighty', 'number', ''),
+# ('tšʿm', 'ninety', 'number', ''),
+# ('mʾt', 'one hundred', 'number', ''),
+# ('mʾtm', 'two hundred', 'number', ''),
+# ('ʾlp', 'one thousand', 'number', ''),
+# ('lpny', 'first', 'ordinal number', ''),
+# ('lpnt', 'first', 'ordinal number', ''),
+# ('šny', 'second', 'ordinal number', ''),
+# ('šnt', 'second', 'ordinal number', ''),
+# ('rbʿ', 'quarter', 'fraction', ''),
+# ('mḥṣ', 'one half', 'fraction', ''),
+# ('mḥṣt', 'one half', 'fraction', ''),
+# ('ḥṣy', 'one half', 'common noun', ''),
+# ('rbʿ šlšt', 'three quarters', 'fraction', ''),
+# ('hr', 'mountain', 'common noun', ''),
+# ('šr', 'prince', 'common noun', ''),
+# ('ʾpy', 'bake', 'verb', ''),
+# ('ʾmʿštrt', 'ʾAmʿaštart', 'proper noun', ''),
+# ('dʿt', 'knowledge', 'common noun', 'ydʿ'),
+# ('hn', 'here', 'preposition', ''),
+# ('ypd', 'grief,suffer', 'verb', 'pwd'),
+# ('pyd', 'grief,suffer', 'verb', ''),
+# ('pwd', 'grief,suffer', 'verb', ''),
+# ('ʿzrbʿl', 'ʿAzorbaʿl', 'proper noun', ''),
+# ('nšbt', 'settle', 'common noun', 'šbt'),
+# ('nḥl', 'possess,inherit', 'verb', ''),
+# ('tnḥl', 'possess,inherit', 'verb', 'nḥl'),
+# ('mgšt', 'offerings', 'common noun', ''),
+# ('mgšh', 'offering', 'common noun', ''),
+# ('šbt', 'settle', 'common noun', ''),
+# ('bwʾ', 'come', 'verb', ''),
+# ('nṭʿ', 'plant', 'verb', ''),
+# ('šym', 'put,place', 'verb', ''),
+# ('šyt', 'put,place', 'verb', ''),
+# ('ḥsp', 'break,split', 'verb', ''),
+# ('brk', 'bless', 'verb', ''),
+# ('bwʾ', 'bring', 'verb', ''),
+# ('ʾry', 'collect', 'verb', ''),
+# ('brḥ', 'depart', 'verb', ''),
+# ('mḥy', 'eradicate,wipe', 'verb', ''),
+# ('pwq', 'find', 'verb', ''),
+# ('hpk', 'overturn', 'verb', ''),
+# ('ʾrk', 'prolong', 'verb', ''),
+# ('ydʿ', 'know', 'verb', ''),
+# ('ḥwy', 'live', 'verb', ''),
+# ('ʿbt', 'mess', 'verb', ''),
+# ('gly', 'move,remove', 'verb', ''),
+# ('hlk', 'go', 'verb', ''),
+# ('ymm', 'days', 'common noun', 'ym'),
+# ('bl', 'Bul', 'proper noun', ''),
+# ('pmyytn', 'Pumyyaton', 'proper noun', ''),
+# ('kty', 'Kition', 'proper noun', ''),
+# ('ʾdyl', 'Idalion', 'proper noun', ''),
+# ('tms', 'Tamassos', 'proper noun', ''),
+# ('mlkytn', 'Milkyaton', 'proper noun', ''),
+# ('mzbḥ', 'altar', 'common noun', ''),
+# ('ʾz', 'this', 'determiner', ''),
+# ('ʾrwm', 'two lions', 'common noun', 'ʾrw'),
+# ('bdʾ', 'Bodo', 'proper noun', ''),
+# ('ršpḥṣ', 'Reshep-ḥess (Arrow)', 'proper noun', ''),
+# ('yknšlm', 'Yakonshalom', 'proper noun', ''),
+# ('ʾšmnʾdn', 'ʾEšmunʾadon', 'proper noun', ''),
+# ('ḥṣ', 'arrow', 'common noun', ''),
+# ('ʾrw', 'Lion', 'common noun', ''),
+# ('mrpʾ', 'Merpa\'', 'proper noun', ''),
+# ('smlt', 'image of woman', 'common noun', ''),
+# ('yṭnʾ', 'erect', 'verb', 'ṭnʾ'),
+# ('m', 'from', 'preposition', ''),
+# ('yʾš', 'Yaash', 'proper noun', ''),
+# ('ʾšt', 'wife', 'common noun', ''),
+# ('bʿltytn', 'Baalatyaton', 'proper noun', ''),
+# ('ʿbd', 'servant', 'common noun', ''),
+# ('šmʿʾ', 'Shemo', 'proper noun', ''),
+# ('bʿlytn', 'Baalyaton', 'proper noun', ''),
+# ('rbt', 'mistress', 'common noun', ''),
+# ('tšmʿ', 'she listens', 'verb', 'šmʿ'),
+# ('ql', 'voice', 'common noun', ''),
+# ('ṭnʾ', 'erect', 'verb', ''),
+# ('mṣbt', 'stele', 'common noun', ''),
+# ('ʾšmnʾdny', 'ʾEšmunʾadony', 'proper noun', ''),
+# ('šrdl', 'Šerdel', 'proper noun', ''),
+# ('ʿbdmlkrt', 'ʿabdmilkart', 'proper noun', ''),
+# ('ršpytn', 'Rešepyaton', 'proper noun', ''),
+# ('mlṣ', 'Translator', 'common noun', ''),
+# ('krsym', 'thrones', 'common noun', 'krsym'),
+# ('krsy', 'throne', 'common noun', ''),
+# ('bdʿštrt', 'Bodashtart', 'proper noun', ''),
+# ('ṣdn', 'Sidon', 'proper noun', ''),
+# ('ym', 'sea', 'common noun', ''),
+# ('šmm', 'heaven', 'common noun', ''),
+# ('rmm', 'high', 'adjectif', 'rm'),
+# ('ʾrṣ', 'land', 'common noun', ''),
+# ('ršpm', 'shades,flames', 'common noun', 'ršp'),
+# ('mšl', 'rule', 'verb', ''),
+# ('šd', 'inland', 'common noun', ''),
+# ('qdš', 'saint,holy', 'adjectif', ''),
+# ('šd', 'field,farmland', 'common noun', ''),
+# ('šd', 'plain', 'common noun', ''),
+# ('šd', 'land,region', 'common noun', ''),
+# ('rm', 'high', 'adjectif', ''),
+# ('ršp', 'shade,flame', 'common noun', ''),
+# ('ṣdq', 'legitimate', 'adjectif', ''),
+# ('ytnmlk', 'Yatonmilk', 'proper noun', ''),
+# ('ṣdq', 'just,right', 'adjectif', ''),
+# ('ʾḥṭb', 'Aḥitob', 'proper noun', ''),
+# ('qrtḥdšt', 'New City', 'proper noun', ''),
+# ('ḥrm', 'Hirom', 'proper noun', ''),
+# ('lbnn', 'Lebanon', 'proper noun', ''),
+# ('rʾšt', 'choicest', 'adjectif', ''),
+# ('qrtḥdšt', 'Carthage', 'proper noun', ''),
+# ('ʿbdʾsr', 'ʿAbdʾosir', 'proper noun', ''),
+# ('ʿbdssm', 'ʿAbdsasom', 'proper noun', ''),
+# ('ḥr', 'ḥor', 'proper noun', ''),
+# ('ḥy', 'living', 'common noun', ''),
+# ('yṭnʾt', 'erect', 'verb', 'ṭnʾ'),
+# ('ʾmtʿštrt', 'ʾAmatʿAštart', 'proper noun', ''),
+# ('tʾm', 'Toʾm', 'proper noun', ''),
+# ('ʿbdmlk', 'ʿAbdmilk', 'proper noun', ''),
+# ('mrqʿ', 'mace', 'common noun', ''),
+# ('bʿlrm', 'Baalrom', 'proper noun', ''),
+# ('mkl', 'Mikal', 'proper noun', ''),
+# ('šmʿ', 'hear,listen', 'verb', ''),
+# ('sml', 'image of man', 'common noun', ''),
+# ('pʿlt', 'Paʿlot', 'proper noun', ''),
+# ('ḥdš', 'renew', 'verb', ''),
+# ('ʿzrtbʿl', 'ʿOzertbaʿl', 'proper noun', ''),
+# ('mlqrt', 'Milqart', 'proper noun', ''),
+# ('pqd', 'administer,oversee', 'verb', ''),
+# ('mpqd', 'administrator', 'common noun', ''),
+# ('ʾdnšmš', 'ʾAdonšamš', 'proper noun', ''),
+# ('smlm', 'statues', 'common noun', 'sml'),
+# ('slmt', 'stairs', 'common noun', 'slm'),
+# ('ʿbdpmy', 'ʿAbdpoumy', 'proper noun', ''),
+# ('ʿbdmlqrt', 'ʿAbdmilqart', 'proper noun', ''),
+# ('mpqd', 'administration', 'common noun', ''),
+# ('slm', 'staircase', 'common noun', ''),
+# ('mpqd', 'tower', 'common noun', ''),
+# ('ʾš', 'man', 'common noun', ''),
+# ('ʾš', 'fire', 'common noun', ''),
+# ('ḥyr', 'ḥayar', 'proper noun', ''),
+# ('ptlmys', 'Patlimyos', 'proper noun', ''),
+# ('knprs ʾrsnʾs pldlp', 'Kanephoros Arsinoē Philadelphos', 'proper noun', ''),
+# ('ʾmtʾsr', 'ʾAmatʾOsir', 'proper noun', ''),
+# ('gdʿt', 'Gidʿat', 'proper noun', ''),
+# ('btšlm', 'Batšallum', 'proper noun', ''),
+# ('mryḥy', 'Maryeḥay', 'proper noun', ''),
+# ('ʿbdršp', 'ʿAbdrešep', 'proper noun', ''),
+# ('nḥmy', 'Naḥmay', 'common noun', ''),
+# ('glb', 'Gallab', 'proper noun', ''),
+# ('ndr', 'vow', 'verb', ''),
+# ('nm', 'their', 'possessive suffix', ''),
+# ('ndr', 'vow', 'common noun', ''),
+# ('glb', 'barber', 'common noun', ''),
+# ('šlm', 'Šallum', 'proper noun', ''),
+# ('ʿnt', 'ʿAnat', 'proper noun', ''),
+# ('mʿz', 'force', 'common noun', ''),
+# ('ʾdmlkm', 'Lord of kings', 'common noun', ''),
+# ('ptlmyš', 'Patlimyoš', 'proper noun', ''),
+# ('ssmy', 'Sesmey', 'proper noun', ''),
+# ('yqdš', 'consecrate', 'verb', 'qdš'),
+# ('mzl', 'luck', 'common noun', ''),
+# ('nʿm', 'good,excellent', 'adjectif', ''),
+# ('qdš', 'consecrate', 'verb', ''),
+# ('qdš', 'inner sanctuary', 'common noun', ''),
+# ('qdšt', 'saint,holy', 'adjectif', ''),
+# ('nʿm', 'kindness,happiness', 'common noun', ''),
+# ('nʿmt', 'good', 'adjectif', ''),
+# ('ṣr', 'Tyre', 'proper noun', ''),
+# ('ʾḥ', 'brother', 'common noun', ''),
+# ('ʾsršmr', 'ʾOsiršamor', 'proper noun', ''),
+# ('šyr', 'sing', 'verb', ''),
+# ('ʾḥt', 'sister', 'common noun', ''),
+# ('nṣḥ', 'conquer,defeat', 'verb', ''),
+# ('yṣʾm', 'who came forth', 'common noun', ''),
+# ('yṣʾ', 'come forth ', 'verb', ''),
+# ('yṣʾ', 'rise (of the sun)', 'verb', ''),
+# ('yṣʾ', 'spend,expend money', 'verb', ''),
+# ('ʿzr', 'ally', 'common noun', ''),
+# ('ʿzr', 'help', 'verb', ''),
+# ('ʿzr', 'helper', 'common noun', ''),
+# ('ʾt', '', 'accusative particle', ''),
+# ('ʾb', 'enemy', 'common noun', ''),
+# ('tršš', 'Taršiš', 'proper noun', ''),
+# ('grš', 'drive out,expel', 'verb', ''),
+# ('šrdn', 'Sardinia', 'proper noun', ''),
+# ('ṣbʾ', 'army', 'common noun', ''),
+# ('mlktn', 'Milkuton', 'proper noun', ''),
+# ('šbn', 'Shabon', 'proper noun', ''),
+# ('ngd', 'commander', 'common noun', ''),
+# ('pmy', 'Poumay', 'proper noun', ''),
+# ('šlm', 'refuge', 'common noun', ''),
+# ('brkt', 'bless', 'verb', 'brkt'),
+# ('ṣpn', 'Shapon', 'proper noun', ''),
+# ('tḥpnḥs', 'Tahpanhas', 'proper noun', ''),
+# ('ʾpq', 'get,receive', 'verb', 'pwq'),
+# ('šlḥt', 'send', 'verb', 'šlḥ'),
+# ('ly', 'to me', 'preposition', 'l'),
+# ('tntn', 'give', 'verb', 'ytn'),
+# ('mšql', 'shekel', 'common noun', ''),
+# ('nqt', 'receipt', 'common noun', ''),
+# ('pwq', 'get,receive', 'verb', ''),
+# ('šlḥ', 'send', 'verb', ''),
+# ('bṭḥ', 'trust', 'verb', ''),
+# ('ʿd', 'until', 'preposition', ''),
+# ('ʿd', 'even', 'preposition', ''),
+# ('bdk', 'in your hand', 'common noun', ''),
+# ('bd', 'in the hand', 'common noun', ''),
+# ('dbr', 'word,promise', 'common noun', ''),
+# ('dbr', 'statement,declaration', 'common noun', ''),
+# ('dbr', 'say', 'verb', ''),
+# ('dbr', 'tell', 'verb', ''),
+# ('bšʾ', 'Bisha\'', 'proper noun', ''),
+# ('ʿlt pn', 'in addition to', 'preposition', ''),
+# ('pn', 'face', 'common noun', ''),
+# ('pn', 'side', 'common noun', ''),
+# ('mlʾt', 'give in full', 'verb', 'mlʾ'),
+# ('mlʾ', 'give in full', 'verb', ''),
+# ('mlʾ', 'fill', 'verb', ''),
+# ('ytt', 'give', 'verb', 'ytn'),
+# ('ypʿl', 'do', 'verb', 'pʿl'),
+# ('ʾdʿ', 'know', 'verb', 'ydʿ'),
+# ('ʾtnm', 'ʾEtanim', 'proper noun', ''),
+# ('tklt', 'expense', 'common noun', ''),
+# ('ʾln', 'god', 'common noun', ''),
+# ('qpʾ', 'monetary value', 'common noun', ''),
+# ('bnm', 'builders', 'common noun', ''),
+# ('kt', 'Kityon', 'proper noun', ''),
+# ('prkm', 'taskmasters', 'common noun', ''),
+# ('ʾdmm', 'persons', 'common noun', ''),
+# ('dl', 'labor', 'common noun', ''),
+# ('qṣr', 'monetary unit', 'common noun', ''),
+# ('šrm', 'singers', 'common noun', ''),
+# ('ʿr', 'city', 'common noun', ''),
+# ('šknm', 'dwelling', 'common noun', ''),
+# ('mlkt', 'queen', 'common noun', ''),
+# ('tklt', 'food storage', 'common noun', ''),
+# ('qr', 'monetary value', 'common noun', ''),
+# ('nʿrm', 'pages', 'common noun', '')]
+# #
 #
 # import EngArTranslator
 # import ArabicParser
@@ -377,21 +457,24 @@
 #
 #     ['khn', 'priest', '', 'common noun', 'كاهن', 'online =', 'كاهن']]
 #
-# # for i in liste:
-# #     print(i[1])
-# #     try:
-# #         Format={}
-# #         Format['Transcript'] = i[0]
-# #         Format['English'] = i[1]
-# #         Format['root_t'] = i[2]
-# #         Format['Type'] = i[3]
-# #         Format['Oflline'] = EngArTranslator.TranslateOffline(i[1])
-# #         Format['Stemmed Offline'] = i[4]
-# #         Format['Online'] = EngArTranslator.TranslateOnline(i[1])
-# #         Format['Stemmed Online']=i[6]
-# #         DATABASE.append(Format)
-# #     except TypeError:
-# #         pass
+# for i in liste:
+#     try:
+#         Format={}
+#         Format['Transcript'] = i[0]
+#         Format['English'] = i[1]
+#         Format['root_t'] = i[3]
+#         Format['Type'] = i[2]
+#         Format['Oflline'] = ''#EngArTranslator.TranslateOffline(i[1])
+#         Format['Stemmed Offline'] = ''
+#         Format['Online'] = ''#EngArTranslator.TranslateOnline(i[1])
+#         Format['Stemmed Online']=''
+#         DATABASE.append(Format)
+#         if Format['Type']=='verb':
+#             print(Format,',')
+#         #print(Format, ',')
+#     except TypeError:
+#         pass
+#print(DATABASE)
 # #
 # # for line in DATABASE:
 # #     print(line)
