@@ -1,6 +1,6 @@
 import json
 import spacy
-
+import EngPhoeWordTranslator
 import EngPhoeVerbTranslator
 
 nlp = spacy.load("en_core_web_sm")
@@ -56,6 +56,7 @@ class EngPhoeTranslator:
                     allchildren[str(token)].append(([str(child.text), str(child.tag_), str(child.dep_)]))
                 else:
                     allchildren[str(token)] = [str(child.text), str(child.tag_), str(child.dep_)]
+        #print('all',allchildren)
         outputsentence=''
         for parsedword in parsedsentence:
             word=parsedword[0]
@@ -66,12 +67,18 @@ class EngPhoeTranslator:
                     outputsentence = outputsentence + ' ' + self.__Finder(str(word))
             elif parsedword[1][0]=='V' and parsedword[2]=='aux':
                 outputsentence=outputsentence
+            elif parsedword[2]=='det' or parsedword[2]=='poss':
+                outputsentence = outputsentence
             else:
-                outputsentence = outputsentence +' '+self.__Finder(str(word))
+                try:
+
+                    outputsentence=outputsentence+' '+EngPhoeWordTranslator.EngPhoeWordTranslator(parsedword,allchildren).Translate()
+                except KeyError:
+                    outputsentence = outputsentence +' '+self.__Finder(str(word))
 
         return outputsentence
 
-#print(EngPhoeTranslator('The children am eating').Translate())
+#print(EngPhoeTranslator('the silver').Translate())
 #print(Finder('King'))
 # parsedsentence = []
 # for token in nlp('his son'):
