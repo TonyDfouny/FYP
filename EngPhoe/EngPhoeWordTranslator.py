@@ -8,11 +8,11 @@ class EngPhoeWordTranslator:
         self.children=allchildren
 
     def __finder(self,word):
-        words = open('Database\DATABASE.json', 'r', encoding='utf-8')
+        words = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\DATABASE.json', 'r', encoding='utf-8')
         wordsDB = json.load(words)
-
+        words.close()
         for line in wordsDB:
-            if word in line['English'].split(','):
+            if word.upper() in line['English'].upper().split(','):
                 return line['Transcript']
     def __Finder(self,word):
         if self.__finder(word) is None:

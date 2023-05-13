@@ -19,13 +19,15 @@ class EngPhoeVerbTranslator:
 
         :return: rootverb in phoenician
         """
-        verbs = open('Database\VERBDATABASE.json', 'r', encoding='utf-8')
+        verbs = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\VERBDATABASE.json', 'r',encoding='utf-8')
         verbsDB = json.load(verbs)
-
+        verbs.close()
         for line in verbsDB:
-            if self.rootverb in line['English'].split(','):
+            if self.rootverb.upper() in line['English'].upper().split(','):
                 if line['root_t']!='':
+
                     return line['root_t']
+
 
 
     def __VerbFinder(self):
@@ -152,6 +154,7 @@ class EngPhoeVerbTranslator:
             raise KeyError
         else:
             return self.__CheckTranslate()
+
 
 
 

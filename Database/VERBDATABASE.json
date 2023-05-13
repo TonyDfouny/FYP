@@ -11,7 +11,7 @@
 {"Transcript": "thtpk", "English": "overturn", "root_t": "hpk", "Type": "verb", "Oflline": "التراجع", "Stemmed Offline": "تراجع", "Online": "انقلب", "Stemmed Online": "نقلب", "Grammar": "GrammarDict"},
 {"Transcript": "tbrḥ", "English": "depart", "root_t": "brḥ", "Type": "verb", "Oflline": "غادر", "Stemmed Offline": "غادر", "Online": "تغادر", "Stemmed Online": "غادر", "Grammar": "GrammarDict"},
 {"Transcript": "ymḥ", "English": "erase,eradicate,wipe", "root_t": "mḥy", "Type": "verb", "Oflline": "امسحوا , ارقصوا", "Stemmed Offline": "امسحوا,ارقصوا,مسح", "Online": "تمحو ، القضاء ، امسح", "Stemmed Online": "محو ، القضاء ، امسح", "Grammar": "GrammarDict"},
-{"Transcript": "ʾkl", "English": "eat,ate", "root_t": "ʾkl", "Type": "verb", "Oflline": "امسحوا , ارقصوا", "Stemmed Offline": "امسحوا,ارقصوا,مسح", "Online": "تمحو ، القضاء ، امسح", "Stemmed Online": "محو ، القضاء ، امسح", "Grammar": "GrammarDict"},
+{"Transcript": "ʾkl", "English": "eat,ate", "root_t": "ʾkl", "Type": "verb", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": "", "Grammar": ""},
 {"Transcript": "pʿl", "English": "make,made", "root_t": "pʿl", "Type": "verb", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": ""},
 {"Transcript": "šyt", "English": "put,place", "root_t": "šyt", "Type": "verb", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": ""},
 {"Transcript": "ytn", "English": "give,present", "root_t": "", "Type": "verb", "Oflline": "", "Stemmed Offline": "", "Online": "", "Stemmed Online": ""} ,

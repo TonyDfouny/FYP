@@ -10,8 +10,9 @@ class WordFinder:
         self.translationtype=translationtype
 
     def __wordFinder(self):
-        words = open('Database\DATABASE.json', 'r', encoding='utf-8')
+        words = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\DATABASE.json', 'r', encoding='utf-8')
         wordsDB = json.load(words)
+        words.close()
         if self.translationtype == 'Offline':
             for line in wordsDB:
                 # if line['Stemmed Offline']==word:
@@ -35,8 +36,9 @@ class WordFinder:
 
 
     def __verbFinder(self):
-        verbs = open('Database\VERBDATABASE.json', 'r', encoding='utf-8')
+        verbs = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\VERBDATABASE.json', 'r', encoding='utf-8')
         verbsDB = json.load(verbs)
+        verbs.close()
         if self.translationtype=='Offline':
             for line in verbsDB:
                 # if line['Stemmed Offline'] == verb:

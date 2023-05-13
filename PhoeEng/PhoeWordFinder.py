@@ -12,6 +12,7 @@ class PhoeWordFinder():
         """
         words = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\DATABASE.json', 'r', encoding='utf-8')
         wordsDB = json.load(words)
+        words.close()
         for line in wordsDB:
             if self.word == line['Transcript']:
                 return line['English'].split(',')[0]
@@ -34,6 +35,7 @@ class PhoeWordFinder():
         """
         words = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\VERBDATABASE.json', 'r', encoding='utf-8')
         verbsDB = json.load(words)
+        words.close()
         for line in verbsDB:
             if self.word == line['root_t']:
                 return line['English'].split(',')[0]
