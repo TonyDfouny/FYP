@@ -2,8 +2,8 @@ import unittest
 
 import sys
 
-sys.path.append(str(r"C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database"))
-sys.path.append(str(r"C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\PhoeEng"))
+sys.path.append(sys.path[1]+r"\Database")
+sys.path.append(sys.path[1]+r"\PhoeEng")
 import PhoeEng.PhoePossessiveFinder
 
 Ph=PhoeEng.PhoePossessiveFinder.PhoePossessiveFinder

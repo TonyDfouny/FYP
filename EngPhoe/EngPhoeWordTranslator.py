@@ -1,5 +1,5 @@
 import json
-
+import sys
 class EngPhoeWordTranslator:
     def __init__(self,word,allchildren):
         self.word=word[0]
@@ -8,7 +8,7 @@ class EngPhoeWordTranslator:
         self.children=allchildren
 
     def __finder(self,word):
-        words = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\DATABASE.json', 'r', encoding='utf-8')
+        words = open(sys.path[1]+r'\Database\DATABASE.json', 'r', encoding='utf-8')
         wordsDB = json.load(words)
         words.close()
         for line in wordsDB:

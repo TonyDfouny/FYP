@@ -1,4 +1,5 @@
 import json
+import sys
 import spacy
 import EngPhoeWordTranslator
 import EngPhoeVerbTranslator
@@ -15,7 +16,7 @@ class EngPhoeTranslator:
         self.sourcesentence=sourcesentence
 
     def __finder(self,word):
-        words = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\DATABASE.json', 'r', encoding='utf-8')
+        words = open(sys.path[1]+r'\Database\DATABASE.json', 'r', encoding='utf-8')
         wordsDB = json.load(words)
         words.close()
         for line in wordsDB:
@@ -26,23 +27,6 @@ class EngPhoeTranslator:
             return word
         else:
             return self.__finder(word)
-    # def __verbfinder(self,rootverb):
-    #     verbs = open('VERBDATABASE.json', 'r', encoding='utf-8')
-    #     verbsDB = json.load(verbs)
-    #
-    #     for line in verbsDB:
-    #         if rootverb in line['English'].split(','):
-    #             return line['root_t']
-    # def __VerbFinder(self,rootverb):
-    #     if self.__verbfinder(rootverb) is None:
-    #         return rootverb
-    #     else:
-    #         return self.__verbfinder(rootverb)
-    # def SpacyParser(sourcesentence):
-    #     parsedsentence=[]
-    #     for token in nlp(sourcesentence):
-    #         parsedsentence.append([token,token.tag_])
-    #     return parsedsentence
 
     def Translate(self):
         parsedsentence = []

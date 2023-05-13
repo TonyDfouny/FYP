@@ -2,9 +2,9 @@ import unittest
 
 import sys
 
-sys.path.append(str(r"C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database"))
-sys.path.append(str(r"C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\EngArPhoe"))
-sys.path.append(str(r"C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\EngPhoe"))
+sys.path.append(sys.path[1]+r"\EngArPhoe")
+sys.path.append(sys.path[1]+r"\Database")
+sys.path.append(sys.path[1]+r"\EngPhoe")
 import EngArPhoe.ArPhoeTranslator
 
 Ar=EngArPhoe.ArPhoeTranslator.ArPhoeTranslator

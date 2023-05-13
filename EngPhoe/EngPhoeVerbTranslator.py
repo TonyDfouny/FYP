@@ -1,6 +1,6 @@
 import json
 from Database import PhoePastVerbPattern, PhoePresentVerbPattern
-
+import sys
 
 class EngPhoeVerbTranslator:
     def __init__(self,verb,allchildren):
@@ -19,7 +19,7 @@ class EngPhoeVerbTranslator:
 
         :return: rootverb in phoenician
         """
-        verbs = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\VERBDATABASE.json', 'r',encoding='utf-8')
+        verbs = open(sys.path[1]+r'\Database\VERBDATABASE.json', 'r', encoding='utf-8')
         verbsDB = json.load(verbs)
         verbs.close()
         for line in verbsDB:

@@ -1,4 +1,5 @@
 import json
+import sys
 class WordFinder:
     def __init__(self,word,translationtype):
         """
@@ -10,7 +11,7 @@ class WordFinder:
         self.translationtype=translationtype
 
     def __wordFinder(self):
-        words = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\DATABASE.json', 'r', encoding='utf-8')
+        words = open(sys.path[1]+r'\Database\DATABASE.json', 'r', encoding='utf-8')
         wordsDB = json.load(words)
         words.close()
         if self.translationtype == 'Offline':
@@ -36,7 +37,7 @@ class WordFinder:
 
 
     def __verbFinder(self):
-        verbs = open(r'C:\Users\tony_\Desktop\temp\ESIB\FYP\Translator\Database\VERBDATABASE.json', 'r', encoding='utf-8')
+        verbs = open(sys.path[1]+r'\Database\VERBDATABASE.json', 'r', encoding='utf-8')
         verbsDB = json.load(verbs)
         verbs.close()
         if self.translationtype=='Offline':

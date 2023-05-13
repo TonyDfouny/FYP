@@ -110,15 +110,25 @@ for word in words:
 # translatedsentence=Translateclass('dog','en','ar','Online')
 # print(translatedsentence.Translate())
 
-d = {
-            'my': 'y',
-            'your': 'k',
-            'his': 'h',
-            'her': 'h',
-            'its': 'h',
-            'our': 'n',
-            'their': 'm'
-        }
+# d = {
+#             'my': 'y',
+#             'your': 'k',
+#             'his': 'h',
+#             'her': 'h',
+#             'its': 'h',
+#             'our': 'n',
+#             'their': 'm'
+#         }
+#
+# d_swap = {v: k for k, v in d.items()}
+# print(d_swap)
+from pathlib import Path
 
-d_swap = {v: k for k, v in d.items()}
-print(d_swap)
+def get_project_root() -> Path:
+    return Path(__file__).parent.parent
+
+import os
+ROOT_DIR = os.path.abspath(os.curdir)
+print(ROOT_DIR)
+import sys
+print(sys.path[1])
