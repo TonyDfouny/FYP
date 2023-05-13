@@ -9,6 +9,11 @@ nltk.download()
 #In case of problems
 pip install nltk (pip3 for mac)
 nltk.download()
+https://www.nltk.org/data.html
+
+stanford packages links:
+https://nlp.stanford.edu/software/lex-parser.shtml
+download parser and arabic model
 
 
 pip install spacy
