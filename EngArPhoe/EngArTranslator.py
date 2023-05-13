@@ -51,3 +51,5 @@ class Translator():
 # print(Translator('son','en','ar','Offline').Translate())
 # print(Translator('ابن','ar','en','Online').Translate())
 # print(Translator('إبني','ar','en','Online').Translate())
+
+

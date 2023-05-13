@@ -13,7 +13,7 @@ import tkinter.font as tkFont
 def LanguageTranslator():
     root = Tk()
     root.title("Phoenician Translator")
-    # root.geometry("1080x400")
+    #root.geometry("640x480")
 
     # Icon
     icon = PhotoImage(file='GUI\icon.png')
@@ -39,7 +39,7 @@ def LanguageTranslator():
     # SourceText=Entry(root,textvariable=sourcetext)
     customFont = tkFont.Font(family='Segoe UI Historic', size=14)
 
-    SourceTextBox = Text(root, font=customFont, width=60, height=15)
+    SourceTextBox = Text(root, font=customFont, width=50, height=15)
     SourceTextBox.grid(column=10, row=12)
 
     # Arrows in the middle
@@ -58,7 +58,7 @@ def LanguageTranslator():
     Label(root, text='Output').grid(column=13, row=10)
 
     # OutputText=Entry(root,textvariable=outputtext,state='disabled',width=200,height=200)
-    OutputTextBox = Text(root, font=customFont, width=60, height=15, state='disabled')
+    OutputTextBox = Text(root, font=customFont, width=50, height=15, state='disabled')
     OutputTextBox.grid(column=13, row=12)
 
     def InputLanguageSelection(event):
