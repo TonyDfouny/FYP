@@ -1,0 +1,41 @@
+title Phoenician to English
+
+participant User
+participant PhoeenTranslate
+participant PhoeVerbFinder
+
+
+
+participant PhoePossessiveFinder
+participant PhoeWordFinder
+
+
+entryspacing 0.8
+note over User: Enter phoenician text in GUI
+User->PhoeenTranslate:send it to PhoeEnTranslate
+
+note over PhoeenTranslate:Try these conditions in orders until the returned value is not None.\n If all conditions return None, it returns the word in english. 
+
+PhoeenTranslate ->PhoeWordFinder:1-Word without modification
+PhoeWordFinder -->PhoeenTranslate:
+PhoeenTranslate ->PhoeVerbFinder:2-Considering it a verb
+
+note over PhoeVerbFinder:We consider the word a verb written in a strongverbpattern and try searching\n  for the translation after removing the corresponding characters.
+
+PhoeVerbFinder->PhoeWordFinder:Modified Word
+PhoeWordFinder-->PhoeVerbFinder:
+PhoeVerbFinder-->PhoeenTranslate:
+PhoeenTranslate->PhoeWordFinder:3-Consider the word contains h or w as first letter (Modified Word)
+PhoeWordFinder-->PhoeenTranslate:
+
+PhoeenTranslate->PhoePossessiveFinder:4-Consider the word has a termination of possessive charachters
+
+
+note over PhoePossessiveFinder:Try searching for the translation after removing the last or the last two characters.\n If True, it returns is with the corresponding possessive Determinant.
+
+PhoePossessiveFinder->PhoeWordFinder:Modified Word
+PhoeWordFinder-->PhoePossessiveFinder:
+PhoePossessiveFinder-->PhoeenTranslate:
+PhoeenTranslate-->User:return the first not None answer \nor return the phoenician word
+
+
