@@ -1,0 +1,32 @@
+title English to Phoenician
+
+participant User
+participant EngPhoeTranslator
+participant EngPhoeVerbTranslator
+participant EngPhoeWordTranslator
+
+
+entryspacing 0.4
+note over User: Enter English text in GUI
+User->EngPhoeTranslator:Send it to EngPhoeTranslator
+
+note over EngPhoeTranslator:Try these conditions on parsed sentence and in order until the returned value is not None.\n If all conditions return None, it returns the word in english. 
+
+EngPhoeTranslator->EngPhoeVerbTranslator:1-It is a Verb and not an auxilary
+
+note over EngPhoeVerbTranslator:Analyse the subjects in the verb's children and get the necessary details out of it.\n If found, it return the root phoenician with the correct verb subject agreement.
+
+EngPhoeVerbTranslator-->EngPhoeTranslator:
+
+EngPhoeTranslator->EngPhoeWordTranslator:2-If it is not a verb
+
+note over EngPhoeWordTranslator:It analyze the word's children:\n1-If it has a possessive determinant it adds the correct suffix to the phoenician word \n 2-If the determinant is THE, it adds the correct prefix to the word
+
+EngPhoeWordTranslator-->EngPhoeTranslator:
+
+note over EngPhoeTranslator:3-If it is an auxilary or a determinant it skips it.\n4-If none of the above condition it search for the corresponding\nword in Phoenician
+
+EngPhoeTranslator-->User:Return the first not None answer \nor return the english word
+
+
+
