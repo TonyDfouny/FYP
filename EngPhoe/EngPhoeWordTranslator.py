@@ -28,6 +28,13 @@ class EngPhoeWordTranslator:
         else:
             return 'h'+phoeword
 
+    def __Andword(self):
+        phoeword=self.__Finder(self.word)
+        if phoeword == self.word:
+            return None
+        else:
+            return phoeword+' w'
+
     def __Possessive(self,posspronoun):
         poss={
             'my':'y',
@@ -52,6 +59,8 @@ class EngPhoeWordTranslator:
                 return self.__Possessive(child[0])
             elif child[2]=='det' and child[0].lower()=='the':
                 return self.__Alword()
+            elif child[2]=='cc' and child[0].lower()=='and':
+                return self.__Andword()
 
     def Translate(self):
         if self.__CheckTranslate() is None:

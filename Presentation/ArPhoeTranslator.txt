@@ -1,0 +1,77 @@
+title English to Arabic to Phoenician
+
+participant User
+participant EngArTranslator
+participant ArPhoeTranslator
+participant VerbTranslator
+participant AlwordsTranslator
+participant Finder
+participant PossesivewordsTranslator
+participant WordFinder
+
+
+entryspacing 0.4
+note over User: Enter English text in GUI
+User->EngArTranslator:Send English text
+note over EngArTranslator:Translate from English to Arabic with two options,Online and Offline
+EngArTranslator->ArPhoeTranslator:Send Arabic text
+
+note over ArPhoeTranslator:Try the conditions below on parsed sentence and in order until the returned value is not None.\n If all conditions return None, it returns the word in Arabic.
+
+
+ArPhoeTranslator->VerbTranslator:1-If it is a verb
+note over VerbTranslator:Check if verb is present or past and get the verb's person\nHandle Error:\nif person not found, send orignal verb to Finder
+VerbTranslator->Finder:Send rootverb and person
+note over Finder:Handle errors from WordFinder
+
+Finder->WordFinder:Send rootverb
+WordFinder-->Finder:
+Finder-->VerbTranslator:
+VerbTranslator->PhoeVerbsPattern:Send rootPHOEverb and person
+note over PhoeVerbsPattern:Contain the correct prefix and suffix for Phoenician verbs
+PhoeVerbsPattern-->VerbTranslator:
+
+VerbTranslator-->ArPhoeTranslator:
+
+
+ArPhoeTranslator->AlwordsTranslator:2-If it is an ALword
+note over AlwordsTranslator:Remove AL from word and replace it with H in phoenician
+AlwordsTranslator->Finder:Send word without Al
+note over Finder:Handle errors from WordFinder
+Finder->WordFinder:Send word
+WordFinder-->Finder:
+Finder-->AlwordsTranslator:
+AlwordsTranslator-->ArPhoeTranslator:
+
+
+
+
+ArPhoeTranslator->Finder:3-If none of the above conditions
+note over Finder:Send the word without modification
+Finder->WordFinder:Send word
+WordFinder-->Finder:
+note over Finder:If the word is not found
+Finder->PossesivewordsTranslator:Send word
+note over PossesivewordsTranslator:Check if word end with a possessive charachter and replace it with the phoenician one
+
+
+
+PossesivewordsTranslator->WordFinder:Send word without suffix
+WordFinder-->PossesivewordsTranslator:
+PossesivewordsTranslator-->Finder:
+Finder-->ArPhoeTranslator:
+ArPhoeTranslator-->User:Return translated sentence
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -36,6 +36,6 @@ note over PhoePossessiveFinder:Try searching for the translation after removing 
 PhoePossessiveFinder->PhoeWordFinder:Modified Word
 PhoeWordFinder-->PhoePossessiveFinder:
 PhoePossessiveFinder-->PhoeEnTranslator:
-PhoeEnTranslator-->User:Return the first not None answer \nor return the phoenician word
+PhoeEnTranslator-->User:Return translated sentence
 
 

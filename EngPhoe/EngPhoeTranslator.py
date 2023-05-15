@@ -51,7 +51,7 @@ class EngPhoeTranslator:
                     outputsentence = outputsentence + ' ' + self.__Finder(str(word))
             elif parsedword[1][0]=='V' and parsedword[2]=='aux':
                 outputsentence=outputsentence
-            elif parsedword[2]=='det' or parsedword[2]=='poss':
+            elif parsedword[2]=='det' or parsedword[2]=='poss' or word.lower()=='and':
                 outputsentence = outputsentence
             else:
                 try:
