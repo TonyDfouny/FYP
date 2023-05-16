@@ -1,12 +1,37 @@
-#####ENGARPHOE#####
+#####EngARPHOE#####
+src:I am collecting the silver--> ʾnk ʾr hksp  (same for both online and offline)
+subject verb agremment did not work because:
+['PRP انا', 'VBD اجمع', 'DTNN الفضة']
+Which is an error because VBD means verb in PAST tense
 
+if src is :He is collecting the silver -->hʾ yʾr hksp
+['NNP انه', 'VBP يجمع', 'DTNN الفضة']
+I put انه in the database as the pronoun He
+VBP means present verb and so the algorithm worked in this case
 
-
-
+Thats why there is a lot to fix in this method
 
 #####ENGPHOE####
+src=I collected the silver in Byblos -----> ʾnk ʾrt hksp b gbl
+collected-->root 'ry -->agreement because of past pattern 'rt
+silver --> ksp ---> the silver ---> hksp
 
+src=I am collecting the silver in Byblos----> ʾnk ʾʾr hksp b gbl
+ʾʾr is now the verb because of present pattern
 
+I opened the coffin
+
+Irregular verb in english in past like found , came ... should be added manually to the data
 
 ####PHOEENG######
+hʾ yʾr hksp--->she yʾr the silver
+cant differ between she and he alone we need to analyze the verb's prefix and suffix, and it didnt analyze
+correctly the verb because it is not a strong pattern verb
+
+
+ʾnk ptḥt hḥlt--->I *open the coffin
+* is before open because changed were made to the word (removed a suffix)
+a new code could be written to improve the output by analyzing the suffix removed and correspond it to the person
+(like a reverse pattern). It Wasn't done due to a lack of time.
+
 

@@ -10,10 +10,10 @@ def PhoeVerbFinder(word):
     except IndexError:
         raise KeyError
     try:
-        return PhoeWordFinder.PhoeWordFinder(word[-1]).VerbFinder()
+        return PhoeWordFinder.PhoeWordFinder(word[:-1]).VerbFinder()
     except KeyError:
         try:
-            return PhoeWordFinder.PhoeWordFinder(word[-2]).VerbFinder()
+            return PhoeWordFinder.PhoeWordFinder(word[:-2]).VerbFinder()
         except KeyError:
             try:#If StrongPattern Present:
                 return PhoeWordFinder.PhoeWordFinder(word[1:]).VerbFinder()

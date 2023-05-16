@@ -17,7 +17,6 @@ def ArPhoeTranslator(sourcesentence,translationtype):
     translatedsentence=translator.Translate()
 
     parsedsentence= ArabicParser.ArabicParser(translatedsentence)
-
     output_sentence=''
     for words in parsedsentence:
         word=words.split()[1]
@@ -53,5 +52,5 @@ def ArPhoeTranslator(sourcesentence,translationtype):
 
 ########TEST###########
 # translatedsentence='هو يأتي مع ابن الى بيروت'
-#print(ArPhoeTranslator('he eat','Offline'))
+#print(ArPhoeTranslator('I am collecting the silver','Offline'))
 #print(ArPhoeTranslator('he eat','Online'))
