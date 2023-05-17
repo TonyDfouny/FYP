@@ -90,10 +90,11 @@ class VerbTranslator:
             person=details[1]
 
             phoerootverb= Finder.FindVerb(self.verb, rootverb, self.translationtype)
-            #print('root ', rootverb, ' original ', self.verb, ' phoeroot ', phoerootverb, ' person ', person)
+            print('root ', rootverb, ' original ', self.verb, ' phoeroot ', phoerootverb, ' person ', person)
             if phoerootverb==self.verb:
                 return self.verb
             else:
+
                 return PhoePastVerbPattern.PhoePastVerbPattern(phoerootverb, person).PastPattern()
 
         elif self.TAG in presentTags:
@@ -102,10 +103,11 @@ class VerbTranslator:
             person = details[1]
 
             phoerootverb= Finder.FindVerb(self.verb, rootverb, self.translationtype)
-            #print('root ', rootverb, ' original ', self.verb,' phoeroot ',phoerootverb,' person ',person)
+            print('verb',self.verb,'Present ','root ', rootverb, ' original ', self.verb,' phoeroot ',phoerootverb,' person ',person , )
             if phoerootverb==self.verb:
                 return self.verb
             else:
+                print(self.verb, 'Present ', rootverb, person)
                 return PhoePresentVerbPattern.PhoePresentVerbPattern(phoerootverb, person).PresentPattern()
 
 

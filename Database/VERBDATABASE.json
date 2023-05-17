@@ -7,7 +7,7 @@
 {"Transcript": "ybrk", "English": "bless", "root_t": "brk", "Type": "verb", "Oflline": "نعم", "Stemmed Offline": "نعم", "Online": "يبارك", "Stemmed Online": "بار", "Grammar": "GrammarDict"},
 {"Transcript": "ʿly", "English": "invade,come up", "root_t": "", "Type": "verb", "Oflline": "غزا، تعال", "Stemmed Offline": "غزا، تعال", "Online": "غزو ، تعال", "Stemmed Online": "غزو ، تعال", "Grammar": "GrammarDict"},
 {"Transcript": "ygl", "English": "move,remove", "root_t": "gly", "Type": "verb", "Oflline": "تحركوا", "Stemmed Offline": "تحركوا", "Online": "تحرك ، إزالة", "Stemmed Online": "تحرك ، ازال", "Grammar": "GrammarDict"},
-{"Transcript": "tḥtsp", "English": "break,split", "root_t": "ḥsp", "Type": "verb", "Oflline": "استراحة", "Stemmed Offline": "استراحة", "Online": "كسر ، انقسام", "Stemmed Online": "كسر ، انقسام", "Grammar": "GrammarDict"},
+{"Transcript": "tḥtsp", "English": "break,split", "root_t": "ḥsp", "Type": "verb", "Oflline": "استراحة", "Stemmed Offline": "كسر , استراحة", "Online": "كسر ، انقسام", "Stemmed Online": "كسر ، انقسام", "Grammar": "GrammarDict"},
 {"Transcript": "thtpk", "English": "overturn", "root_t": "hpk", "Type": "verb", "Oflline": "التراجع", "Stemmed Offline": "تراجع", "Online": "انقلب", "Stemmed Online": "نقلب", "Grammar": "GrammarDict"},
 {"Transcript": "tbrḥ", "English": "depart", "root_t": "brḥ", "Type": "verb", "Oflline": "غادر", "Stemmed Offline": "غادر", "Online": "تغادر", "Stemmed Online": "غادر", "Grammar": "GrammarDict"},
 {"Transcript": "ymḥ", "English": "erase,eradicate,wipe", "root_t": "mḥy", "Type": "verb", "Oflline": "امسحوا , ارقصوا", "Stemmed Offline": "امسحوا,ارقصوا,مسح", "Online": "تمحو ، القضاء ، امسح", "Stemmed Online": "محو ، القضاء ، امسح", "Grammar": "GrammarDict"},

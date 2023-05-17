@@ -15,8 +15,9 @@ def ArPhoeTranslator(sourcesentence,translationtype):
 
     translator= EngArTranslator.Translator(sourcesentence, 'en', 'ar', translationtype)
     translatedsentence=translator.Translate()
-
+    print('Translated :',translatedsentence)
     parsedsentence= ArabicParser.ArabicParser(translatedsentence)
+    print('Parsed :',parsedsentence)
     output_sentence=''
     for words in parsedsentence:
         word=words.split()[1]

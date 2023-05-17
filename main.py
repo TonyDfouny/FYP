@@ -7,4 +7,5 @@ sys.path.append(sys.path[1]+r"\PhoeEng")
 
 from GUI.GUI import *
 
-LanguageTranslator()
+#LanguageTranslator()
+print(ArPhoeTranslator('She broke the coffin','Offline'))

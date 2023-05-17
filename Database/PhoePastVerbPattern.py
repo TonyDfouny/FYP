@@ -106,14 +106,16 @@ class PhoePastVerbPattern:
         :return:
 
         """
-        if self.verb[2] == 'n':
-            return self.__StrongPattern_3n()
-        elif self.verb[2] == 'y' or self.verb[2] == 'w':
-            return self.__WeakPattern_3y__3w()
-        elif self.verb[1] == 'w' or self.verb[1] == 'y' or (self.verb[1] == 'y' and self.verb[2] == 'n'):
-            return self.__WeakPattern_2y__2w__2y_n()
-        elif self.verb[1] == 'w' and self.verb[2] == 'n':
-            return self.__WeakPattern_2w_n()
-        else:
-            return self.__StrongPattern()
-
+        try:
+            if self.verb[2] == 'n':
+                return self.__StrongPattern_3n()
+            elif self.verb[2] == 'y' or self.verb[2] == 'w':
+                return self.__WeakPattern_3y__3w()
+            elif self.verb[1] == 'w' or self.verb[1] == 'y' or (self.verb[1] == 'y' and self.verb[2] == 'n'):
+                return self.__WeakPattern_2y__2w__2y_n()
+            elif self.verb[1] == 'w' and self.verb[2] == 'n':
+                return self.__WeakPattern_2w_n()
+            else:
+                return self.__StrongPattern()
+        except IndexError:
+            return self.verb
