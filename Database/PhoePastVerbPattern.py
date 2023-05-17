@@ -107,6 +107,7 @@ class PhoePastVerbPattern:
 
         """
         try:
+            print('Past', 'Person', self.person)
             if self.verb[2] == 'n':
                 return self.__StrongPattern_3n()
             elif self.verb[2] == 'y' or self.verb[2] == 'w':

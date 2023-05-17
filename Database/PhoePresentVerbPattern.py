@@ -2,7 +2,7 @@ class PhoePresentVerbPattern:
     def __init__(self,verb,person):
         self.verb=verb
         self.person=person
-        
+        print('Present','Person',self.person)
     def __StrongPattern(self):
         Pattern={
                 "1p.s.c.":"ʾ"+self.verb,

@@ -8,4 +8,6 @@ sys.path.append(sys.path[1]+r"\PhoeEng")
 from GUI.GUI import *
 
 #LanguageTranslator()
-print(ArPhoeTranslator('She broke the coffin','Offline'))
+#print(ArPhoeTranslator('They found the coffin','Offline'))
+#print(ArPhoeTranslator('He is collecting the silver','Offline'))
+print(EngPhoeTranslator.EngPhoeTranslator('I am collecting the silver in Byblos').Translate())

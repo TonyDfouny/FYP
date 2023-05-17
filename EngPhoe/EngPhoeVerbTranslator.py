@@ -153,6 +153,7 @@ class EngPhoeVerbTranslator:
         if self.__CheckTranslate() is None:
             raise KeyError
         else:
+            print('Verb',self.verb,'Rootverb',self.rootverb)
             return self.__CheckTranslate()
 
 

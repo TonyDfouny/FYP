@@ -40,7 +40,8 @@ class EngPhoeTranslator:
                     allchildren[str(token)].append(([str(child.text), str(child.tag_), str(child.dep_)]))
                 else:
                     allchildren[str(token)] = [str(child.text), str(child.tag_), str(child.dep_)]
-        #print('all',allchildren)
+        print('Parsed :',parsedsentence)
+        print('Children :',allchildren)
         outputsentence=''
         for parsedword in parsedsentence:
             word=parsedword[0]

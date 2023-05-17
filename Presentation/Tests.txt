@@ -1,4 +1,10 @@
 #####EngARPHOE#####
+src:They found the coffin
+verb correct but The coffing wasn't parsed as DTNN
+
+src:He is collecting the silver
+fully correct
+
 src:I am collecting the silver--> ʾnk ʾr hksp  (same for both online and offline)
 subject verb agremment did not work because:
 ['PRP انا', 'VBD اجمع', 'DTNN الفضة']
