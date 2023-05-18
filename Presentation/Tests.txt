@@ -41,3 +41,11 @@ a new code could be written to improve the output by analyzing the suffix remove
 (like a reverse pattern). It Wasn't done due to a lack of time.
 
 
+src:He is collecting the silver
+src:They found the coffin
+####ENG
+src=I collected the silver in Byblos
+src=I am collecting the silver in Byblos
+###
+hʾ yʾr hksp
+ʾnk ptḥt hḥlt
