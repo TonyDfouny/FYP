@@ -57,7 +57,7 @@ pip install Caribe
 
 
 ###ARLSTEM2####
-COPY THE CONTENT OF ARLSTEM2 IN C:\Users\tony_\AppData\Local\Programs\Python\Python310\Lib\site-packages\nltk\stem\arlstem2.py
+COPY THE CONTENT OF ARLSTEM2 IN C:\Users\(username)\AppData\Local\Programs\Python\Python310\Lib\site-packages\nltk\stem\arlstem2.py
 
 ###GUI###
 pip install ttkbootstrap pyttsx3 pyperclip
